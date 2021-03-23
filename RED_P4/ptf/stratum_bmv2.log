@@ -1,0 +1,2349 @@
+E0218 11:52:32.586541    73 main.cc:121] Starting bmv2 simple_switch and waiting for P4 pipeline
+[11:52:32.595] [bmv2] [D] [thread 73] Set default default entry for table 't_drop': a_drop - 
+[11:52:32.608] [bmv2] [D] [thread 73] Adding interface veth0 as port 1
+[11:52:32.653] [bmv2] [D] [thread 73] Adding interface veth2 as port 2
+[11:52:32.704] [bmv2] [D] [thread 73] Adding interface veth4 as port 3
+[11:52:32.737] [bmv2] [D] [thread 73] Adding interface veth6 as port 4
+[11:52:32.765] [bmv2] [D] [thread 73] Adding interface veth8 as port 5
+[11:52:32.800] [bmv2] [D] [thread 73] Adding interface veth10 as port 6
+[11:52:32.853] [bmv2] [D] [thread 73] Adding interface veth12 as port 7
+[11:52:32.885] [bmv2] [D] [thread 73] Adding interface veth14 as port 8
+E0218 11:52:32.927981600      73 server_chttp2.cc:40]        {"created":"@1613649152.927952091","description":"Only 1 addresses added out of total 2 resolved","file":"external/com_github_grpc_grpc/src/core/ext/transport/chttp2/server/chttp2_server.cc","file_line":406,"referenced_errors":[{"created":"@1613649152.927949283","description":"Address family not supported by protocol","errno":97,"file":"external/com_github_grpc_grpc/src/core/lib/iomgr/socket_utils_common_posix.cc","file_line":420,"os_error":"Address family not supported by protocol","syscall":"socket","target_address":"[::1]:28000"}]}
+E0218 11:52:32.928138    73 hal.cc:223] Stratum external facing services are listening to 0.0.0.0:28000, localhost:28000...
+[11:52:34.872] [bmv2] [D] [thread 105] Set default default entry for table 'tbl_act': act - 
+[11:52:34.872] [bmv2] [D] [thread 105] Set default default entry for table 'IngressPipeImpl.l2_exact_table': IngressPipeImpl.drop - 
+[11:52:34.872] [bmv2] [D] [thread 105] Set default default entry for table 'tbl_act_0': act_0 - 
+[11:52:34.872] [bmv2] [D] [thread 105] Set default default entry for table 'tbl_act_1': act_1 - 
+[11:52:34.872] [bmv2] [D] [thread 105] Set default default entry for table 'IngressPipeImpl.l2_ternary_table': IngressPipeImpl.drop - 
+[11:52:34.872] [bmv2] [D] [thread 105] Set default default entry for table 'IngressPipeImpl.acl_table': NoAction - 
+[11:52:34.873] [bmv2] [D] [thread 105] Set default default entry for table 'tbl_act_2': act_2 - 
+[11:52:34.873] [bmv2] [D] [thread 105] Set default default entry for table 'tbl_act_3': act_3 - 
+[11:52:35.108] [bmv2] [D] [thread 108] mgrp node created for mgid 10
+[11:52:35.108] [bmv2] [D] [thread 108] node created for rid 0
+[11:52:35.108] [bmv2] [D] [thread 108] node associated with mgid 10
+[11:52:35.110] [bmv2] [D] [thread 108] Entry 0 added to table 'IngressPipeImpl.l2_ternary_table'
+[11:52:35.118] [bmv2] [D] [thread 108] Dumping entry 0
+Match key:
+* hdr.ethernet.dst_addr: TERNARY   ffffffffffff &&& ffffffffffff
+Priority: 2147483637
+Action entry: IngressPipeImpl.set_multicast_group - a,
+
+[11:52:35.125] [bmv2] [D] [thread 139] Entry 1 added to table 'IngressPipeImpl.l2_ternary_table'
+[11:52:35.125] [bmv2] [D] [thread 139] Dumping entry 1
+Match key:
+* hdr.ethernet.dst_addr: TERNARY   333300000000 &&& ffff00000000
+Priority: 2147483637
+Action entry: IngressPipeImpl.set_multicast_group - a,
+
+[11:52:35.128] [bmv2] [D] [thread 108] mgrp node created for mgid 32867
+[11:52:35.128] [bmv2] [D] [thread 108] node created for rid 1
+[11:52:35.128] [bmv2] [D] [thread 108] node associated with mgid 32867
+[11:52:35.133] [bmv2] [D] [thread 139] Entry 0 added to table 'IngressPipeImpl.acl_table'
+[11:52:35.133] [bmv2] [D] [thread 139] Dumping entry 0
+Match key:
+* standard_metadata.ingress_port: TERNARY   0000 &&& 0000
+* hdr.ethernet.dst_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.src_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.ether_type       : TERNARY   0806 &&& ffff
+* local_metadata.ip_proto       : TERNARY   00 &&& 00
+* local_metadata.icmp_type      : TERNARY   00 &&& 00
+* local_metadata.l4_src_port    : TERNARY   0000 &&& 0000
+* local_metadata.l4_dst_port    : TERNARY   0000 &&& 0000
+Priority: 2147483637
+Action entry: IngressPipeImpl.clone_to_cpu - 
+
+[11:52:35.134] [bmv2] [D] [thread 108] Entry 1 added to table 'IngressPipeImpl.acl_table'
+[11:52:35.134] [bmv2] [D] [thread 108] Dumping entry 1
+Match key:
+* standard_metadata.ingress_port: TERNARY   0000 &&& 0000
+* hdr.ethernet.dst_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.src_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.ether_type       : TERNARY   86dd &&& ffff
+* local_metadata.ip_proto       : TERNARY   3a &&& ff
+* local_metadata.icmp_type      : TERNARY   87 &&& ff
+* local_metadata.l4_src_port    : TERNARY   0000 &&& 0000
+* local_metadata.l4_dst_port    : TERNARY   0000 &&& 0000
+Priority: 2147483637
+Action entry: IngressPipeImpl.clone_to_cpu - 
+
+[11:52:35.137] [bmv2] [D] [thread 77] [0.0] [cxt 0] Processing packet received on port 1
+[11:52:35.137] [bmv2] [D] [thread 77] [0.0] [cxt 0] Parser 'parser': start
+[11:52:35.137] [bmv2] [D] [thread 77] [0.0] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:35.138] [bmv2] [D] [thread 77] [0.0] [cxt 0] Parser state 'start': key is 0001
+[11:52:35.138] [bmv2] [T] [thread 77] [0.0] [cxt 0] Bytes parsed: 0
+[11:52:35.138] [bmv2] [D] [thread 77] [0.0] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:35.138] [bmv2] [D] [thread 77] [0.0] [cxt 0] Extracting header 'ethernet'
+[11:52:35.138] [bmv2] [D] [thread 77] [0.0] [cxt 0] Parser state 'parse_ethernet': key is 0806
+[11:52:35.138] [bmv2] [T] [thread 77] [0.0] [cxt 0] Bytes parsed: 14
+[11:52:35.138] [bmv2] [D] [thread 77] [0.0] [cxt 0] Parser 'parser': end
+[11:52:35.138] [bmv2] [D] [thread 77] [0.0] [cxt 0] Pipeline 'ingress': start
+[11:52:35.138] [bmv2] [T] [thread 77] [0.0] [cxt 0] p4src/main.p4(499) Condition "hdr.cpu_out.isValid()" (node_2) is false
+[11:52:35.138] [bmv2] [T] [thread 77] [0.0] [cxt 0] Applying table 'IngressPipeImpl.l2_exact_table'
+[11:52:35.138] [bmv2] [D] [thread 77] [0.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: ffffffffffff
+
+[11:52:35.138] [bmv2] [D] [thread 77] [0.0] [cxt 0] Table 'IngressPipeImpl.l2_exact_table': miss
+[11:52:35.138] [bmv2] [D] [thread 77] [0.0] [cxt 0] Action entry is IngressPipeImpl.drop - 
+[11:52:35.138] [bmv2] [T] [thread 77] [0.0] [cxt 0] Action IngressPipeImpl.drop
+[11:52:35.138] [bmv2] [T] [thread 77] [0.0] [cxt 0] p4src/main.p4(351) Primitive mark_to_drop(standard_metadata)
+[11:52:35.138] [bmv2] [T] [thread 77] [0.0] [cxt 0] Applying table 'tbl_act_1'
+[11:52:35.138] [bmv2] [D] [thread 77] [0.0] [cxt 0] Looking up key:
+
+[11:52:35.138] [bmv2] [D] [thread 77] [0.0] [cxt 0] Table 'tbl_act_1': miss
+[11:52:35.138] [bmv2] [D] [thread 77] [0.0] [cxt 0] Action entry is act_1 - 
+[11:52:35.138] [bmv2] [T] [thread 77] [0.0] [cxt 0] Action act_1
+[11:52:35.138] [bmv2] [T] [thread 77] [0.0] [cxt 0] Primitive (no source info)
+[11:52:35.138] [bmv2] [T] [thread 77] [0.0] [cxt 0] p4src/main.p4(538) Condition "!l2_exact_table.apply().hit" (node_7) is true
+[11:52:35.138] [bmv2] [T] [thread 77] [0.0] [cxt 0] Applying table 'IngressPipeImpl.l2_ternary_table'
+[11:52:35.138] [bmv2] [D] [thread 77] [0.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: ffffffffffff
+
+[11:52:35.138] [bmv2] [D] [thread 77] [0.0] [cxt 0] Table 'IngressPipeImpl.l2_ternary_table': hit with handle 0
+[11:52:35.138] [bmv2] [D] [thread 77] [0.0] [cxt 0] Dumping entry 0
+Match key:
+* hdr.ethernet.dst_addr: TERNARY   ffffffffffff &&& ffffffffffff
+Priority: 2147483637
+Action entry: IngressPipeImpl.set_multicast_group - a,
+
+[11:52:35.138] [bmv2] [D] [thread 77] [0.0] [cxt 0] Action entry is IngressPipeImpl.set_multicast_group - a,
+[11:52:35.138] [bmv2] [T] [thread 77] [0.0] [cxt 0] Action IngressPipeImpl.set_multicast_group
+[11:52:35.138] [bmv2] [T] [thread 77] [0.0] [cxt 0] p4src/main.p4(409) Primitive standard_metadata.mcast_grp = gid
+[11:52:35.138] [bmv2] [T] [thread 77] [0.0] [cxt 0] p4src/main.p4(410) Primitive local_metadata.is_multicast = true
+[11:52:35.138] [bmv2] [T] [thread 77] [0.0] [cxt 0] Applying table 'IngressPipeImpl.acl_table'
+[11:52:35.138] [bmv2] [D] [thread 77] [0.0] [cxt 0] Looking up key:
+* standard_metadata.ingress_port: 0001
+* hdr.ethernet.dst_addr         : ffffffffffff
+* hdr.ethernet.src_addr         : 00060708090a
+* hdr.ethernet.ether_type       : 0806
+* local_metadata.ip_proto       : 00
+* local_metadata.icmp_type      : 00
+* local_metadata.l4_src_port    : 0000
+* local_metadata.l4_dst_port    : 0000
+
+[11:52:35.138] [bmv2] [D] [thread 77] [0.0] [cxt 0] Table 'IngressPipeImpl.acl_table': hit with handle 0
+[11:52:35.138] [bmv2] [D] [thread 77] [0.0] [cxt 0] Dumping entry 0
+Match key:
+* standard_metadata.ingress_port: TERNARY   0000 &&& 0000
+* hdr.ethernet.dst_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.src_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.ether_type       : TERNARY   0806 &&& ffff
+* local_metadata.ip_proto       : TERNARY   00 &&& 00
+* local_metadata.icmp_type      : TERNARY   00 &&& 00
+* local_metadata.l4_src_port    : TERNARY   0000 &&& 0000
+* local_metadata.l4_dst_port    : TERNARY   0000 &&& 0000
+Priority: 2147483637
+Action entry: IngressPipeImpl.clone_to_cpu - 
+
+[11:52:35.138] [bmv2] [D] [thread 77] [0.0] [cxt 0] Action entry is IngressPipeImpl.clone_to_cpu - 
+[11:52:35.139] [bmv2] [T] [thread 77] [0.0] [cxt 0] Action IngressPipeImpl.clone_to_cpu
+[11:52:35.139] [bmv2] [T] [thread 77] [0.0] [cxt 0] p4src/main.p4(474) Primitive clone3(CloneType.I2E, 99, { standard_metadata.ingress_port })
+[11:52:35.139] [bmv2] [D] [thread 77] [0.0] [cxt 0] Pipeline 'ingress': end
+[11:52:35.139] [bmv2] [D] [thread 77] [0.0] [cxt 0] Cloning packet at ingress
+[11:52:35.139] [bmv2] [D] [thread 77] [0.1] [cxt 0] Parser 'parser': start
+[11:52:35.139] [bmv2] [D] [thread 77] [0.1] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:35.139] [bmv2] [D] [thread 77] [0.1] [cxt 0] Parser state 'start': key is 0000
+[11:52:35.139] [bmv2] [T] [thread 77] [0.1] [cxt 0] Bytes parsed: 0
+[11:52:35.139] [bmv2] [D] [thread 77] [0.1] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:35.139] [bmv2] [D] [thread 77] [0.1] [cxt 0] Extracting header 'ethernet'
+[11:52:35.139] [bmv2] [D] [thread 77] [0.1] [cxt 0] Parser state 'parse_ethernet': key is 0806
+[11:52:35.139] [bmv2] [T] [thread 77] [0.1] [cxt 0] Bytes parsed: 14
+[11:52:35.139] [bmv2] [D] [thread 77] [0.1] [cxt 0] Parser 'parser': end
+[11:52:35.139] [bmv2] [D] [thread 77] [0.0] [cxt 0] Cloning packet to MGID 32867
+[11:52:35.139] [bmv2] [D] [thread 77] number of packets replicated : 1
+[11:52:35.139] [bmv2] [D] [thread 77] [0.1] [cxt 0] Replicating packet on port 255
+[11:52:35.140] [bmv2] [D] [thread 81] [0.2] [cxt 0] Pipeline 'egress': start
+[11:52:35.140] [bmv2] [D] [thread 77] [0.0] [cxt 0] Multicast requested for packet
+[11:52:35.140] [bmv2] [T] [thread 81] [0.2] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is true
+[11:52:35.140] [bmv2] [T] [thread 81] [0.2] [cxt 0] Applying table 'tbl_act_2'
+[11:52:35.140] [bmv2] [D] [thread 81] [0.2] [cxt 0] Looking up key:
+
+[11:52:35.140] [bmv2] [D] [thread 77] number of packets replicated : 3
+[11:52:35.140] [bmv2] [D] [thread 81] [0.2] [cxt 0] Table 'tbl_act_2': miss
+[11:52:35.140] [bmv2] [D] [thread 77] [0.0] [cxt 0] Replicating packet on port 1
+[11:52:35.140] [bmv2] [D] [thread 81] [0.2] [cxt 0] Action entry is act_2 - 
+[11:52:35.140] [bmv2] [T] [thread 81] [0.2] [cxt 0] Action act_2
+[11:52:35.140] [bmv2] [T] [thread 81] [0.2] [cxt 0] p4src/main.p4(557) Primitive hdr.cpu_in.setValid()
+[11:52:35.140] [bmv2] [T] [thread 81] [0.2] [cxt 0] p4src/main.p4(558) Primitive hdr.cpu_in.ingress_port = standard_metadata.ingress_port
+[11:52:35.140] [bmv2] [T] [thread 81] [0.2] [cxt 0] p4src/main.p4(559) Primitive exit
+[11:52:35.140] [bmv2] [D] [thread 77] [0.0] [cxt 0] Replicating packet on port 2
+[11:52:35.140] [bmv2] [D] [thread 81] [0.2] [cxt 0] Packet is marked for exit, interrupting pipeline
+[11:52:35.140] [bmv2] [D] [thread 81] [0.2] [cxt 0] Pipeline 'egress': end
+[11:52:35.140] [bmv2] [D] [thread 81] [0.2] [cxt 0] Deparser 'deparser': start
+[11:52:35.140] [bmv2] [T] [thread 81] [0.2] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[11:52:35.140] [bmv2] [D] [thread 81] [0.2] [cxt 0] Deparsing header 'cpu_in'
+[11:52:35.140] [bmv2] [D] [thread 81] [0.2] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.140] [bmv2] [D] [thread 81] [0.2] [cxt 0] Deparser 'deparser': end
+[11:52:35.140] [bmv2] [D] [thread 82] [0.2] [cxt 0] Transmitting packet of size 62 out of port 255
+[11:52:35.140] [bmv2] [D] [thread 79] [0.3] [cxt 0] Pipeline 'egress': start
+[11:52:35.140] [bmv2] [T] [thread 79] [0.3] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:35.140] [bmv2] [T] [thread 79] [0.3] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is true
+[11:52:35.140] [bmv2] [T] [thread 79] [0.3] [cxt 0] Applying table 'tbl_act_3'
+[11:52:35.140] [bmv2] [D] [thread 79] [0.3] [cxt 0] Looking up key:
+
+[11:52:35.140] [bmv2] [D] [thread 79] [0.3] [cxt 0] Table 'tbl_act_3': miss
+[11:52:35.140] [bmv2] [D] [thread 82] Transmitting packet-in
+[11:52:35.141] [bmv2] [D] [thread 79] [0.3] [cxt 0] Action entry is act_3 - 
+[11:52:35.141] [bmv2] [T] [thread 79] [0.3] [cxt 0] Action act_3
+[11:52:35.141] [bmv2] [T] [thread 79] [0.3] [cxt 0] p4src/main.p4(575) Primitive mark_to_drop(standard_metadata)
+[11:52:35.141] [bmv2] [D] [thread 79] [0.3] [cxt 0] Pipeline 'egress': end
+[11:52:35.141] [bmv2] [D] [thread 79] [0.3] [cxt 0] Dropping packet at the end of egress
+[11:52:35.141] [bmv2] [D] [thread 80] [0.4] [cxt 0] Pipeline 'egress': start
+[11:52:35.141] [bmv2] [T] [thread 80] [0.4] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:35.141] [bmv2] [T] [thread 80] [0.4] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:35.141] [bmv2] [D] [thread 80] [0.4] [cxt 0] Pipeline 'egress': end
+[11:52:35.141] [bmv2] [D] [thread 80] [0.4] [cxt 0] Deparser 'deparser': start
+[11:52:35.141] [bmv2] [T] [thread 80] [0.4] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[11:52:35.141] [bmv2] [D] [thread 80] [0.4] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.141] [bmv2] [D] [thread 80] [0.4] [cxt 0] Deparser 'deparser': end
+[11:52:35.141] [bmv2] [D] [thread 82] [0.4] [cxt 0] Transmitting packet of size 60 out of port 2
+[11:52:35.142] [bmv2] [D] [thread 77] [0.0] [cxt 0] Replicating packet on port 3
+[11:52:35.142] [bmv2] [D] [thread 81] [0.5] [cxt 0] Pipeline 'egress': start
+[11:52:35.142] [bmv2] [T] [thread 81] [0.5] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:35.142] [bmv2] [T] [thread 81] [0.5] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:35.142] [bmv2] [D] [thread 81] [0.5] [cxt 0] Pipeline 'egress': end
+[11:52:35.142] [bmv2] [D] [thread 81] [0.5] [cxt 0] Deparser 'deparser': start
+[11:52:35.142] [bmv2] [T] [thread 81] [0.5] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[11:52:35.142] [bmv2] [D] [thread 81] [0.5] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.142] [bmv2] [D] [thread 81] [0.5] [cxt 0] Deparser 'deparser': end
+[11:52:35.142] [bmv2] [D] [thread 82] [0.5] [cxt 0] Transmitting packet of size 60 out of port 3
+[11:52:35.206] [bmv2] [D] [thread 77] [1.0] [cxt 0] Processing packet received on port 2
+[11:52:35.206] [bmv2] [D] [thread 77] [1.0] [cxt 0] Parser 'parser': start
+[11:52:35.206] [bmv2] [D] [thread 77] [1.0] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:35.206] [bmv2] [D] [thread 77] [1.0] [cxt 0] Parser state 'start': key is 0002
+[11:52:35.206] [bmv2] [T] [thread 77] [1.0] [cxt 0] Bytes parsed: 0
+[11:52:35.206] [bmv2] [D] [thread 77] [1.0] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:35.206] [bmv2] [D] [thread 77] [1.0] [cxt 0] Extracting header 'ethernet'
+[11:52:35.206] [bmv2] [D] [thread 77] [1.0] [cxt 0] Parser state 'parse_ethernet': key is 0806
+[11:52:35.206] [bmv2] [T] [thread 77] [1.0] [cxt 0] Bytes parsed: 14
+[11:52:35.206] [bmv2] [D] [thread 77] [1.0] [cxt 0] Parser 'parser': end
+[11:52:35.206] [bmv2] [D] [thread 77] [1.0] [cxt 0] Pipeline 'ingress': start
+[11:52:35.206] [bmv2] [T] [thread 77] [1.0] [cxt 0] p4src/main.p4(499) Condition "hdr.cpu_out.isValid()" (node_2) is false
+[11:52:35.206] [bmv2] [T] [thread 77] [1.0] [cxt 0] Applying table 'IngressPipeImpl.l2_exact_table'
+[11:52:35.206] [bmv2] [D] [thread 77] [1.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: ffffffffffff
+
+[11:52:35.206] [bmv2] [D] [thread 77] [1.0] [cxt 0] Table 'IngressPipeImpl.l2_exact_table': miss
+[11:52:35.206] [bmv2] [D] [thread 77] [1.0] [cxt 0] Action entry is IngressPipeImpl.drop - 
+[11:52:35.206] [bmv2] [T] [thread 77] [1.0] [cxt 0] Action IngressPipeImpl.drop
+[11:52:35.206] [bmv2] [T] [thread 77] [1.0] [cxt 0] p4src/main.p4(351) Primitive mark_to_drop(standard_metadata)
+[11:52:35.206] [bmv2] [T] [thread 77] [1.0] [cxt 0] Applying table 'tbl_act_1'
+[11:52:35.206] [bmv2] [D] [thread 77] [1.0] [cxt 0] Looking up key:
+
+[11:52:35.206] [bmv2] [D] [thread 77] [1.0] [cxt 0] Table 'tbl_act_1': miss
+[11:52:35.206] [bmv2] [D] [thread 77] [1.0] [cxt 0] Action entry is act_1 - 
+[11:52:35.206] [bmv2] [T] [thread 77] [1.0] [cxt 0] Action act_1
+[11:52:35.206] [bmv2] [T] [thread 77] [1.0] [cxt 0] Primitive (no source info)
+[11:52:35.206] [bmv2] [T] [thread 77] [1.0] [cxt 0] p4src/main.p4(538) Condition "!l2_exact_table.apply().hit" (node_7) is true
+[11:52:35.206] [bmv2] [T] [thread 77] [1.0] [cxt 0] Applying table 'IngressPipeImpl.l2_ternary_table'
+[11:52:35.207] [bmv2] [D] [thread 77] [1.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: ffffffffffff
+
+[11:52:35.207] [bmv2] [D] [thread 77] [1.0] [cxt 0] Table 'IngressPipeImpl.l2_ternary_table': hit with handle 0
+[11:52:35.207] [bmv2] [D] [thread 77] [1.0] [cxt 0] Dumping entry 0
+Match key:
+* hdr.ethernet.dst_addr: TERNARY   ffffffffffff &&& ffffffffffff
+Priority: 2147483637
+Action entry: IngressPipeImpl.set_multicast_group - a,
+
+[11:52:35.207] [bmv2] [D] [thread 77] [1.0] [cxt 0] Action entry is IngressPipeImpl.set_multicast_group - a,
+[11:52:35.207] [bmv2] [T] [thread 77] [1.0] [cxt 0] Action IngressPipeImpl.set_multicast_group
+[11:52:35.207] [bmv2] [T] [thread 77] [1.0] [cxt 0] p4src/main.p4(409) Primitive standard_metadata.mcast_grp = gid
+[11:52:35.207] [bmv2] [T] [thread 77] [1.0] [cxt 0] p4src/main.p4(410) Primitive local_metadata.is_multicast = true
+[11:52:35.207] [bmv2] [T] [thread 77] [1.0] [cxt 0] Applying table 'IngressPipeImpl.acl_table'
+[11:52:35.207] [bmv2] [D] [thread 77] [1.0] [cxt 0] Looking up key:
+* standard_metadata.ingress_port: 0002
+* hdr.ethernet.dst_addr         : ffffffffffff
+* hdr.ethernet.src_addr         : 00060708090a
+* hdr.ethernet.ether_type       : 0806
+* local_metadata.ip_proto       : 00
+* local_metadata.icmp_type      : 00
+* local_metadata.l4_src_port    : 0000
+* local_metadata.l4_dst_port    : 0000
+
+[11:52:35.207] [bmv2] [D] [thread 77] [1.0] [cxt 0] Table 'IngressPipeImpl.acl_table': hit with handle 0
+[11:52:35.207] [bmv2] [D] [thread 77] [1.0] [cxt 0] Dumping entry 0
+Match key:
+* standard_metadata.ingress_port: TERNARY   0000 &&& 0000
+* hdr.ethernet.dst_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.src_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.ether_type       : TERNARY   0806 &&& ffff
+* local_metadata.ip_proto       : TERNARY   00 &&& 00
+* local_metadata.icmp_type      : TERNARY   00 &&& 00
+* local_metadata.l4_src_port    : TERNARY   0000 &&& 0000
+* local_metadata.l4_dst_port    : TERNARY   0000 &&& 0000
+Priority: 2147483637
+Action entry: IngressPipeImpl.clone_to_cpu - 
+
+[11:52:35.207] [bmv2] [D] [thread 77] [1.0] [cxt 0] Action entry is IngressPipeImpl.clone_to_cpu - 
+[11:52:35.207] [bmv2] [T] [thread 77] [1.0] [cxt 0] Action IngressPipeImpl.clone_to_cpu
+[11:52:35.207] [bmv2] [T] [thread 77] [1.0] [cxt 0] p4src/main.p4(474) Primitive clone3(CloneType.I2E, 99, { standard_metadata.ingress_port })
+[11:52:35.207] [bmv2] [D] [thread 77] [1.0] [cxt 0] Pipeline 'ingress': end
+[11:52:35.207] [bmv2] [D] [thread 77] [1.0] [cxt 0] Cloning packet at ingress
+[11:52:35.207] [bmv2] [D] [thread 77] [1.1] [cxt 0] Parser 'parser': start
+[11:52:35.207] [bmv2] [D] [thread 77] [1.1] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:35.207] [bmv2] [D] [thread 77] [1.1] [cxt 0] Parser state 'start': key is 0001
+[11:52:35.207] [bmv2] [T] [thread 77] [1.1] [cxt 0] Bytes parsed: 0
+[11:52:35.207] [bmv2] [D] [thread 77] [1.1] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:35.207] [bmv2] [D] [thread 77] [1.1] [cxt 0] Extracting header 'ethernet'
+[11:52:35.207] [bmv2] [D] [thread 77] [1.1] [cxt 0] Parser state 'parse_ethernet': key is 0806
+[11:52:35.207] [bmv2] [T] [thread 77] [1.1] [cxt 0] Bytes parsed: 14
+[11:52:35.207] [bmv2] [D] [thread 77] [1.1] [cxt 0] Parser 'parser': end
+[11:52:35.207] [bmv2] [D] [thread 77] [1.0] [cxt 0] Cloning packet to MGID 32867
+[11:52:35.207] [bmv2] [D] [thread 77] number of packets replicated : 1
+[11:52:35.207] [bmv2] [D] [thread 77] [1.1] [cxt 0] Replicating packet on port 255
+[11:52:35.207] [bmv2] [D] [thread 77] [1.0] [cxt 0] Multicast requested for packet
+[11:52:35.207] [bmv2] [D] [thread 77] number of packets replicated : 3
+[11:52:35.207] [bmv2] [D] [thread 77] [1.0] [cxt 0] Replicating packet on port 1
+[11:52:35.207] [bmv2] [D] [thread 77] [1.0] [cxt 0] Replicating packet on port 2
+[11:52:35.207] [bmv2] [D] [thread 81] [1.2] [cxt 0] Pipeline 'egress': start
+[11:52:35.207] [bmv2] [D] [thread 80] [1.4] [cxt 0] Pipeline 'egress': start
+[11:52:35.207] [bmv2] [D] [thread 79] [1.3] [cxt 0] Pipeline 'egress': start
+[11:52:35.207] [bmv2] [T] [thread 80] [1.4] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:35.207] [bmv2] [T] [thread 81] [1.2] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is true
+[11:52:35.207] [bmv2] [T] [thread 79] [1.3] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:35.207] [bmv2] [T] [thread 79] [1.3] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:35.208] [bmv2] [D] [thread 79] [1.3] [cxt 0] Pipeline 'egress': end
+[11:52:35.208] [bmv2] [D] [thread 79] [1.3] [cxt 0] Deparser 'deparser': start
+[11:52:35.207] [bmv2] [T] [thread 80] [1.4] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is true
+[11:52:35.207] [bmv2] [T] [thread 81] [1.2] [cxt 0] Applying table 'tbl_act_2'
+[11:52:35.207] [bmv2] [D] [thread 77] [1.0] [cxt 0] Replicating packet on port 3
+[11:52:35.208] [bmv2] [T] [thread 80] [1.4] [cxt 0] Applying table 'tbl_act_3'
+[11:52:35.208] [bmv2] [D] [thread 81] [1.2] [cxt 0] Looking up key:
+
+[11:52:35.208] [bmv2] [D] [thread 80] [1.4] [cxt 0] Looking up key:
+
+[11:52:35.208] [bmv2] [T] [thread 79] [1.3] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[11:52:35.208] [bmv2] [D] [thread 80] [1.4] [cxt 0] Table 'tbl_act_3': miss
+[11:52:35.208] [bmv2] [D] [thread 79] [1.3] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.208] [bmv2] [D] [thread 79] [1.3] [cxt 0] Deparser 'deparser': end
+[11:52:35.208] [bmv2] [D] [thread 81] [1.2] [cxt 0] Table 'tbl_act_2': miss
+[11:52:35.208] [bmv2] [D] [thread 82] [1.3] [cxt 0] Transmitting packet of size 60 out of port 1
+[11:52:35.208] [bmv2] [D] [thread 81] [1.2] [cxt 0] Action entry is act_2 - 
+[11:52:35.208] [bmv2] [T] [thread 81] [1.2] [cxt 0] Action act_2
+[11:52:35.208] [bmv2] [T] [thread 81] [1.2] [cxt 0] p4src/main.p4(557) Primitive hdr.cpu_in.setValid()
+[11:52:35.208] [bmv2] [T] [thread 81] [1.2] [cxt 0] p4src/main.p4(558) Primitive hdr.cpu_in.ingress_port = standard_metadata.ingress_port
+[11:52:35.208] [bmv2] [T] [thread 81] [1.2] [cxt 0] p4src/main.p4(559) Primitive exit
+[11:52:35.208] [bmv2] [D] [thread 81] [1.2] [cxt 0] Packet is marked for exit, interrupting pipeline
+[11:52:35.208] [bmv2] [D] [thread 81] [1.2] [cxt 0] Pipeline 'egress': end
+[11:52:35.208] [bmv2] [D] [thread 81] [1.2] [cxt 0] Deparser 'deparser': start
+[11:52:35.208] [bmv2] [T] [thread 81] [1.2] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[11:52:35.208] [bmv2] [D] [thread 81] [1.2] [cxt 0] Deparsing header 'cpu_in'
+[11:52:35.208] [bmv2] [D] [thread 81] [1.2] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.208] [bmv2] [D] [thread 81] [1.2] [cxt 0] Deparser 'deparser': end
+[11:52:35.208] [bmv2] [D] [thread 82] [1.2] [cxt 0] Transmitting packet of size 62 out of port 255
+[11:52:35.208] [bmv2] [D] [thread 82] Transmitting packet-in
+[11:52:35.208] [bmv2] [D] [thread 80] [1.4] [cxt 0] Action entry is act_3 - 
+[11:52:35.208] [bmv2] [T] [thread 80] [1.4] [cxt 0] Action act_3
+[11:52:35.208] [bmv2] [T] [thread 80] [1.4] [cxt 0] p4src/main.p4(575) Primitive mark_to_drop(standard_metadata)
+[11:52:35.208] [bmv2] [D] [thread 80] [1.4] [cxt 0] Pipeline 'egress': end
+[11:52:35.208] [bmv2] [D] [thread 80] [1.4] [cxt 0] Dropping packet at the end of egress
+[11:52:35.209] [bmv2] [D] [thread 81] [1.5] [cxt 0] Pipeline 'egress': start
+[11:52:35.209] [bmv2] [T] [thread 81] [1.5] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:35.210] [bmv2] [T] [thread 81] [1.5] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:35.210] [bmv2] [D] [thread 81] [1.5] [cxt 0] Pipeline 'egress': end
+[11:52:35.210] [bmv2] [D] [thread 81] [1.5] [cxt 0] Deparser 'deparser': start
+[11:52:35.210] [bmv2] [T] [thread 81] [1.5] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[11:52:35.210] [bmv2] [D] [thread 81] [1.5] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.210] [bmv2] [D] [thread 81] [1.5] [cxt 0] Deparser 'deparser': end
+[11:52:35.210] [bmv2] [D] [thread 82] [1.5] [cxt 0] Transmitting packet of size 60 out of port 3
+[11:52:35.277] [bmv2] [D] [thread 77] [2.0] [cxt 0] Processing packet received on port 3
+[11:52:35.277] [bmv2] [D] [thread 77] [2.0] [cxt 0] Parser 'parser': start
+[11:52:35.277] [bmv2] [D] [thread 77] [2.0] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:35.277] [bmv2] [D] [thread 77] [2.0] [cxt 0] Parser state 'start': key is 0003
+[11:52:35.277] [bmv2] [T] [thread 77] [2.0] [cxt 0] Bytes parsed: 0
+[11:52:35.277] [bmv2] [D] [thread 77] [2.0] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:35.277] [bmv2] [D] [thread 77] [2.0] [cxt 0] Extracting header 'ethernet'
+[11:52:35.277] [bmv2] [D] [thread 77] [2.0] [cxt 0] Parser state 'parse_ethernet': key is 0806
+[11:52:35.277] [bmv2] [T] [thread 77] [2.0] [cxt 0] Bytes parsed: 14
+[11:52:35.277] [bmv2] [D] [thread 77] [2.0] [cxt 0] Parser 'parser': end
+[11:52:35.277] [bmv2] [D] [thread 77] [2.0] [cxt 0] Pipeline 'ingress': start
+[11:52:35.277] [bmv2] [T] [thread 77] [2.0] [cxt 0] p4src/main.p4(499) Condition "hdr.cpu_out.isValid()" (node_2) is false
+[11:52:35.277] [bmv2] [T] [thread 77] [2.0] [cxt 0] Applying table 'IngressPipeImpl.l2_exact_table'
+[11:52:35.277] [bmv2] [D] [thread 77] [2.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: ffffffffffff
+
+[11:52:35.277] [bmv2] [D] [thread 77] [2.0] [cxt 0] Table 'IngressPipeImpl.l2_exact_table': miss
+[11:52:35.277] [bmv2] [D] [thread 77] [2.0] [cxt 0] Action entry is IngressPipeImpl.drop - 
+[11:52:35.277] [bmv2] [T] [thread 77] [2.0] [cxt 0] Action IngressPipeImpl.drop
+[11:52:35.277] [bmv2] [T] [thread 77] [2.0] [cxt 0] p4src/main.p4(351) Primitive mark_to_drop(standard_metadata)
+[11:52:35.277] [bmv2] [T] [thread 77] [2.0] [cxt 0] Applying table 'tbl_act_1'
+[11:52:35.277] [bmv2] [D] [thread 77] [2.0] [cxt 0] Looking up key:
+
+[11:52:35.277] [bmv2] [D] [thread 77] [2.0] [cxt 0] Table 'tbl_act_1': miss
+[11:52:35.277] [bmv2] [D] [thread 77] [2.0] [cxt 0] Action entry is act_1 - 
+[11:52:35.277] [bmv2] [T] [thread 77] [2.0] [cxt 0] Action act_1
+[11:52:35.277] [bmv2] [T] [thread 77] [2.0] [cxt 0] Primitive (no source info)
+[11:52:35.278] [bmv2] [T] [thread 77] [2.0] [cxt 0] p4src/main.p4(538) Condition "!l2_exact_table.apply().hit" (node_7) is true
+[11:52:35.278] [bmv2] [T] [thread 77] [2.0] [cxt 0] Applying table 'IngressPipeImpl.l2_ternary_table'
+[11:52:35.278] [bmv2] [D] [thread 77] [2.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: ffffffffffff
+
+[11:52:35.278] [bmv2] [D] [thread 77] [2.0] [cxt 0] Table 'IngressPipeImpl.l2_ternary_table': hit with handle 0
+[11:52:35.278] [bmv2] [D] [thread 77] [2.0] [cxt 0] Dumping entry 0
+Match key:
+* hdr.ethernet.dst_addr: TERNARY   ffffffffffff &&& ffffffffffff
+Priority: 2147483637
+Action entry: IngressPipeImpl.set_multicast_group - a,
+
+[11:52:35.278] [bmv2] [D] [thread 77] [2.0] [cxt 0] Action entry is IngressPipeImpl.set_multicast_group - a,
+[11:52:35.278] [bmv2] [T] [thread 77] [2.0] [cxt 0] Action IngressPipeImpl.set_multicast_group
+[11:52:35.278] [bmv2] [T] [thread 77] [2.0] [cxt 0] p4src/main.p4(409) Primitive standard_metadata.mcast_grp = gid
+[11:52:35.278] [bmv2] [T] [thread 77] [2.0] [cxt 0] p4src/main.p4(410) Primitive local_metadata.is_multicast = true
+[11:52:35.278] [bmv2] [T] [thread 77] [2.0] [cxt 0] Applying table 'IngressPipeImpl.acl_table'
+[11:52:35.278] [bmv2] [D] [thread 77] [2.0] [cxt 0] Looking up key:
+* standard_metadata.ingress_port: 0003
+* hdr.ethernet.dst_addr         : ffffffffffff
+* hdr.ethernet.src_addr         : 00060708090a
+* hdr.ethernet.ether_type       : 0806
+* local_metadata.ip_proto       : 00
+* local_metadata.icmp_type      : 00
+* local_metadata.l4_src_port    : 0000
+* local_metadata.l4_dst_port    : 0000
+
+[11:52:35.278] [bmv2] [D] [thread 77] [2.0] [cxt 0] Table 'IngressPipeImpl.acl_table': hit with handle 0
+[11:52:35.278] [bmv2] [D] [thread 77] [2.0] [cxt 0] Dumping entry 0
+Match key:
+* standard_metadata.ingress_port: TERNARY   0000 &&& 0000
+* hdr.ethernet.dst_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.src_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.ether_type       : TERNARY   0806 &&& ffff
+* local_metadata.ip_proto       : TERNARY   00 &&& 00
+* local_metadata.icmp_type      : TERNARY   00 &&& 00
+* local_metadata.l4_src_port    : TERNARY   0000 &&& 0000
+* local_metadata.l4_dst_port    : TERNARY   0000 &&& 0000
+Priority: 2147483637
+Action entry: IngressPipeImpl.clone_to_cpu - 
+
+[11:52:35.278] [bmv2] [D] [thread 77] [2.0] [cxt 0] Action entry is IngressPipeImpl.clone_to_cpu - 
+[11:52:35.278] [bmv2] [T] [thread 77] [2.0] [cxt 0] Action IngressPipeImpl.clone_to_cpu
+[11:52:35.278] [bmv2] [T] [thread 77] [2.0] [cxt 0] p4src/main.p4(474) Primitive clone3(CloneType.I2E, 99, { standard_metadata.ingress_port })
+[11:52:35.278] [bmv2] [D] [thread 77] [2.0] [cxt 0] Pipeline 'ingress': end
+[11:52:35.278] [bmv2] [D] [thread 77] [2.0] [cxt 0] Cloning packet at ingress
+[11:52:35.278] [bmv2] [D] [thread 77] [2.1] [cxt 0] Parser 'parser': start
+[11:52:35.278] [bmv2] [D] [thread 77] [2.1] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:35.278] [bmv2] [D] [thread 77] [2.1] [cxt 0] Parser state 'start': key is 0002
+[11:52:35.278] [bmv2] [T] [thread 77] [2.1] [cxt 0] Bytes parsed: 0
+[11:52:35.278] [bmv2] [D] [thread 77] [2.1] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:35.278] [bmv2] [D] [thread 77] [2.1] [cxt 0] Extracting header 'ethernet'
+[11:52:35.278] [bmv2] [D] [thread 77] [2.1] [cxt 0] Parser state 'parse_ethernet': key is 0806
+[11:52:35.278] [bmv2] [T] [thread 77] [2.1] [cxt 0] Bytes parsed: 14
+[11:52:35.278] [bmv2] [D] [thread 77] [2.1] [cxt 0] Parser 'parser': end
+[11:52:35.278] [bmv2] [D] [thread 77] [2.0] [cxt 0] Cloning packet to MGID 32867
+[11:52:35.278] [bmv2] [D] [thread 77] number of packets replicated : 1
+[11:52:35.278] [bmv2] [D] [thread 77] [2.1] [cxt 0] Replicating packet on port 255
+[11:52:35.278] [bmv2] [D] [thread 77] [2.0] [cxt 0] Multicast requested for packet
+[11:52:35.278] [bmv2] [D] [thread 77] number of packets replicated : 3
+[11:52:35.278] [bmv2] [D] [thread 77] [2.0] [cxt 0] Replicating packet on port 1
+[11:52:35.278] [bmv2] [D] [thread 81] [2.2] [cxt 0] Pipeline 'egress': start
+[11:52:35.278] [bmv2] [T] [thread 81] [2.2] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is true
+[11:52:35.278] [bmv2] [T] [thread 81] [2.2] [cxt 0] Applying table 'tbl_act_2'
+[11:52:35.278] [bmv2] [D] [thread 77] [2.0] [cxt 0] Replicating packet on port 2
+[11:52:35.278] [bmv2] [D] [thread 81] [2.2] [cxt 0] Looking up key:
+
+[11:52:35.278] [bmv2] [D] [thread 81] [2.2] [cxt 0] Table 'tbl_act_2': miss
+[11:52:35.278] [bmv2] [D] [thread 81] [2.2] [cxt 0] Action entry is act_2 - 
+[11:52:35.278] [bmv2] [T] [thread 81] [2.2] [cxt 0] Action act_2
+[11:52:35.278] [bmv2] [T] [thread 81] [2.2] [cxt 0] p4src/main.p4(557) Primitive hdr.cpu_in.setValid()
+[11:52:35.279] [bmv2] [T] [thread 81] [2.2] [cxt 0] p4src/main.p4(558) Primitive hdr.cpu_in.ingress_port = standard_metadata.ingress_port
+[11:52:35.279] [bmv2] [T] [thread 81] [2.2] [cxt 0] p4src/main.p4(559) Primitive exit
+[11:52:35.279] [bmv2] [D] [thread 81] [2.2] [cxt 0] Packet is marked for exit, interrupting pipeline
+[11:52:35.279] [bmv2] [D] [thread 81] [2.2] [cxt 0] Pipeline 'egress': end
+[11:52:35.279] [bmv2] [D] [thread 77] [2.0] [cxt 0] Replicating packet on port 3
+[11:52:35.279] [bmv2] [D] [thread 79] [2.3] [cxt 0] Pipeline 'egress': start
+[11:52:35.279] [bmv2] [T] [thread 79] [2.3] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:35.279] [bmv2] [T] [thread 79] [2.3] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:35.279] [bmv2] [D] [thread 79] [2.3] [cxt 0] Pipeline 'egress': end
+[11:52:35.279] [bmv2] [D] [thread 79] [2.3] [cxt 0] Deparser 'deparser': start
+[11:52:35.279] [bmv2] [T] [thread 79] [2.3] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[11:52:35.279] [bmv2] [D] [thread 79] [2.3] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.279] [bmv2] [D] [thread 79] [2.3] [cxt 0] Deparser 'deparser': end
+[11:52:35.279] [bmv2] [D] [thread 81] [2.2] [cxt 0] Deparser 'deparser': start
+[11:52:35.279] [bmv2] [T] [thread 81] [2.2] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[11:52:35.279] [bmv2] [D] [thread 81] [2.2] [cxt 0] Deparsing header 'cpu_in'
+[11:52:35.279] [bmv2] [D] [thread 81] [2.2] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.279] [bmv2] [D] [thread 81] [2.2] [cxt 0] Deparser 'deparser': end
+[11:52:35.279] [bmv2] [D] [thread 82] [2.3] [cxt 0] Transmitting packet of size 60 out of port 1
+[11:52:35.279] [bmv2] [D] [thread 81] [2.5] [cxt 0] Pipeline 'egress': start
+[11:52:35.279] [bmv2] [T] [thread 81] [2.5] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:35.279] [bmv2] [D] [thread 82] [2.2] [cxt 0] Transmitting packet of size 62 out of port 255
+[11:52:35.279] [bmv2] [D] [thread 82] Transmitting packet-in
+[11:52:35.279] [bmv2] [T] [thread 81] [2.5] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is true
+[11:52:35.279] [bmv2] [T] [thread 81] [2.5] [cxt 0] Applying table 'tbl_act_3'
+[11:52:35.279] [bmv2] [D] [thread 81] [2.5] [cxt 0] Looking up key:
+
+[11:52:35.279] [bmv2] [D] [thread 80] [2.4] [cxt 0] Pipeline 'egress': start
+[11:52:35.279] [bmv2] [D] [thread 81] [2.5] [cxt 0] Table 'tbl_act_3': miss
+[11:52:35.279] [bmv2] [T] [thread 80] [2.4] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:35.279] [bmv2] [D] [thread 81] [2.5] [cxt 0] Action entry is act_3 - 
+[11:52:35.279] [bmv2] [T] [thread 80] [2.4] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:35.279] [bmv2] [T] [thread 81] [2.5] [cxt 0] Action act_3
+[11:52:35.279] [bmv2] [T] [thread 81] [2.5] [cxt 0] p4src/main.p4(575) Primitive mark_to_drop(standard_metadata)
+[11:52:35.279] [bmv2] [D] [thread 81] [2.5] [cxt 0] Pipeline 'egress': end
+[11:52:35.279] [bmv2] [D] [thread 81] [2.5] [cxt 0] Dropping packet at the end of egress
+[11:52:35.279] [bmv2] [D] [thread 80] [2.4] [cxt 0] Pipeline 'egress': end
+[11:52:35.279] [bmv2] [D] [thread 80] [2.4] [cxt 0] Deparser 'deparser': start
+[11:52:35.279] [bmv2] [T] [thread 80] [2.4] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[11:52:35.279] [bmv2] [D] [thread 80] [2.4] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.279] [bmv2] [D] [thread 80] [2.4] [cxt 0] Deparser 'deparser': end
+[11:52:35.279] [bmv2] [D] [thread 82] [2.4] [cxt 0] Transmitting packet of size 60 out of port 2
+[11:52:35.415] [bmv2] [D] [thread 108] Removed entry 1 from table 'IngressPipeImpl.acl_table'
+[11:52:35.415] [bmv2] [D] [thread 108] Removed entry 0 from table 'IngressPipeImpl.acl_table'
+[11:52:35.415] [bmv2] [D] [thread 108] node dissociated with mgid 32867
+[11:52:35.415] [bmv2] [D] [thread 108] node destroyed for rid 1
+[11:52:35.415] [bmv2] [D] [thread 108] mgrp node deleted for mgid 32867
+[11:52:35.415] [bmv2] [D] [thread 108] Removed entry 1 from table 'IngressPipeImpl.l2_ternary_table'
+[11:52:35.415] [bmv2] [D] [thread 108] Removed entry 0 from table 'IngressPipeImpl.l2_ternary_table'
+[11:52:35.416] [bmv2] [D] [thread 108] node dissociated with mgid 10
+[11:52:35.416] [bmv2] [D] [thread 108] node destroyed for rid 0
+[11:52:35.416] [bmv2] [D] [thread 108] mgrp node deleted for mgid 10
+[11:52:35.419] [bmv2] [D] [thread 139] mgrp node created for mgid 10
+[11:52:35.419] [bmv2] [D] [thread 139] node created for rid 0
+[11:52:35.419] [bmv2] [D] [thread 139] node associated with mgid 10
+[11:52:35.421] [bmv2] [D] [thread 108] Entry 16777216 added to table 'IngressPipeImpl.l2_ternary_table'
+[11:52:35.421] [bmv2] [D] [thread 108] Dumping entry 16777216
+Match key:
+* hdr.ethernet.dst_addr: TERNARY   ffffffffffff &&& ffffffffffff
+Priority: 2147483637
+Action entry: IngressPipeImpl.set_multicast_group - a,
+
+[11:52:35.422] [bmv2] [D] [thread 139] Entry 16777217 added to table 'IngressPipeImpl.l2_ternary_table'
+[11:52:35.422] [bmv2] [D] [thread 139] Dumping entry 16777217
+Match key:
+* hdr.ethernet.dst_addr: TERNARY   333300000000 &&& ffff00000000
+Priority: 2147483637
+Action entry: IngressPipeImpl.set_multicast_group - a,
+
+[11:52:35.423] [bmv2] [D] [thread 108] mgrp node created for mgid 32867
+[11:52:35.423] [bmv2] [D] [thread 108] node created for rid 1
+[11:52:35.423] [bmv2] [D] [thread 108] node associated with mgid 32867
+[11:52:35.425] [bmv2] [D] [thread 139] Entry 16777216 added to table 'IngressPipeImpl.acl_table'
+[11:52:35.425] [bmv2] [D] [thread 139] Dumping entry 16777216
+Match key:
+* standard_metadata.ingress_port: TERNARY   0000 &&& 0000
+* hdr.ethernet.dst_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.src_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.ether_type       : TERNARY   0806 &&& ffff
+* local_metadata.ip_proto       : TERNARY   00 &&& 00
+* local_metadata.icmp_type      : TERNARY   00 &&& 00
+* local_metadata.l4_src_port    : TERNARY   0000 &&& 0000
+* local_metadata.l4_dst_port    : TERNARY   0000 &&& 0000
+Priority: 2147483637
+Action entry: IngressPipeImpl.clone_to_cpu - 
+
+[11:52:35.426] [bmv2] [D] [thread 108] Entry 16777217 added to table 'IngressPipeImpl.acl_table'
+[11:52:35.426] [bmv2] [D] [thread 108] Dumping entry 16777217
+Match key:
+* standard_metadata.ingress_port: TERNARY   0000 &&& 0000
+* hdr.ethernet.dst_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.src_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.ether_type       : TERNARY   86dd &&& ffff
+* local_metadata.ip_proto       : TERNARY   3a &&& ff
+* local_metadata.icmp_type      : TERNARY   87 &&& ff
+* local_metadata.l4_src_port    : TERNARY   0000 &&& 0000
+* local_metadata.l4_dst_port    : TERNARY   0000 &&& 0000
+Priority: 2147483637
+Action entry: IngressPipeImpl.clone_to_cpu - 
+
+[11:52:35.431] [bmv2] [D] [thread 77] [3.0] [cxt 0] Processing packet received on port 1
+[11:52:35.431] [bmv2] [D] [thread 77] [3.0] [cxt 0] Parser 'parser': start
+[11:52:35.431] [bmv2] [D] [thread 77] [3.0] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:35.431] [bmv2] [D] [thread 77] [3.0] [cxt 0] Parser state 'start': key is 0001
+[11:52:35.431] [bmv2] [T] [thread 77] [3.0] [cxt 0] Bytes parsed: 0
+[11:52:35.431] [bmv2] [D] [thread 77] [3.0] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:35.431] [bmv2] [D] [thread 77] [3.0] [cxt 0] Extracting header 'ethernet'
+[11:52:35.431] [bmv2] [D] [thread 77] [3.0] [cxt 0] Parser state 'parse_ethernet': key is 86dd
+[11:52:35.431] [bmv2] [T] [thread 77] [3.0] [cxt 0] Bytes parsed: 14
+[11:52:35.431] [bmv2] [D] [thread 77] [3.0] [cxt 0] Parser 'parser' entering state 'parse_ipv6'
+[11:52:35.431] [bmv2] [D] [thread 77] [3.0] [cxt 0] Extracting header 'ipv6'
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.ip_proto' from field 'ipv6.next_hdr' (58)
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Parser state 'parse_ipv6': key is 3a
+[11:52:35.432] [bmv2] [T] [thread 77] [3.0] [cxt 0] Bytes parsed: 54
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Parser 'parser' entering state 'parse_icmpv6'
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Extracting header 'icmpv6'
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.icmp_type' from field 'icmpv6.type' (135)
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Parser state 'parse_icmpv6': key is 87
+[11:52:35.432] [bmv2] [T] [thread 77] [3.0] [cxt 0] Bytes parsed: 58
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Parser 'parser' entering state 'parse_ndp'
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Extracting header 'ndp'
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Parser state 'parse_ndp' has no switch, going to default next state
+[11:52:35.432] [bmv2] [T] [thread 77] [3.0] [cxt 0] Bytes parsed: 86
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Parser 'parser': end
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Pipeline 'ingress': start
+[11:52:35.432] [bmv2] [T] [thread 77] [3.0] [cxt 0] p4src/main.p4(499) Condition "hdr.cpu_out.isValid()" (node_2) is false
+[11:52:35.432] [bmv2] [T] [thread 77] [3.0] [cxt 0] Applying table 'IngressPipeImpl.l2_exact_table'
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: 3333ff702222
+
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Table 'IngressPipeImpl.l2_exact_table': miss
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Action entry is IngressPipeImpl.drop - 
+[11:52:35.432] [bmv2] [T] [thread 77] [3.0] [cxt 0] Action IngressPipeImpl.drop
+[11:52:35.432] [bmv2] [T] [thread 77] [3.0] [cxt 0] p4src/main.p4(351) Primitive mark_to_drop(standard_metadata)
+[11:52:35.432] [bmv2] [T] [thread 77] [3.0] [cxt 0] Applying table 'tbl_act_1'
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Looking up key:
+
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Table 'tbl_act_1': miss
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Action entry is act_1 - 
+[11:52:35.432] [bmv2] [T] [thread 77] [3.0] [cxt 0] Action act_1
+[11:52:35.432] [bmv2] [T] [thread 77] [3.0] [cxt 0] Primitive (no source info)
+[11:52:35.432] [bmv2] [T] [thread 77] [3.0] [cxt 0] p4src/main.p4(538) Condition "!l2_exact_table.apply().hit" (node_7) is true
+[11:52:35.432] [bmv2] [T] [thread 77] [3.0] [cxt 0] Applying table 'IngressPipeImpl.l2_ternary_table'
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: 3333ff702222
+
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Table 'IngressPipeImpl.l2_ternary_table': hit with handle 16777217
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Dumping entry 16777217
+Match key:
+* hdr.ethernet.dst_addr: TERNARY   333300000000 &&& ffff00000000
+Priority: 2147483637
+Action entry: IngressPipeImpl.set_multicast_group - a,
+
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Action entry is IngressPipeImpl.set_multicast_group - a,
+[11:52:35.432] [bmv2] [T] [thread 77] [3.0] [cxt 0] Action IngressPipeImpl.set_multicast_group
+[11:52:35.432] [bmv2] [T] [thread 77] [3.0] [cxt 0] p4src/main.p4(409) Primitive standard_metadata.mcast_grp = gid
+[11:52:35.432] [bmv2] [T] [thread 77] [3.0] [cxt 0] p4src/main.p4(410) Primitive local_metadata.is_multicast = true
+[11:52:35.432] [bmv2] [T] [thread 77] [3.0] [cxt 0] Applying table 'IngressPipeImpl.acl_table'
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Looking up key:
+* standard_metadata.ingress_port: 0001
+* hdr.ethernet.dst_addr         : 3333ff702222
+* hdr.ethernet.src_addr         : 000000000000
+* hdr.ethernet.ether_type       : 86dd
+* local_metadata.ip_proto       : 3a
+* local_metadata.icmp_type      : 87
+* local_metadata.l4_src_port    : 0000
+* local_metadata.l4_dst_port    : 0000
+
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Table 'IngressPipeImpl.acl_table': hit with handle 16777217
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Dumping entry 16777217
+Match key:
+* standard_metadata.ingress_port: TERNARY   0000 &&& 0000
+* hdr.ethernet.dst_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.src_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.ether_type       : TERNARY   86dd &&& ffff
+* local_metadata.ip_proto       : TERNARY   3a &&& ff
+* local_metadata.icmp_type      : TERNARY   87 &&& ff
+* local_metadata.l4_src_port    : TERNARY   0000 &&& 0000
+* local_metadata.l4_dst_port    : TERNARY   0000 &&& 0000
+Priority: 2147483637
+Action entry: IngressPipeImpl.clone_to_cpu - 
+
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Action entry is IngressPipeImpl.clone_to_cpu - 
+[11:52:35.432] [bmv2] [T] [thread 77] [3.0] [cxt 0] Action IngressPipeImpl.clone_to_cpu
+[11:52:35.432] [bmv2] [T] [thread 77] [3.0] [cxt 0] p4src/main.p4(474) Primitive clone3(CloneType.I2E, 99, { standard_metadata.ingress_port })
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Pipeline 'ingress': end
+[11:52:35.432] [bmv2] [D] [thread 77] [3.0] [cxt 0] Cloning packet at ingress
+[11:52:35.432] [bmv2] [D] [thread 77] [3.1] [cxt 0] Parser 'parser': start
+[11:52:35.432] [bmv2] [D] [thread 77] [3.1] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:35.432] [bmv2] [D] [thread 77] [3.1] [cxt 0] Parser state 'start': key is 0003
+[11:52:35.432] [bmv2] [T] [thread 77] [3.1] [cxt 0] Bytes parsed: 0
+[11:52:35.432] [bmv2] [D] [thread 77] [3.1] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:35.433] [bmv2] [D] [thread 77] [3.1] [cxt 0] Extracting header 'ethernet'
+[11:52:35.433] [bmv2] [D] [thread 77] [3.1] [cxt 0] Parser state 'parse_ethernet': key is 86dd
+[11:52:35.433] [bmv2] [T] [thread 77] [3.1] [cxt 0] Bytes parsed: 14
+[11:52:35.433] [bmv2] [D] [thread 77] [3.1] [cxt 0] Parser 'parser' entering state 'parse_ipv6'
+[11:52:35.433] [bmv2] [D] [thread 77] [3.1] [cxt 0] Extracting header 'ipv6'
+[11:52:35.433] [bmv2] [D] [thread 77] [3.1] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.ip_proto' from field 'ipv6.next_hdr' (58)
+[11:52:35.433] [bmv2] [D] [thread 77] [3.1] [cxt 0] Parser state 'parse_ipv6': key is 3a
+[11:52:35.433] [bmv2] [T] [thread 77] [3.1] [cxt 0] Bytes parsed: 54
+[11:52:35.433] [bmv2] [D] [thread 77] [3.1] [cxt 0] Parser 'parser' entering state 'parse_icmpv6'
+[11:52:35.433] [bmv2] [D] [thread 77] [3.1] [cxt 0] Extracting header 'icmpv6'
+[11:52:35.433] [bmv2] [D] [thread 77] [3.1] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.icmp_type' from field 'icmpv6.type' (135)
+[11:52:35.433] [bmv2] [D] [thread 77] [3.1] [cxt 0] Parser state 'parse_icmpv6': key is 87
+[11:52:35.433] [bmv2] [T] [thread 77] [3.1] [cxt 0] Bytes parsed: 58
+[11:52:35.433] [bmv2] [D] [thread 77] [3.1] [cxt 0] Parser 'parser' entering state 'parse_ndp'
+[11:52:35.433] [bmv2] [D] [thread 77] [3.1] [cxt 0] Extracting header 'ndp'
+[11:52:35.433] [bmv2] [D] [thread 77] [3.1] [cxt 0] Parser state 'parse_ndp' has no switch, going to default next state
+[11:52:35.433] [bmv2] [T] [thread 77] [3.1] [cxt 0] Bytes parsed: 86
+[11:52:35.433] [bmv2] [D] [thread 77] [3.1] [cxt 0] Parser 'parser': end
+[11:52:35.433] [bmv2] [D] [thread 77] [3.0] [cxt 0] Cloning packet to MGID 32867
+[11:52:35.433] [bmv2] [D] [thread 77] number of packets replicated : 1
+[11:52:35.433] [bmv2] [D] [thread 77] [3.1] [cxt 0] Replicating packet on port 255
+[11:52:35.433] [bmv2] [D] [thread 77] [3.0] [cxt 0] Multicast requested for packet
+[11:52:35.433] [bmv2] [D] [thread 77] number of packets replicated : 3
+[11:52:35.433] [bmv2] [D] [thread 77] [3.0] [cxt 0] Replicating packet on port 1
+[11:52:35.433] [bmv2] [D] [thread 77] [3.0] [cxt 0] Replicating packet on port 2
+[11:52:35.433] [bmv2] [D] [thread 79] [3.3] [cxt 0] Pipeline 'egress': start
+[11:52:35.433] [bmv2] [D] [thread 80] [3.4] [cxt 0] Pipeline 'egress': start
+[11:52:35.433] [bmv2] [T] [thread 79] [3.3] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:35.433] [bmv2] [T] [thread 80] [3.4] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:35.433] [bmv2] [T] [thread 79] [3.3] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is true
+[11:52:35.433] [bmv2] [T] [thread 80] [3.4] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:35.433] [bmv2] [D] [thread 81] [3.2] [cxt 0] Pipeline 'egress': start
+[11:52:35.433] [bmv2] [D] [thread 80] [3.4] [cxt 0] Pipeline 'egress': end
+[11:52:35.433] [bmv2] [T] [thread 81] [3.2] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is true
+[11:52:35.433] [bmv2] [T] [thread 79] [3.3] [cxt 0] Applying table 'tbl_act_3'
+[11:52:35.433] [bmv2] [D] [thread 80] [3.4] [cxt 0] Deparser 'deparser': start
+[11:52:35.433] [bmv2] [D] [thread 80] [3.4] [cxt 0] Updating checksum 'cksum'
+[11:52:35.433] [bmv2] [D] [thread 79] [3.3] [cxt 0] Looking up key:
+
+[11:52:35.433] [bmv2] [D] [thread 79] [3.3] [cxt 0] Table 'tbl_act_3': miss
+[11:52:35.433] [bmv2] [D] [thread 79] [3.3] [cxt 0] Action entry is act_3 - 
+[11:52:35.433] [bmv2] [T] [thread 79] [3.3] [cxt 0] Action act_3
+[11:52:35.433] [bmv2] [T] [thread 79] [3.3] [cxt 0] p4src/main.p4(575) Primitive mark_to_drop(standard_metadata)
+[11:52:35.433] [bmv2] [D] [thread 79] [3.3] [cxt 0] Pipeline 'egress': end
+[11:52:35.433] [bmv2] [D] [thread 80] [3.4] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.433] [bmv2] [D] [thread 79] [3.3] [cxt 0] Dropping packet at the end of egress
+[11:52:35.433] [bmv2] [D] [thread 80] [3.4] [cxt 0] Deparsing header 'ipv6'
+[11:52:35.433] [bmv2] [D] [thread 80] [3.4] [cxt 0] Deparsing header 'icmpv6'
+[11:52:35.433] [bmv2] [T] [thread 81] [3.2] [cxt 0] Applying table 'tbl_act_2'
+[11:52:35.433] [bmv2] [D] [thread 77] [3.0] [cxt 0] Replicating packet on port 3
+[11:52:35.433] [bmv2] [D] [thread 80] [3.4] [cxt 0] Deparsing header 'ndp'
+[11:52:35.433] [bmv2] [D] [thread 80] [3.4] [cxt 0] Deparser 'deparser': end
+[11:52:35.433] [bmv2] [D] [thread 81] [3.2] [cxt 0] Looking up key:
+
+[11:52:35.433] [bmv2] [D] [thread 82] [3.4] [cxt 0] Transmitting packet of size 86 out of port 2
+[11:52:35.433] [bmv2] [D] [thread 81] [3.2] [cxt 0] Table 'tbl_act_2': miss
+[11:52:35.433] [bmv2] [D] [thread 81] [3.2] [cxt 0] Action entry is act_2 - 
+[11:52:35.433] [bmv2] [T] [thread 81] [3.2] [cxt 0] Action act_2
+[11:52:35.433] [bmv2] [T] [thread 81] [3.2] [cxt 0] p4src/main.p4(557) Primitive hdr.cpu_in.setValid()
+[11:52:35.433] [bmv2] [T] [thread 81] [3.2] [cxt 0] p4src/main.p4(558) Primitive hdr.cpu_in.ingress_port = standard_metadata.ingress_port
+[11:52:35.433] [bmv2] [T] [thread 81] [3.2] [cxt 0] p4src/main.p4(559) Primitive exit
+[11:52:35.433] [bmv2] [D] [thread 81] [3.2] [cxt 0] Packet is marked for exit, interrupting pipeline
+[11:52:35.433] [bmv2] [D] [thread 81] [3.2] [cxt 0] Pipeline 'egress': end
+[11:52:35.434] [bmv2] [D] [thread 81] [3.2] [cxt 0] Deparser 'deparser': start
+[11:52:35.434] [bmv2] [D] [thread 81] [3.2] [cxt 0] Updating checksum 'cksum'
+[11:52:35.434] [bmv2] [D] [thread 81] [3.2] [cxt 0] Deparsing header 'cpu_in'
+[11:52:35.434] [bmv2] [D] [thread 81] [3.2] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.434] [bmv2] [D] [thread 81] [3.2] [cxt 0] Deparsing header 'ipv6'
+[11:52:35.434] [bmv2] [D] [thread 81] [3.2] [cxt 0] Deparsing header 'icmpv6'
+[11:52:35.434] [bmv2] [D] [thread 81] [3.2] [cxt 0] Deparsing header 'ndp'
+[11:52:35.434] [bmv2] [D] [thread 81] [3.2] [cxt 0] Deparser 'deparser': end
+[11:52:35.434] [bmv2] [D] [thread 82] [3.2] [cxt 0] Transmitting packet of size 88 out of port 255
+[11:52:35.434] [bmv2] [D] [thread 82] Transmitting packet-in
+[11:52:35.434] [bmv2] [D] [thread 81] [3.5] [cxt 0] Pipeline 'egress': start
+[11:52:35.434] [bmv2] [T] [thread 81] [3.5] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:35.434] [bmv2] [T] [thread 81] [3.5] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:35.434] [bmv2] [D] [thread 81] [3.5] [cxt 0] Pipeline 'egress': end
+[11:52:35.434] [bmv2] [D] [thread 81] [3.5] [cxt 0] Deparser 'deparser': start
+[11:52:35.434] [bmv2] [D] [thread 81] [3.5] [cxt 0] Updating checksum 'cksum'
+[11:52:35.434] [bmv2] [D] [thread 81] [3.5] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.434] [bmv2] [D] [thread 81] [3.5] [cxt 0] Deparsing header 'ipv6'
+[11:52:35.434] [bmv2] [D] [thread 81] [3.5] [cxt 0] Deparsing header 'icmpv6'
+[11:52:35.434] [bmv2] [D] [thread 81] [3.5] [cxt 0] Deparsing header 'ndp'
+[11:52:35.434] [bmv2] [D] [thread 81] [3.5] [cxt 0] Deparser 'deparser': end
+[11:52:35.435] [bmv2] [D] [thread 82] [3.5] [cxt 0] Transmitting packet of size 86 out of port 3
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Processing packet received on port 2
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Parser 'parser': start
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Parser state 'start': key is 0002
+[11:52:35.461] [bmv2] [T] [thread 77] [4.0] [cxt 0] Bytes parsed: 0
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Extracting header 'ethernet'
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Parser state 'parse_ethernet': key is 86dd
+[11:52:35.461] [bmv2] [T] [thread 77] [4.0] [cxt 0] Bytes parsed: 14
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Parser 'parser' entering state 'parse_ipv6'
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Extracting header 'ipv6'
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.ip_proto' from field 'ipv6.next_hdr' (58)
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Parser state 'parse_ipv6': key is 3a
+[11:52:35.461] [bmv2] [T] [thread 77] [4.0] [cxt 0] Bytes parsed: 54
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Parser 'parser' entering state 'parse_icmpv6'
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Extracting header 'icmpv6'
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.icmp_type' from field 'icmpv6.type' (135)
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Parser state 'parse_icmpv6': key is 87
+[11:52:35.461] [bmv2] [T] [thread 77] [4.0] [cxt 0] Bytes parsed: 58
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Parser 'parser' entering state 'parse_ndp'
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Extracting header 'ndp'
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Parser state 'parse_ndp' has no switch, going to default next state
+[11:52:35.461] [bmv2] [T] [thread 77] [4.0] [cxt 0] Bytes parsed: 86
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Parser 'parser': end
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Pipeline 'ingress': start
+[11:52:35.461] [bmv2] [T] [thread 77] [4.0] [cxt 0] p4src/main.p4(499) Condition "hdr.cpu_out.isValid()" (node_2) is false
+[11:52:35.461] [bmv2] [T] [thread 77] [4.0] [cxt 0] Applying table 'IngressPipeImpl.l2_exact_table'
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: 3333ff702222
+
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Table 'IngressPipeImpl.l2_exact_table': miss
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Action entry is IngressPipeImpl.drop - 
+[11:52:35.461] [bmv2] [T] [thread 77] [4.0] [cxt 0] Action IngressPipeImpl.drop
+[11:52:35.461] [bmv2] [T] [thread 77] [4.0] [cxt 0] p4src/main.p4(351) Primitive mark_to_drop(standard_metadata)
+[11:52:35.461] [bmv2] [T] [thread 77] [4.0] [cxt 0] Applying table 'tbl_act_1'
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Looking up key:
+
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Table 'tbl_act_1': miss
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Action entry is act_1 - 
+[11:52:35.461] [bmv2] [T] [thread 77] [4.0] [cxt 0] Action act_1
+[11:52:35.461] [bmv2] [T] [thread 77] [4.0] [cxt 0] Primitive (no source info)
+[11:52:35.461] [bmv2] [T] [thread 77] [4.0] [cxt 0] p4src/main.p4(538) Condition "!l2_exact_table.apply().hit" (node_7) is true
+[11:52:35.461] [bmv2] [T] [thread 77] [4.0] [cxt 0] Applying table 'IngressPipeImpl.l2_ternary_table'
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: 3333ff702222
+
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Table 'IngressPipeImpl.l2_ternary_table': hit with handle 16777217
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Dumping entry 16777217
+Match key:
+* hdr.ethernet.dst_addr: TERNARY   333300000000 &&& ffff00000000
+Priority: 2147483637
+Action entry: IngressPipeImpl.set_multicast_group - a,
+
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Action entry is IngressPipeImpl.set_multicast_group - a,
+[11:52:35.461] [bmv2] [T] [thread 77] [4.0] [cxt 0] Action IngressPipeImpl.set_multicast_group
+[11:52:35.461] [bmv2] [T] [thread 77] [4.0] [cxt 0] p4src/main.p4(409) Primitive standard_metadata.mcast_grp = gid
+[11:52:35.461] [bmv2] [T] [thread 77] [4.0] [cxt 0] p4src/main.p4(410) Primitive local_metadata.is_multicast = true
+[11:52:35.461] [bmv2] [T] [thread 77] [4.0] [cxt 0] Applying table 'IngressPipeImpl.acl_table'
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Looking up key:
+* standard_metadata.ingress_port: 0002
+* hdr.ethernet.dst_addr         : 3333ff702222
+* hdr.ethernet.src_addr         : 000000000000
+* hdr.ethernet.ether_type       : 86dd
+* local_metadata.ip_proto       : 3a
+* local_metadata.icmp_type      : 87
+* local_metadata.l4_src_port    : 0000
+* local_metadata.l4_dst_port    : 0000
+
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Table 'IngressPipeImpl.acl_table': hit with handle 16777217
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Dumping entry 16777217
+Match key:
+* standard_metadata.ingress_port: TERNARY   0000 &&& 0000
+* hdr.ethernet.dst_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.src_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.ether_type       : TERNARY   86dd &&& ffff
+* local_metadata.ip_proto       : TERNARY   3a &&& ff
+* local_metadata.icmp_type      : TERNARY   87 &&& ff
+* local_metadata.l4_src_port    : TERNARY   0000 &&& 0000
+* local_metadata.l4_dst_port    : TERNARY   0000 &&& 0000
+Priority: 2147483637
+Action entry: IngressPipeImpl.clone_to_cpu - 
+
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Action entry is IngressPipeImpl.clone_to_cpu - 
+[11:52:35.461] [bmv2] [T] [thread 77] [4.0] [cxt 0] Action IngressPipeImpl.clone_to_cpu
+[11:52:35.461] [bmv2] [T] [thread 77] [4.0] [cxt 0] p4src/main.p4(474) Primitive clone3(CloneType.I2E, 99, { standard_metadata.ingress_port })
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Pipeline 'ingress': end
+[11:52:35.461] [bmv2] [D] [thread 77] [4.0] [cxt 0] Cloning packet at ingress
+[11:52:35.461] [bmv2] [D] [thread 77] [4.1] [cxt 0] Parser 'parser': start
+[11:52:35.461] [bmv2] [D] [thread 77] [4.1] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:35.461] [bmv2] [D] [thread 77] [4.1] [cxt 0] Parser state 'start': key is 0001
+[11:52:35.461] [bmv2] [T] [thread 77] [4.1] [cxt 0] Bytes parsed: 0
+[11:52:35.461] [bmv2] [D] [thread 77] [4.1] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:35.461] [bmv2] [D] [thread 77] [4.1] [cxt 0] Extracting header 'ethernet'
+[11:52:35.461] [bmv2] [D] [thread 77] [4.1] [cxt 0] Parser state 'parse_ethernet': key is 86dd
+[11:52:35.461] [bmv2] [T] [thread 77] [4.1] [cxt 0] Bytes parsed: 14
+[11:52:35.461] [bmv2] [D] [thread 77] [4.1] [cxt 0] Parser 'parser' entering state 'parse_ipv6'
+[11:52:35.461] [bmv2] [D] [thread 77] [4.1] [cxt 0] Extracting header 'ipv6'
+[11:52:35.461] [bmv2] [D] [thread 77] [4.1] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.ip_proto' from field 'ipv6.next_hdr' (58)
+[11:52:35.461] [bmv2] [D] [thread 77] [4.1] [cxt 0] Parser state 'parse_ipv6': key is 3a
+[11:52:35.461] [bmv2] [T] [thread 77] [4.1] [cxt 0] Bytes parsed: 54
+[11:52:35.462] [bmv2] [D] [thread 77] [4.1] [cxt 0] Parser 'parser' entering state 'parse_icmpv6'
+[11:52:35.462] [bmv2] [D] [thread 77] [4.1] [cxt 0] Extracting header 'icmpv6'
+[11:52:35.462] [bmv2] [D] [thread 77] [4.1] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.icmp_type' from field 'icmpv6.type' (135)
+[11:52:35.462] [bmv2] [D] [thread 77] [4.1] [cxt 0] Parser state 'parse_icmpv6': key is 87
+[11:52:35.462] [bmv2] [T] [thread 77] [4.1] [cxt 0] Bytes parsed: 58
+[11:52:35.462] [bmv2] [D] [thread 77] [4.1] [cxt 0] Parser 'parser' entering state 'parse_ndp'
+[11:52:35.462] [bmv2] [D] [thread 77] [4.1] [cxt 0] Extracting header 'ndp'
+[11:52:35.462] [bmv2] [D] [thread 77] [4.1] [cxt 0] Parser state 'parse_ndp' has no switch, going to default next state
+[11:52:35.462] [bmv2] [T] [thread 77] [4.1] [cxt 0] Bytes parsed: 86
+[11:52:35.462] [bmv2] [D] [thread 77] [4.1] [cxt 0] Parser 'parser': end
+[11:52:35.462] [bmv2] [D] [thread 77] [4.0] [cxt 0] Cloning packet to MGID 32867
+[11:52:35.462] [bmv2] [D] [thread 77] number of packets replicated : 1
+[11:52:35.462] [bmv2] [D] [thread 77] [4.1] [cxt 0] Replicating packet on port 255
+[11:52:35.462] [bmv2] [D] [thread 77] [4.0] [cxt 0] Multicast requested for packet
+[11:52:35.462] [bmv2] [D] [thread 77] number of packets replicated : 3
+[11:52:35.462] [bmv2] [D] [thread 77] [4.0] [cxt 0] Replicating packet on port 1
+[11:52:35.462] [bmv2] [D] [thread 81] [4.2] [cxt 0] Pipeline 'egress': start
+[11:52:35.462] [bmv2] [D] [thread 77] [4.0] [cxt 0] Replicating packet on port 2
+[11:52:35.462] [bmv2] [T] [thread 81] [4.2] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is true
+[11:52:35.462] [bmv2] [T] [thread 81] [4.2] [cxt 0] Applying table 'tbl_act_2'
+[11:52:35.462] [bmv2] [D] [thread 81] [4.2] [cxt 0] Looking up key:
+
+[11:52:35.462] [bmv2] [D] [thread 81] [4.2] [cxt 0] Table 'tbl_act_2': miss
+[11:52:35.462] [bmv2] [D] [thread 80] [4.4] [cxt 0] Pipeline 'egress': start
+[11:52:35.462] [bmv2] [T] [thread 80] [4.4] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:35.462] [bmv2] [D] [thread 79] [4.3] [cxt 0] Pipeline 'egress': start
+[11:52:35.462] [bmv2] [T] [thread 80] [4.4] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is true
+[11:52:35.462] [bmv2] [T] [thread 79] [4.3] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:35.462] [bmv2] [T] [thread 80] [4.4] [cxt 0] Applying table 'tbl_act_3'
+[11:52:35.462] [bmv2] [T] [thread 79] [4.3] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:35.462] [bmv2] [D] [thread 80] [4.4] [cxt 0] Looking up key:
+
+[11:52:35.462] [bmv2] [D] [thread 79] [4.3] [cxt 0] Pipeline 'egress': end
+[11:52:35.462] [bmv2] [D] [thread 80] [4.4] [cxt 0] Table 'tbl_act_3': miss
+[11:52:35.462] [bmv2] [D] [thread 79] [4.3] [cxt 0] Deparser 'deparser': start
+[11:52:35.462] [bmv2] [D] [thread 80] [4.4] [cxt 0] Action entry is act_3 - 
+[11:52:35.462] [bmv2] [D] [thread 79] [4.3] [cxt 0] Updating checksum 'cksum'
+[11:52:35.462] [bmv2] [T] [thread 80] [4.4] [cxt 0] Action act_3
+[11:52:35.462] [bmv2] [T] [thread 80] [4.4] [cxt 0] p4src/main.p4(575) Primitive mark_to_drop(standard_metadata)
+[11:52:35.462] [bmv2] [D] [thread 79] [4.3] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.462] [bmv2] [D] [thread 80] [4.4] [cxt 0] Pipeline 'egress': end
+[11:52:35.462] [bmv2] [D] [thread 80] [4.4] [cxt 0] Dropping packet at the end of egress
+[11:52:35.462] [bmv2] [D] [thread 81] [4.2] [cxt 0] Action entry is act_2 - 
+[11:52:35.462] [bmv2] [T] [thread 81] [4.2] [cxt 0] Action act_2
+[11:52:35.462] [bmv2] [T] [thread 81] [4.2] [cxt 0] p4src/main.p4(557) Primitive hdr.cpu_in.setValid()
+[11:52:35.462] [bmv2] [T] [thread 81] [4.2] [cxt 0] p4src/main.p4(558) Primitive hdr.cpu_in.ingress_port = standard_metadata.ingress_port
+[11:52:35.462] [bmv2] [D] [thread 79] [4.3] [cxt 0] Deparsing header 'ipv6'
+[11:52:35.462] [bmv2] [D] [thread 77] [4.0] [cxt 0] Replicating packet on port 3
+[11:52:35.462] [bmv2] [D] [thread 79] [4.3] [cxt 0] Deparsing header 'icmpv6'
+[11:52:35.462] [bmv2] [D] [thread 79] [4.3] [cxt 0] Deparsing header 'ndp'
+[11:52:35.462] [bmv2] [D] [thread 79] [4.3] [cxt 0] Deparser 'deparser': end
+[11:52:35.462] [bmv2] [T] [thread 81] [4.2] [cxt 0] p4src/main.p4(559) Primitive exit
+[11:52:35.462] [bmv2] [D] [thread 81] [4.2] [cxt 0] Packet is marked for exit, interrupting pipeline
+[11:52:35.462] [bmv2] [D] [thread 82] [4.3] [cxt 0] Transmitting packet of size 86 out of port 1
+[11:52:35.462] [bmv2] [D] [thread 81] [4.2] [cxt 0] Pipeline 'egress': end
+[11:52:35.462] [bmv2] [D] [thread 81] [4.2] [cxt 0] Deparser 'deparser': start
+[11:52:35.462] [bmv2] [D] [thread 81] [4.2] [cxt 0] Updating checksum 'cksum'
+[11:52:35.462] [bmv2] [D] [thread 81] [4.2] [cxt 0] Deparsing header 'cpu_in'
+[11:52:35.462] [bmv2] [D] [thread 81] [4.2] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.462] [bmv2] [D] [thread 81] [4.2] [cxt 0] Deparsing header 'ipv6'
+[11:52:35.463] [bmv2] [D] [thread 81] [4.2] [cxt 0] Deparsing header 'icmpv6'
+[11:52:35.463] [bmv2] [D] [thread 81] [4.2] [cxt 0] Deparsing header 'ndp'
+[11:52:35.463] [bmv2] [D] [thread 81] [4.2] [cxt 0] Deparser 'deparser': end
+[11:52:35.463] [bmv2] [D] [thread 81] [4.5] [cxt 0] Pipeline 'egress': start
+[11:52:35.463] [bmv2] [T] [thread 81] [4.5] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:35.463] [bmv2] [T] [thread 81] [4.5] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:35.463] [bmv2] [D] [thread 81] [4.5] [cxt 0] Pipeline 'egress': end
+[11:52:35.463] [bmv2] [D] [thread 81] [4.5] [cxt 0] Deparser 'deparser': start
+[11:52:35.463] [bmv2] [D] [thread 81] [4.5] [cxt 0] Updating checksum 'cksum'
+[11:52:35.463] [bmv2] [D] [thread 81] [4.5] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.463] [bmv2] [D] [thread 81] [4.5] [cxt 0] Deparsing header 'ipv6'
+[11:52:35.463] [bmv2] [D] [thread 81] [4.5] [cxt 0] Deparsing header 'icmpv6'
+[11:52:35.463] [bmv2] [D] [thread 81] [4.5] [cxt 0] Deparsing header 'ndp'
+[11:52:35.463] [bmv2] [D] [thread 81] [4.5] [cxt 0] Deparser 'deparser': end
+[11:52:35.463] [bmv2] [D] [thread 82] [4.2] [cxt 0] Transmitting packet of size 88 out of port 255
+[11:52:35.463] [bmv2] [D] [thread 82] Transmitting packet-in
+[11:52:35.463] [bmv2] [D] [thread 82] [4.5] [cxt 0] Transmitting packet of size 86 out of port 3
+[11:52:35.482] [bmv2] [D] [thread 77] [5.0] [cxt 0] Processing packet received on port 3
+[11:52:35.482] [bmv2] [D] [thread 77] [5.0] [cxt 0] Parser 'parser': start
+[11:52:35.482] [bmv2] [D] [thread 77] [5.0] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Parser state 'start': key is 0003
+[11:52:35.483] [bmv2] [T] [thread 77] [5.0] [cxt 0] Bytes parsed: 0
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Extracting header 'ethernet'
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Parser state 'parse_ethernet': key is 86dd
+[11:52:35.483] [bmv2] [T] [thread 77] [5.0] [cxt 0] Bytes parsed: 14
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Parser 'parser' entering state 'parse_ipv6'
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Extracting header 'ipv6'
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.ip_proto' from field 'ipv6.next_hdr' (58)
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Parser state 'parse_ipv6': key is 3a
+[11:52:35.483] [bmv2] [T] [thread 77] [5.0] [cxt 0] Bytes parsed: 54
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Parser 'parser' entering state 'parse_icmpv6'
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Extracting header 'icmpv6'
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.icmp_type' from field 'icmpv6.type' (135)
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Parser state 'parse_icmpv6': key is 87
+[11:52:35.483] [bmv2] [T] [thread 77] [5.0] [cxt 0] Bytes parsed: 58
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Parser 'parser' entering state 'parse_ndp'
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Extracting header 'ndp'
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Parser state 'parse_ndp' has no switch, going to default next state
+[11:52:35.483] [bmv2] [T] [thread 77] [5.0] [cxt 0] Bytes parsed: 86
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Parser 'parser': end
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Pipeline 'ingress': start
+[11:52:35.483] [bmv2] [T] [thread 77] [5.0] [cxt 0] p4src/main.p4(499) Condition "hdr.cpu_out.isValid()" (node_2) is false
+[11:52:35.483] [bmv2] [T] [thread 77] [5.0] [cxt 0] Applying table 'IngressPipeImpl.l2_exact_table'
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: 3333ff702222
+
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Table 'IngressPipeImpl.l2_exact_table': miss
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Action entry is IngressPipeImpl.drop - 
+[11:52:35.483] [bmv2] [T] [thread 77] [5.0] [cxt 0] Action IngressPipeImpl.drop
+[11:52:35.483] [bmv2] [T] [thread 77] [5.0] [cxt 0] p4src/main.p4(351) Primitive mark_to_drop(standard_metadata)
+[11:52:35.483] [bmv2] [T] [thread 77] [5.0] [cxt 0] Applying table 'tbl_act_1'
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Looking up key:
+
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Table 'tbl_act_1': miss
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Action entry is act_1 - 
+[11:52:35.483] [bmv2] [T] [thread 77] [5.0] [cxt 0] Action act_1
+[11:52:35.483] [bmv2] [T] [thread 77] [5.0] [cxt 0] Primitive (no source info)
+[11:52:35.483] [bmv2] [T] [thread 77] [5.0] [cxt 0] p4src/main.p4(538) Condition "!l2_exact_table.apply().hit" (node_7) is true
+[11:52:35.483] [bmv2] [T] [thread 77] [5.0] [cxt 0] Applying table 'IngressPipeImpl.l2_ternary_table'
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: 3333ff702222
+
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Table 'IngressPipeImpl.l2_ternary_table': hit with handle 16777217
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Dumping entry 16777217
+Match key:
+* hdr.ethernet.dst_addr: TERNARY   333300000000 &&& ffff00000000
+Priority: 2147483637
+Action entry: IngressPipeImpl.set_multicast_group - a,
+
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Action entry is IngressPipeImpl.set_multicast_group - a,
+[11:52:35.483] [bmv2] [T] [thread 77] [5.0] [cxt 0] Action IngressPipeImpl.set_multicast_group
+[11:52:35.483] [bmv2] [T] [thread 77] [5.0] [cxt 0] p4src/main.p4(409) Primitive standard_metadata.mcast_grp = gid
+[11:52:35.483] [bmv2] [T] [thread 77] [5.0] [cxt 0] p4src/main.p4(410) Primitive local_metadata.is_multicast = true
+[11:52:35.483] [bmv2] [T] [thread 77] [5.0] [cxt 0] Applying table 'IngressPipeImpl.acl_table'
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Looking up key:
+* standard_metadata.ingress_port: 0003
+* hdr.ethernet.dst_addr         : 3333ff702222
+* hdr.ethernet.src_addr         : 000000000000
+* hdr.ethernet.ether_type       : 86dd
+* local_metadata.ip_proto       : 3a
+* local_metadata.icmp_type      : 87
+* local_metadata.l4_src_port    : 0000
+* local_metadata.l4_dst_port    : 0000
+
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Table 'IngressPipeImpl.acl_table': hit with handle 16777217
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Dumping entry 16777217
+Match key:
+* standard_metadata.ingress_port: TERNARY   0000 &&& 0000
+* hdr.ethernet.dst_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.src_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.ether_type       : TERNARY   86dd &&& ffff
+* local_metadata.ip_proto       : TERNARY   3a &&& ff
+* local_metadata.icmp_type      : TERNARY   87 &&& ff
+* local_metadata.l4_src_port    : TERNARY   0000 &&& 0000
+* local_metadata.l4_dst_port    : TERNARY   0000 &&& 0000
+Priority: 2147483637
+Action entry: IngressPipeImpl.clone_to_cpu - 
+
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Action entry is IngressPipeImpl.clone_to_cpu - 
+[11:52:35.483] [bmv2] [T] [thread 77] [5.0] [cxt 0] Action IngressPipeImpl.clone_to_cpu
+[11:52:35.483] [bmv2] [T] [thread 77] [5.0] [cxt 0] p4src/main.p4(474) Primitive clone3(CloneType.I2E, 99, { standard_metadata.ingress_port })
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Pipeline 'ingress': end
+[11:52:35.483] [bmv2] [D] [thread 77] [5.0] [cxt 0] Cloning packet at ingress
+[11:52:35.483] [bmv2] [D] [thread 77] [5.1] [cxt 0] Parser 'parser': start
+[11:52:35.483] [bmv2] [D] [thread 77] [5.1] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:35.483] [bmv2] [D] [thread 77] [5.1] [cxt 0] Parser state 'start': key is 0002
+[11:52:35.483] [bmv2] [T] [thread 77] [5.1] [cxt 0] Bytes parsed: 0
+[11:52:35.483] [bmv2] [D] [thread 77] [5.1] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:35.483] [bmv2] [D] [thread 77] [5.1] [cxt 0] Extracting header 'ethernet'
+[11:52:35.483] [bmv2] [D] [thread 77] [5.1] [cxt 0] Parser state 'parse_ethernet': key is 86dd
+[11:52:35.483] [bmv2] [T] [thread 77] [5.1] [cxt 0] Bytes parsed: 14
+[11:52:35.483] [bmv2] [D] [thread 77] [5.1] [cxt 0] Parser 'parser' entering state 'parse_ipv6'
+[11:52:35.483] [bmv2] [D] [thread 77] [5.1] [cxt 0] Extracting header 'ipv6'
+[11:52:35.483] [bmv2] [D] [thread 77] [5.1] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.ip_proto' from field 'ipv6.next_hdr' (58)
+[11:52:35.484] [bmv2] [D] [thread 77] [5.1] [cxt 0] Parser state 'parse_ipv6': key is 3a
+[11:52:35.484] [bmv2] [T] [thread 77] [5.1] [cxt 0] Bytes parsed: 54
+[11:52:35.484] [bmv2] [D] [thread 77] [5.1] [cxt 0] Parser 'parser' entering state 'parse_icmpv6'
+[11:52:35.484] [bmv2] [D] [thread 77] [5.1] [cxt 0] Extracting header 'icmpv6'
+[11:52:35.484] [bmv2] [D] [thread 77] [5.1] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.icmp_type' from field 'icmpv6.type' (135)
+[11:52:35.484] [bmv2] [D] [thread 77] [5.1] [cxt 0] Parser state 'parse_icmpv6': key is 87
+[11:52:35.484] [bmv2] [T] [thread 77] [5.1] [cxt 0] Bytes parsed: 58
+[11:52:35.484] [bmv2] [D] [thread 77] [5.1] [cxt 0] Parser 'parser' entering state 'parse_ndp'
+[11:52:35.484] [bmv2] [D] [thread 77] [5.1] [cxt 0] Extracting header 'ndp'
+[11:52:35.484] [bmv2] [D] [thread 77] [5.1] [cxt 0] Parser state 'parse_ndp' has no switch, going to default next state
+[11:52:35.484] [bmv2] [T] [thread 77] [5.1] [cxt 0] Bytes parsed: 86
+[11:52:35.484] [bmv2] [D] [thread 77] [5.1] [cxt 0] Parser 'parser': end
+[11:52:35.484] [bmv2] [D] [thread 77] [5.0] [cxt 0] Cloning packet to MGID 32867
+[11:52:35.484] [bmv2] [D] [thread 77] number of packets replicated : 1
+[11:52:35.484] [bmv2] [D] [thread 77] [5.1] [cxt 0] Replicating packet on port 255
+[11:52:35.484] [bmv2] [D] [thread 77] [5.0] [cxt 0] Multicast requested for packet
+[11:52:35.484] [bmv2] [D] [thread 77] number of packets replicated : 3
+[11:52:35.484] [bmv2] [D] [thread 81] [5.2] [cxt 0] Pipeline 'egress': start
+[11:52:35.484] [bmv2] [T] [thread 81] [5.2] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is true
+[11:52:35.484] [bmv2] [D] [thread 77] [5.0] [cxt 0] Replicating packet on port 1
+[11:52:35.484] [bmv2] [T] [thread 81] [5.2] [cxt 0] Applying table 'tbl_act_2'
+[11:52:35.484] [bmv2] [D] [thread 81] [5.2] [cxt 0] Looking up key:
+
+[11:52:35.484] [bmv2] [D] [thread 77] [5.0] [cxt 0] Replicating packet on port 2
+[11:52:35.484] [bmv2] [D] [thread 81] [5.2] [cxt 0] Table 'tbl_act_2': miss
+[11:52:35.484] [bmv2] [D] [thread 81] [5.2] [cxt 0] Action entry is act_2 - 
+[11:52:35.484] [bmv2] [T] [thread 81] [5.2] [cxt 0] Action act_2
+[11:52:35.484] [bmv2] [T] [thread 81] [5.2] [cxt 0] p4src/main.p4(557) Primitive hdr.cpu_in.setValid()
+[11:52:35.484] [bmv2] [T] [thread 81] [5.2] [cxt 0] p4src/main.p4(558) Primitive hdr.cpu_in.ingress_port = standard_metadata.ingress_port
+[11:52:35.484] [bmv2] [D] [thread 80] [5.4] [cxt 0] Pipeline 'egress': start
+[11:52:35.484] [bmv2] [T] [thread 80] [5.4] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:35.484] [bmv2] [D] [thread 79] [5.3] [cxt 0] Pipeline 'egress': start
+[11:52:35.484] [bmv2] [T] [thread 80] [5.4] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:35.484] [bmv2] [T] [thread 81] [5.2] [cxt 0] p4src/main.p4(559) Primitive exit
+[11:52:35.484] [bmv2] [D] [thread 77] [5.0] [cxt 0] Replicating packet on port 3
+[11:52:35.484] [bmv2] [D] [thread 81] [5.2] [cxt 0] Packet is marked for exit, interrupting pipeline
+[11:52:35.484] [bmv2] [D] [thread 81] [5.2] [cxt 0] Pipeline 'egress': end
+[11:52:35.484] [bmv2] [D] [thread 80] [5.4] [cxt 0] Pipeline 'egress': end
+[11:52:35.484] [bmv2] [T] [thread 79] [5.3] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:35.484] [bmv2] [D] [thread 80] [5.4] [cxt 0] Deparser 'deparser': start
+[11:52:35.484] [bmv2] [T] [thread 79] [5.3] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:35.484] [bmv2] [D] [thread 79] [5.3] [cxt 0] Pipeline 'egress': end
+[11:52:35.485] [bmv2] [D] [thread 79] [5.3] [cxt 0] Deparser 'deparser': start
+[11:52:35.484] [bmv2] [D] [thread 80] [5.4] [cxt 0] Updating checksum 'cksum'
+[11:52:35.484] [bmv2] [D] [thread 81] [5.2] [cxt 0] Deparser 'deparser': start
+[11:52:35.485] [bmv2] [D] [thread 81] [5.2] [cxt 0] Updating checksum 'cksum'
+[11:52:35.485] [bmv2] [D] [thread 80] [5.4] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.485] [bmv2] [D] [thread 80] [5.4] [cxt 0] Deparsing header 'ipv6'
+[11:52:35.485] [bmv2] [D] [thread 80] [5.4] [cxt 0] Deparsing header 'icmpv6'
+[11:52:35.485] [bmv2] [D] [thread 81] [5.2] [cxt 0] Deparsing header 'cpu_in'
+[11:52:35.485] [bmv2] [D] [thread 80] [5.4] [cxt 0] Deparsing header 'ndp'
+[11:52:35.485] [bmv2] [D] [thread 80] [5.4] [cxt 0] Deparser 'deparser': end
+[11:52:35.485] [bmv2] [D] [thread 79] [5.3] [cxt 0] Updating checksum 'cksum'
+[11:52:35.485] [bmv2] [D] [thread 82] [5.4] [cxt 0] Transmitting packet of size 86 out of port 2
+[11:52:35.485] [bmv2] [D] [thread 79] [5.3] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.485] [bmv2] [D] [thread 79] [5.3] [cxt 0] Deparsing header 'ipv6'
+[11:52:35.485] [bmv2] [D] [thread 79] [5.3] [cxt 0] Deparsing header 'icmpv6'
+[11:52:35.485] [bmv2] [D] [thread 79] [5.3] [cxt 0] Deparsing header 'ndp'
+[11:52:35.485] [bmv2] [D] [thread 79] [5.3] [cxt 0] Deparser 'deparser': end
+[11:52:35.485] [bmv2] [D] [thread 81] [5.2] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.485] [bmv2] [D] [thread 81] [5.2] [cxt 0] Deparsing header 'ipv6'
+[11:52:35.485] [bmv2] [D] [thread 81] [5.2] [cxt 0] Deparsing header 'icmpv6'
+[11:52:35.485] [bmv2] [D] [thread 81] [5.2] [cxt 0] Deparsing header 'ndp'
+[11:52:35.485] [bmv2] [D] [thread 81] [5.2] [cxt 0] Deparser 'deparser': end
+[11:52:35.485] [bmv2] [D] [thread 81] [5.5] [cxt 0] Pipeline 'egress': start
+[11:52:35.485] [bmv2] [T] [thread 81] [5.5] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:35.485] [bmv2] [T] [thread 81] [5.5] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is true
+[11:52:35.485] [bmv2] [T] [thread 81] [5.5] [cxt 0] Applying table 'tbl_act_3'
+[11:52:35.485] [bmv2] [D] [thread 81] [5.5] [cxt 0] Looking up key:
+
+[11:52:35.485] [bmv2] [D] [thread 81] [5.5] [cxt 0] Table 'tbl_act_3': miss
+[11:52:35.485] [bmv2] [D] [thread 81] [5.5] [cxt 0] Action entry is act_3 - 
+[11:52:35.485] [bmv2] [T] [thread 81] [5.5] [cxt 0] Action act_3
+[11:52:35.485] [bmv2] [T] [thread 81] [5.5] [cxt 0] p4src/main.p4(575) Primitive mark_to_drop(standard_metadata)
+[11:52:35.485] [bmv2] [D] [thread 81] [5.5] [cxt 0] Pipeline 'egress': end
+[11:52:35.485] [bmv2] [D] [thread 81] [5.5] [cxt 0] Dropping packet at the end of egress
+[11:52:35.485] [bmv2] [D] [thread 82] [5.3] [cxt 0] Transmitting packet of size 86 out of port 1
+[11:52:35.485] [bmv2] [D] [thread 82] [5.2] [cxt 0] Transmitting packet of size 88 out of port 255
+[11:52:35.485] [bmv2] [D] [thread 82] Transmitting packet-in
+[11:52:35.605] [bmv2] [D] [thread 108] Removed entry 16777217 from table 'IngressPipeImpl.acl_table'
+[11:52:35.605] [bmv2] [D] [thread 108] Removed entry 16777216 from table 'IngressPipeImpl.acl_table'
+[11:52:35.605] [bmv2] [D] [thread 108] node dissociated with mgid 32867
+[11:52:35.605] [bmv2] [D] [thread 108] node destroyed for rid 1
+[11:52:35.605] [bmv2] [D] [thread 108] mgrp node deleted for mgid 32867
+[11:52:35.605] [bmv2] [D] [thread 108] Removed entry 16777217 from table 'IngressPipeImpl.l2_ternary_table'
+[11:52:35.606] [bmv2] [D] [thread 108] Removed entry 16777216 from table 'IngressPipeImpl.l2_ternary_table'
+[11:52:35.606] [bmv2] [D] [thread 108] node dissociated with mgid 10
+[11:52:35.606] [bmv2] [D] [thread 108] node destroyed for rid 0
+[11:52:35.606] [bmv2] [D] [thread 108] mgrp node deleted for mgid 10
+[11:52:35.668] [bmv2] [D] [thread 139] Entry 0 added to table 'IngressPipeImpl.l2_exact_table'
+[11:52:35.668] [bmv2] [D] [thread 139] Dumping entry 0
+Match key:
+* hdr.ethernet.dst_addr: EXACT     000000000002
+Action entry: IngressPipeImpl.set_egress_port - 2,
+
+[11:52:35.669] [bmv2] [D] [thread 139] mgrp node created for mgid 32867
+[11:52:35.669] [bmv2] [D] [thread 139] node created for rid 1
+[11:52:35.669] [bmv2] [D] [thread 139] node associated with mgid 32867
+[11:52:35.670] [bmv2] [D] [thread 144] Entry 33554432 added to table 'IngressPipeImpl.acl_table'
+[11:52:35.671] [bmv2] [D] [thread 144] Dumping entry 33554432
+Match key:
+* standard_metadata.ingress_port: TERNARY   0000 &&& 0000
+* hdr.ethernet.dst_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.src_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.ether_type       : TERNARY   0806 &&& ffff
+* local_metadata.ip_proto       : TERNARY   00 &&& 00
+* local_metadata.icmp_type      : TERNARY   00 &&& 00
+* local_metadata.l4_src_port    : TERNARY   0000 &&& 0000
+* local_metadata.l4_dst_port    : TERNARY   0000 &&& 0000
+Priority: 2147483637
+Action entry: IngressPipeImpl.clone_to_cpu - 
+
+[11:52:35.673] [bmv2] [D] [thread 139] Entry 33554433 added to table 'IngressPipeImpl.acl_table'
+[11:52:35.673] [bmv2] [D] [thread 139] Dumping entry 33554433
+Match key:
+* standard_metadata.ingress_port: TERNARY   0000 &&& 0000
+* hdr.ethernet.dst_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.src_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.ether_type       : TERNARY   86dd &&& ffff
+* local_metadata.ip_proto       : TERNARY   3a &&& ff
+* local_metadata.icmp_type      : TERNARY   88 &&& ff
+* local_metadata.l4_src_port    : TERNARY   0000 &&& 0000
+* local_metadata.l4_dst_port    : TERNARY   0000 &&& 0000
+Priority: 2147483637
+Action entry: IngressPipeImpl.clone_to_cpu - 
+
+[11:52:35.681] [bmv2] [D] [thread 77] [6.0] [cxt 0] Processing packet received on port 1
+[11:52:35.681] [bmv2] [D] [thread 77] [6.0] [cxt 0] Parser 'parser': start
+[11:52:35.681] [bmv2] [D] [thread 77] [6.0] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:35.681] [bmv2] [D] [thread 77] [6.0] [cxt 0] Parser state 'start': key is 0001
+[11:52:35.681] [bmv2] [T] [thread 77] [6.0] [cxt 0] Bytes parsed: 0
+[11:52:35.681] [bmv2] [D] [thread 77] [6.0] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:35.681] [bmv2] [D] [thread 77] [6.0] [cxt 0] Extracting header 'ethernet'
+[11:52:35.681] [bmv2] [D] [thread 77] [6.0] [cxt 0] Parser state 'parse_ethernet': key is 0806
+[11:52:35.681] [bmv2] [T] [thread 77] [6.0] [cxt 0] Bytes parsed: 14
+[11:52:35.681] [bmv2] [D] [thread 77] [6.0] [cxt 0] Parser 'parser': end
+[11:52:35.681] [bmv2] [D] [thread 77] [6.0] [cxt 0] Pipeline 'ingress': start
+[11:52:35.681] [bmv2] [T] [thread 77] [6.0] [cxt 0] p4src/main.p4(499) Condition "hdr.cpu_out.isValid()" (node_2) is false
+[11:52:35.681] [bmv2] [T] [thread 77] [6.0] [cxt 0] Applying table 'IngressPipeImpl.l2_exact_table'
+[11:52:35.681] [bmv2] [D] [thread 77] [6.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: 000000000002
+
+[11:52:35.681] [bmv2] [D] [thread 77] [6.0] [cxt 0] Table 'IngressPipeImpl.l2_exact_table': hit with handle 0
+[11:52:35.681] [bmv2] [D] [thread 77] [6.0] [cxt 0] Dumping entry 0
+Match key:
+* hdr.ethernet.dst_addr: EXACT     000000000002
+Action entry: IngressPipeImpl.set_egress_port - 2,
+
+[11:52:35.681] [bmv2] [D] [thread 77] [6.0] [cxt 0] Action entry is IngressPipeImpl.set_egress_port - 2,
+[11:52:35.681] [bmv2] [T] [thread 77] [6.0] [cxt 0] Action IngressPipeImpl.set_egress_port
+[11:52:35.681] [bmv2] [T] [thread 77] [6.0] [cxt 0] p4src/main.p4(383) Primitive standard_metadata.egress_spec = port_num
+[11:52:35.681] [bmv2] [T] [thread 77] [6.0] [cxt 0] Applying table 'tbl_act_0'
+[11:52:35.681] [bmv2] [D] [thread 77] [6.0] [cxt 0] Looking up key:
+
+[11:52:35.681] [bmv2] [D] [thread 77] [6.0] [cxt 0] Table 'tbl_act_0': miss
+[11:52:35.681] [bmv2] [D] [thread 77] [6.0] [cxt 0] Action entry is act_0 - 
+[11:52:35.681] [bmv2] [T] [thread 77] [6.0] [cxt 0] Action act_0
+[11:52:35.681] [bmv2] [T] [thread 77] [6.0] [cxt 0] Primitive (no source info)
+[11:52:35.681] [bmv2] [T] [thread 77] [6.0] [cxt 0] p4src/main.p4(538) Condition "!l2_exact_table.apply().hit" (node_7) is false
+[11:52:35.681] [bmv2] [T] [thread 77] [6.0] [cxt 0] Applying table 'IngressPipeImpl.acl_table'
+[11:52:35.681] [bmv2] [D] [thread 77] [6.0] [cxt 0] Looking up key:
+* standard_metadata.ingress_port: 0001
+* hdr.ethernet.dst_addr         : 000000000002
+* hdr.ethernet.src_addr         : 000000000001
+* hdr.ethernet.ether_type       : 0806
+* local_metadata.ip_proto       : 00
+* local_metadata.icmp_type      : 00
+* local_metadata.l4_src_port    : 0000
+* local_metadata.l4_dst_port    : 0000
+
+[11:52:35.681] [bmv2] [D] [thread 77] [6.0] [cxt 0] Table 'IngressPipeImpl.acl_table': hit with handle 33554432
+[11:52:35.681] [bmv2] [D] [thread 77] [6.0] [cxt 0] Dumping entry 33554432
+Match key:
+* standard_metadata.ingress_port: TERNARY   0000 &&& 0000
+* hdr.ethernet.dst_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.src_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.ether_type       : TERNARY   0806 &&& ffff
+* local_metadata.ip_proto       : TERNARY   00 &&& 00
+* local_metadata.icmp_type      : TERNARY   00 &&& 00
+* local_metadata.l4_src_port    : TERNARY   0000 &&& 0000
+* local_metadata.l4_dst_port    : TERNARY   0000 &&& 0000
+Priority: 2147483637
+Action entry: IngressPipeImpl.clone_to_cpu - 
+
+[11:52:35.681] [bmv2] [D] [thread 77] [6.0] [cxt 0] Action entry is IngressPipeImpl.clone_to_cpu - 
+[11:52:35.681] [bmv2] [T] [thread 77] [6.0] [cxt 0] Action IngressPipeImpl.clone_to_cpu
+[11:52:35.681] [bmv2] [T] [thread 77] [6.0] [cxt 0] p4src/main.p4(474) Primitive clone3(CloneType.I2E, 99, { standard_metadata.ingress_port })
+[11:52:35.681] [bmv2] [D] [thread 77] [6.0] [cxt 0] Pipeline 'ingress': end
+[11:52:35.681] [bmv2] [D] [thread 77] [6.0] [cxt 0] Cloning packet at ingress
+[11:52:35.681] [bmv2] [D] [thread 77] [6.1] [cxt 0] Parser 'parser': start
+[11:52:35.681] [bmv2] [D] [thread 77] [6.1] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:35.681] [bmv2] [D] [thread 77] [6.1] [cxt 0] Parser state 'start': key is 0003
+[11:52:35.681] [bmv2] [T] [thread 77] [6.1] [cxt 0] Bytes parsed: 0
+[11:52:35.681] [bmv2] [D] [thread 77] [6.1] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:35.681] [bmv2] [D] [thread 77] [6.1] [cxt 0] Extracting header 'ethernet'
+[11:52:35.681] [bmv2] [D] [thread 77] [6.1] [cxt 0] Parser state 'parse_ethernet': key is 0806
+[11:52:35.681] [bmv2] [T] [thread 77] [6.1] [cxt 0] Bytes parsed: 14
+[11:52:35.681] [bmv2] [D] [thread 77] [6.1] [cxt 0] Parser 'parser': end
+[11:52:35.681] [bmv2] [D] [thread 77] [6.0] [cxt 0] Cloning packet to MGID 32867
+[11:52:35.681] [bmv2] [D] [thread 77] number of packets replicated : 1
+[11:52:35.681] [bmv2] [D] [thread 77] [6.1] [cxt 0] Replicating packet on port 255
+[11:52:35.681] [bmv2] [D] [thread 77] [6.0] [cxt 0] Egress port is 2
+[11:52:35.681] [bmv2] [D] [thread 81] [6.2] [cxt 0] Pipeline 'egress': start
+[11:52:35.681] [bmv2] [D] [thread 80] [6.0] [cxt 0] Pipeline 'egress': start
+[11:52:35.681] [bmv2] [T] [thread 81] [6.2] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is true
+[11:52:35.682] [bmv2] [T] [thread 80] [6.0] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:35.682] [bmv2] [T] [thread 81] [6.2] [cxt 0] Applying table 'tbl_act_2'
+[11:52:35.682] [bmv2] [T] [thread 80] [6.0] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:35.682] [bmv2] [D] [thread 80] [6.0] [cxt 0] Pipeline 'egress': end
+[11:52:35.682] [bmv2] [D] [thread 80] [6.0] [cxt 0] Deparser 'deparser': start
+[11:52:35.682] [bmv2] [D] [thread 81] [6.2] [cxt 0] Looking up key:
+
+[11:52:35.682] [bmv2] [T] [thread 80] [6.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[11:52:35.682] [bmv2] [D] [thread 81] [6.2] [cxt 0] Table 'tbl_act_2': miss
+[11:52:35.682] [bmv2] [D] [thread 81] [6.2] [cxt 0] Action entry is act_2 - 
+[11:52:35.682] [bmv2] [D] [thread 80] [6.0] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.682] [bmv2] [T] [thread 81] [6.2] [cxt 0] Action act_2
+[11:52:35.682] [bmv2] [D] [thread 80] [6.0] [cxt 0] Deparser 'deparser': end
+[11:52:35.682] [bmv2] [T] [thread 81] [6.2] [cxt 0] p4src/main.p4(557) Primitive hdr.cpu_in.setValid()
+[11:52:35.682] [bmv2] [D] [thread 82] [6.0] [cxt 0] Transmitting packet of size 60 out of port 2
+[11:52:35.682] [bmv2] [T] [thread 81] [6.2] [cxt 0] p4src/main.p4(558) Primitive hdr.cpu_in.ingress_port = standard_metadata.ingress_port
+[11:52:35.682] [bmv2] [T] [thread 81] [6.2] [cxt 0] p4src/main.p4(559) Primitive exit
+[11:52:35.682] [bmv2] [D] [thread 81] [6.2] [cxt 0] Packet is marked for exit, interrupting pipeline
+[11:52:35.682] [bmv2] [D] [thread 81] [6.2] [cxt 0] Pipeline 'egress': end
+[11:52:35.682] [bmv2] [D] [thread 81] [6.2] [cxt 0] Deparser 'deparser': start
+[11:52:35.682] [bmv2] [T] [thread 81] [6.2] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[11:52:35.682] [bmv2] [D] [thread 81] [6.2] [cxt 0] Deparsing header 'cpu_in'
+[11:52:35.682] [bmv2] [D] [thread 81] [6.2] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.682] [bmv2] [D] [thread 81] [6.2] [cxt 0] Deparser 'deparser': end
+[11:52:35.682] [bmv2] [D] [thread 82] [6.2] [cxt 0] Transmitting packet of size 62 out of port 255
+[11:52:35.682] [bmv2] [D] [thread 82] Transmitting packet-in
+[11:52:35.694] [bmv2] [D] [thread 144] Removed entry 33554433 from table 'IngressPipeImpl.acl_table'
+[11:52:35.694] [bmv2] [D] [thread 144] Removed entry 33554432 from table 'IngressPipeImpl.acl_table'
+[11:52:35.694] [bmv2] [D] [thread 144] node dissociated with mgid 32867
+[11:52:35.694] [bmv2] [D] [thread 144] node destroyed for rid 1
+[11:52:35.694] [bmv2] [D] [thread 144] mgrp node deleted for mgid 32867
+[11:52:35.694] [bmv2] [D] [thread 144] Removed entry 0 from table 'IngressPipeImpl.l2_exact_table'
+[11:52:35.697] [bmv2] [D] [thread 139] Entry 16777216 added to table 'IngressPipeImpl.l2_exact_table'
+[11:52:35.697] [bmv2] [D] [thread 139] Dumping entry 16777216
+Match key:
+* hdr.ethernet.dst_addr: EXACT     333300000001
+Action entry: IngressPipeImpl.set_egress_port - 2,
+
+[11:52:35.698] [bmv2] [D] [thread 144] mgrp node created for mgid 32867
+[11:52:35.698] [bmv2] [D] [thread 144] node created for rid 1
+[11:52:35.698] [bmv2] [D] [thread 144] node associated with mgid 32867
+[11:52:35.699] [bmv2] [D] [thread 139] Entry 50331648 added to table 'IngressPipeImpl.acl_table'
+[11:52:35.699] [bmv2] [D] [thread 139] Dumping entry 50331648
+Match key:
+* standard_metadata.ingress_port: TERNARY   0000 &&& 0000
+* hdr.ethernet.dst_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.src_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.ether_type       : TERNARY   0806 &&& ffff
+* local_metadata.ip_proto       : TERNARY   00 &&& 00
+* local_metadata.icmp_type      : TERNARY   00 &&& 00
+* local_metadata.l4_src_port    : TERNARY   0000 &&& 0000
+* local_metadata.l4_dst_port    : TERNARY   0000 &&& 0000
+Priority: 2147483637
+Action entry: IngressPipeImpl.clone_to_cpu - 
+
+[11:52:35.702] [bmv2] [D] [thread 144] Entry 50331649 added to table 'IngressPipeImpl.acl_table'
+[11:52:35.703] [bmv2] [D] [thread 144] Dumping entry 50331649
+Match key:
+* standard_metadata.ingress_port: TERNARY   0000 &&& 0000
+* hdr.ethernet.dst_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.src_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.ether_type       : TERNARY   86dd &&& ffff
+* local_metadata.ip_proto       : TERNARY   3a &&& ff
+* local_metadata.icmp_type      : TERNARY   88 &&& ff
+* local_metadata.l4_src_port    : TERNARY   0000 &&& 0000
+* local_metadata.l4_dst_port    : TERNARY   0000 &&& 0000
+Priority: 2147483637
+Action entry: IngressPipeImpl.clone_to_cpu - 
+
+[11:52:35.715] [bmv2] [D] [thread 77] [7.0] [cxt 0] Processing packet received on port 1
+[11:52:35.715] [bmv2] [D] [thread 77] [7.0] [cxt 0] Parser 'parser': start
+[11:52:35.715] [bmv2] [D] [thread 77] [7.0] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:35.715] [bmv2] [D] [thread 77] [7.0] [cxt 0] Parser state 'start': key is 0001
+[11:52:35.715] [bmv2] [T] [thread 77] [7.0] [cxt 0] Bytes parsed: 0
+[11:52:35.715] [bmv2] [D] [thread 77] [7.0] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:35.715] [bmv2] [D] [thread 77] [7.0] [cxt 0] Extracting header 'ethernet'
+[11:52:35.715] [bmv2] [D] [thread 77] [7.0] [cxt 0] Parser state 'parse_ethernet': key is 86dd
+[11:52:35.715] [bmv2] [T] [thread 77] [7.0] [cxt 0] Bytes parsed: 14
+[11:52:35.715] [bmv2] [D] [thread 77] [7.0] [cxt 0] Parser 'parser' entering state 'parse_ipv6'
+[11:52:35.715] [bmv2] [D] [thread 77] [7.0] [cxt 0] Extracting header 'ipv6'
+[11:52:35.715] [bmv2] [D] [thread 77] [7.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.ip_proto' from field 'ipv6.next_hdr' (58)
+[11:52:35.715] [bmv2] [D] [thread 77] [7.0] [cxt 0] Parser state 'parse_ipv6': key is 3a
+[11:52:35.715] [bmv2] [T] [thread 77] [7.0] [cxt 0] Bytes parsed: 54
+[11:52:35.715] [bmv2] [D] [thread 77] [7.0] [cxt 0] Parser 'parser' entering state 'parse_icmpv6'
+[11:52:35.715] [bmv2] [D] [thread 77] [7.0] [cxt 0] Extracting header 'icmpv6'
+[11:52:35.715] [bmv2] [D] [thread 77] [7.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.icmp_type' from field 'icmpv6.type' (136)
+[11:52:35.715] [bmv2] [D] [thread 77] [7.0] [cxt 0] Parser state 'parse_icmpv6': key is 88
+[11:52:35.715] [bmv2] [T] [thread 77] [7.0] [cxt 0] Bytes parsed: 58
+[11:52:35.715] [bmv2] [D] [thread 77] [7.0] [cxt 0] Parser 'parser' entering state 'parse_ndp'
+[11:52:35.715] [bmv2] [D] [thread 77] [7.0] [cxt 0] Extracting header 'ndp'
+[11:52:35.715] [bmv2] [D] [thread 77] [7.0] [cxt 0] Parser state 'parse_ndp' has no switch, going to default next state
+[11:52:35.715] [bmv2] [T] [thread 77] [7.0] [cxt 0] Bytes parsed: 86
+[11:52:35.715] [bmv2] [D] [thread 77] [7.0] [cxt 0] Parser 'parser': end
+[11:52:35.715] [bmv2] [D] [thread 77] [7.0] [cxt 0] Pipeline 'ingress': start
+[11:52:35.716] [bmv2] [T] [thread 77] [7.0] [cxt 0] p4src/main.p4(499) Condition "hdr.cpu_out.isValid()" (node_2) is false
+[11:52:35.716] [bmv2] [T] [thread 77] [7.0] [cxt 0] Applying table 'IngressPipeImpl.l2_exact_table'
+[11:52:35.716] [bmv2] [D] [thread 77] [7.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: 333300000001
+
+[11:52:35.716] [bmv2] [D] [thread 77] [7.0] [cxt 0] Table 'IngressPipeImpl.l2_exact_table': hit with handle 16777216
+[11:52:35.716] [bmv2] [D] [thread 77] [7.0] [cxt 0] Dumping entry 16777216
+Match key:
+* hdr.ethernet.dst_addr: EXACT     333300000001
+Action entry: IngressPipeImpl.set_egress_port - 2,
+
+[11:52:35.716] [bmv2] [D] [thread 77] [7.0] [cxt 0] Action entry is IngressPipeImpl.set_egress_port - 2,
+[11:52:35.716] [bmv2] [T] [thread 77] [7.0] [cxt 0] Action IngressPipeImpl.set_egress_port
+[11:52:35.716] [bmv2] [T] [thread 77] [7.0] [cxt 0] p4src/main.p4(383) Primitive standard_metadata.egress_spec = port_num
+[11:52:35.716] [bmv2] [T] [thread 77] [7.0] [cxt 0] Applying table 'tbl_act_0'
+[11:52:35.716] [bmv2] [D] [thread 77] [7.0] [cxt 0] Looking up key:
+
+[11:52:35.716] [bmv2] [D] [thread 77] [7.0] [cxt 0] Table 'tbl_act_0': miss
+[11:52:35.716] [bmv2] [D] [thread 77] [7.0] [cxt 0] Action entry is act_0 - 
+[11:52:35.716] [bmv2] [T] [thread 77] [7.0] [cxt 0] Action act_0
+[11:52:35.716] [bmv2] [T] [thread 77] [7.0] [cxt 0] Primitive (no source info)
+[11:52:35.716] [bmv2] [T] [thread 77] [7.0] [cxt 0] p4src/main.p4(538) Condition "!l2_exact_table.apply().hit" (node_7) is false
+[11:52:35.716] [bmv2] [T] [thread 77] [7.0] [cxt 0] Applying table 'IngressPipeImpl.acl_table'
+[11:52:35.716] [bmv2] [D] [thread 77] [7.0] [cxt 0] Looking up key:
+* standard_metadata.ingress_port: 0001
+* hdr.ethernet.dst_addr         : 333300000001
+* hdr.ethernet.src_addr         : 00000000aa01
+* hdr.ethernet.ether_type       : 86dd
+* local_metadata.ip_proto       : 3a
+* local_metadata.icmp_type      : 88
+* local_metadata.l4_src_port    : 0000
+* local_metadata.l4_dst_port    : 0000
+
+[11:52:35.716] [bmv2] [D] [thread 77] [7.0] [cxt 0] Table 'IngressPipeImpl.acl_table': hit with handle 50331649
+[11:52:35.716] [bmv2] [D] [thread 77] [7.0] [cxt 0] Dumping entry 50331649
+Match key:
+* standard_metadata.ingress_port: TERNARY   0000 &&& 0000
+* hdr.ethernet.dst_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.src_addr         : TERNARY   000000000000 &&& 000000000000
+* hdr.ethernet.ether_type       : TERNARY   86dd &&& ffff
+* local_metadata.ip_proto       : TERNARY   3a &&& ff
+* local_metadata.icmp_type      : TERNARY   88 &&& ff
+* local_metadata.l4_src_port    : TERNARY   0000 &&& 0000
+* local_metadata.l4_dst_port    : TERNARY   0000 &&& 0000
+Priority: 2147483637
+Action entry: IngressPipeImpl.clone_to_cpu - 
+
+[11:52:35.716] [bmv2] [D] [thread 77] [7.0] [cxt 0] Action entry is IngressPipeImpl.clone_to_cpu - 
+[11:52:35.716] [bmv2] [T] [thread 77] [7.0] [cxt 0] Action IngressPipeImpl.clone_to_cpu
+[11:52:35.716] [bmv2] [T] [thread 77] [7.0] [cxt 0] p4src/main.p4(474) Primitive clone3(CloneType.I2E, 99, { standard_metadata.ingress_port })
+[11:52:35.716] [bmv2] [D] [thread 77] [7.0] [cxt 0] Pipeline 'ingress': end
+[11:52:35.716] [bmv2] [D] [thread 77] [7.0] [cxt 0] Cloning packet at ingress
+[11:52:35.716] [bmv2] [D] [thread 77] [7.1] [cxt 0] Parser 'parser': start
+[11:52:35.716] [bmv2] [D] [thread 77] [7.1] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:35.716] [bmv2] [D] [thread 77] [7.1] [cxt 0] Parser state 'start': key is 0001
+[11:52:35.716] [bmv2] [T] [thread 77] [7.1] [cxt 0] Bytes parsed: 0
+[11:52:35.716] [bmv2] [D] [thread 77] [7.1] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:35.716] [bmv2] [D] [thread 77] [7.1] [cxt 0] Extracting header 'ethernet'
+[11:52:35.716] [bmv2] [D] [thread 77] [7.1] [cxt 0] Parser state 'parse_ethernet': key is 86dd
+[11:52:35.716] [bmv2] [T] [thread 77] [7.1] [cxt 0] Bytes parsed: 14
+[11:52:35.716] [bmv2] [D] [thread 77] [7.1] [cxt 0] Parser 'parser' entering state 'parse_ipv6'
+[11:52:35.716] [bmv2] [D] [thread 77] [7.1] [cxt 0] Extracting header 'ipv6'
+[11:52:35.716] [bmv2] [D] [thread 77] [7.1] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.ip_proto' from field 'ipv6.next_hdr' (58)
+[11:52:35.716] [bmv2] [D] [thread 77] [7.1] [cxt 0] Parser state 'parse_ipv6': key is 3a
+[11:52:35.716] [bmv2] [T] [thread 77] [7.1] [cxt 0] Bytes parsed: 54
+[11:52:35.716] [bmv2] [D] [thread 77] [7.1] [cxt 0] Parser 'parser' entering state 'parse_icmpv6'
+[11:52:35.716] [bmv2] [D] [thread 77] [7.1] [cxt 0] Extracting header 'icmpv6'
+[11:52:35.716] [bmv2] [D] [thread 77] [7.1] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.icmp_type' from field 'icmpv6.type' (136)
+[11:52:35.716] [bmv2] [D] [thread 77] [7.1] [cxt 0] Parser state 'parse_icmpv6': key is 88
+[11:52:35.716] [bmv2] [T] [thread 77] [7.1] [cxt 0] Bytes parsed: 58
+[11:52:35.716] [bmv2] [D] [thread 77] [7.1] [cxt 0] Parser 'parser' entering state 'parse_ndp'
+[11:52:35.716] [bmv2] [D] [thread 77] [7.1] [cxt 0] Extracting header 'ndp'
+[11:52:35.716] [bmv2] [D] [thread 77] [7.1] [cxt 0] Parser state 'parse_ndp' has no switch, going to default next state
+[11:52:35.716] [bmv2] [T] [thread 77] [7.1] [cxt 0] Bytes parsed: 86
+[11:52:35.716] [bmv2] [D] [thread 77] [7.1] [cxt 0] Parser 'parser': end
+[11:52:35.716] [bmv2] [D] [thread 77] [7.0] [cxt 0] Cloning packet to MGID 32867
+[11:52:35.716] [bmv2] [D] [thread 77] number of packets replicated : 1
+[11:52:35.716] [bmv2] [D] [thread 77] [7.1] [cxt 0] Replicating packet on port 255
+[11:52:35.716] [bmv2] [D] [thread 77] [7.0] [cxt 0] Egress port is 2
+[11:52:35.717] [bmv2] [D] [thread 81] [7.2] [cxt 0] Pipeline 'egress': start
+[11:52:35.717] [bmv2] [D] [thread 80] [7.0] [cxt 0] Pipeline 'egress': start
+[11:52:35.717] [bmv2] [T] [thread 81] [7.2] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is true
+[11:52:35.717] [bmv2] [T] [thread 80] [7.0] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:35.717] [bmv2] [T] [thread 81] [7.2] [cxt 0] Applying table 'tbl_act_2'
+[11:52:35.717] [bmv2] [T] [thread 80] [7.0] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:35.717] [bmv2] [D] [thread 81] [7.2] [cxt 0] Looking up key:
+
+[11:52:35.717] [bmv2] [D] [thread 80] [7.0] [cxt 0] Pipeline 'egress': end
+[11:52:35.717] [bmv2] [D] [thread 81] [7.2] [cxt 0] Table 'tbl_act_2': miss
+[11:52:35.717] [bmv2] [D] [thread 80] [7.0] [cxt 0] Deparser 'deparser': start
+[11:52:35.717] [bmv2] [D] [thread 81] [7.2] [cxt 0] Action entry is act_2 - 
+[11:52:35.717] [bmv2] [D] [thread 80] [7.0] [cxt 0] Updating checksum 'cksum'
+[11:52:35.717] [bmv2] [T] [thread 81] [7.2] [cxt 0] Action act_2
+[11:52:35.717] [bmv2] [T] [thread 81] [7.2] [cxt 0] p4src/main.p4(557) Primitive hdr.cpu_in.setValid()
+[11:52:35.717] [bmv2] [T] [thread 81] [7.2] [cxt 0] p4src/main.p4(558) Primitive hdr.cpu_in.ingress_port = standard_metadata.ingress_port
+[11:52:35.717] [bmv2] [D] [thread 80] [7.0] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.717] [bmv2] [T] [thread 81] [7.2] [cxt 0] p4src/main.p4(559) Primitive exit
+[11:52:35.717] [bmv2] [D] [thread 80] [7.0] [cxt 0] Deparsing header 'ipv6'
+[11:52:35.717] [bmv2] [D] [thread 80] [7.0] [cxt 0] Deparsing header 'icmpv6'
+[11:52:35.717] [bmv2] [D] [thread 80] [7.0] [cxt 0] Deparsing header 'ndp'
+[11:52:35.717] [bmv2] [D] [thread 81] [7.2] [cxt 0] Packet is marked for exit, interrupting pipeline
+[11:52:35.717] [bmv2] [D] [thread 81] [7.2] [cxt 0] Pipeline 'egress': end
+[11:52:35.717] [bmv2] [D] [thread 80] [7.0] [cxt 0] Deparser 'deparser': end
+[11:52:35.717] [bmv2] [D] [thread 81] [7.2] [cxt 0] Deparser 'deparser': start
+[11:52:35.717] [bmv2] [D] [thread 81] [7.2] [cxt 0] Updating checksum 'cksum'
+[11:52:35.717] [bmv2] [D] [thread 82] [7.0] [cxt 0] Transmitting packet of size 86 out of port 2
+[11:52:35.717] [bmv2] [D] [thread 81] [7.2] [cxt 0] Deparsing header 'cpu_in'
+[11:52:35.717] [bmv2] [D] [thread 81] [7.2] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.717] [bmv2] [D] [thread 81] [7.2] [cxt 0] Deparsing header 'ipv6'
+[11:52:35.717] [bmv2] [D] [thread 81] [7.2] [cxt 0] Deparsing header 'icmpv6'
+[11:52:35.717] [bmv2] [D] [thread 81] [7.2] [cxt 0] Deparsing header 'ndp'
+[11:52:35.717] [bmv2] [D] [thread 81] [7.2] [cxt 0] Deparser 'deparser': end
+[11:52:35.718] [bmv2] [D] [thread 82] [7.2] [cxt 0] Transmitting packet of size 88 out of port 255
+[11:52:35.718] [bmv2] [D] [thread 82] Transmitting packet-in
+[11:52:35.742] [bmv2] [D] [thread 139] Removed entry 50331649 from table 'IngressPipeImpl.acl_table'
+[11:52:35.742] [bmv2] [D] [thread 139] Removed entry 50331648 from table 'IngressPipeImpl.acl_table'
+[11:52:35.742] [bmv2] [D] [thread 139] node dissociated with mgid 32867
+[11:52:35.742] [bmv2] [D] [thread 139] node destroyed for rid 1
+[11:52:35.742] [bmv2] [D] [thread 139] mgrp node deleted for mgid 32867
+[11:52:35.743] [bmv2] [D] [thread 139] Removed entry 16777216 from table 'IngressPipeImpl.l2_exact_table'
+[11:52:35.770] [bmv2] [D] [thread 144] Entry 33554432 added to table 'IngressPipeImpl.l2_exact_table'
+[11:52:35.770] [bmv2] [D] [thread 144] Dumping entry 33554432
+Match key:
+* hdr.ethernet.dst_addr: EXACT     000102030405
+Action entry: IngressPipeImpl.set_egress_port - 2,
+
+[11:52:35.777] [bmv2] [D] [thread 148] Entry 1 added to table 'IngressPipeImpl.l2_exact_table'
+[11:52:35.777] [bmv2] [D] [thread 148] Dumping entry 1
+Match key:
+* hdr.ethernet.dst_addr: EXACT     00060708090a
+Action entry: IngressPipeImpl.set_egress_port - 1,
+
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Processing packet received on port 1
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Parser 'parser': start
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Parser state 'start': key is 0001
+[11:52:35.780] [bmv2] [T] [thread 77] [8.0] [cxt 0] Bytes parsed: 0
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Extracting header 'ethernet'
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Parser state 'parse_ethernet': key is 0800
+[11:52:35.780] [bmv2] [T] [thread 77] [8.0] [cxt 0] Bytes parsed: 14
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Extracting header 'ipv4'
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.ip_proto' from field 'ipv4.protocol' (6)
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Parser state 'parse_ipv4': key is 06
+[11:52:35.780] [bmv2] [T] [thread 77] [8.0] [cxt 0] Bytes parsed: 34
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Parser 'parser' entering state 'parse_tcp'
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Extracting header 'tcp'
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.l4_src_port' from field 'tcp.src_port' (1234)
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.l4_dst_port' from field 'tcp.dst_port' (80)
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Parser state 'parse_tcp' has no switch, going to default next state
+[11:52:35.780] [bmv2] [T] [thread 77] [8.0] [cxt 0] Bytes parsed: 54
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Parser 'parser': end
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Pipeline 'ingress': start
+[11:52:35.780] [bmv2] [T] [thread 77] [8.0] [cxt 0] p4src/main.p4(499) Condition "hdr.cpu_out.isValid()" (node_2) is false
+[11:52:35.780] [bmv2] [T] [thread 77] [8.0] [cxt 0] Applying table 'IngressPipeImpl.l2_exact_table'
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: 000102030405
+
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Table 'IngressPipeImpl.l2_exact_table': hit with handle 33554432
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Dumping entry 33554432
+Match key:
+* hdr.ethernet.dst_addr: EXACT     000102030405
+Action entry: IngressPipeImpl.set_egress_port - 2,
+
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Action entry is IngressPipeImpl.set_egress_port - 2,
+[11:52:35.780] [bmv2] [T] [thread 77] [8.0] [cxt 0] Action IngressPipeImpl.set_egress_port
+[11:52:35.780] [bmv2] [T] [thread 77] [8.0] [cxt 0] p4src/main.p4(383) Primitive standard_metadata.egress_spec = port_num
+[11:52:35.780] [bmv2] [T] [thread 77] [8.0] [cxt 0] Applying table 'tbl_act_0'
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Looking up key:
+
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Table 'tbl_act_0': miss
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Action entry is act_0 - 
+[11:52:35.780] [bmv2] [T] [thread 77] [8.0] [cxt 0] Action act_0
+[11:52:35.780] [bmv2] [T] [thread 77] [8.0] [cxt 0] Primitive (no source info)
+[11:52:35.780] [bmv2] [T] [thread 77] [8.0] [cxt 0] p4src/main.p4(538) Condition "!l2_exact_table.apply().hit" (node_7) is false
+[11:52:35.780] [bmv2] [T] [thread 77] [8.0] [cxt 0] Applying table 'IngressPipeImpl.acl_table'
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Looking up key:
+* standard_metadata.ingress_port: 0001
+* hdr.ethernet.dst_addr         : 000102030405
+* hdr.ethernet.src_addr         : 00060708090a
+* hdr.ethernet.ether_type       : 0800
+* local_metadata.ip_proto       : 06
+* local_metadata.icmp_type      : 00
+* local_metadata.l4_src_port    : 04d2
+* local_metadata.l4_dst_port    : 0050
+
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Table 'IngressPipeImpl.acl_table': miss
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Action entry is NoAction - 
+[11:52:35.780] [bmv2] [T] [thread 77] [8.0] [cxt 0] Action NoAction
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Pipeline 'ingress': end
+[11:52:35.780] [bmv2] [D] [thread 77] [8.0] [cxt 0] Egress port is 2
+[11:52:35.780] [bmv2] [D] [thread 80] [8.0] [cxt 0] Pipeline 'egress': start
+[11:52:35.780] [bmv2] [T] [thread 80] [8.0] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:35.781] [bmv2] [T] [thread 80] [8.0] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:35.781] [bmv2] [D] [thread 80] [8.0] [cxt 0] Pipeline 'egress': end
+[11:52:35.781] [bmv2] [D] [thread 80] [8.0] [cxt 0] Deparser 'deparser': start
+[11:52:35.781] [bmv2] [T] [thread 80] [8.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[11:52:35.781] [bmv2] [D] [thread 80] [8.0] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.781] [bmv2] [D] [thread 80] [8.0] [cxt 0] Deparsing header 'ipv4'
+[11:52:35.781] [bmv2] [D] [thread 80] [8.0] [cxt 0] Deparsing header 'tcp'
+[11:52:35.781] [bmv2] [D] [thread 80] [8.0] [cxt 0] Deparser 'deparser': end
+[11:52:35.781] [bmv2] [D] [thread 82] [8.0] [cxt 0] Transmitting packet of size 120 out of port 2
+[11:52:35.793] [bmv2] [D] [thread 77] [9.0] [cxt 0] Processing packet received on port 2
+[11:52:35.793] [bmv2] [D] [thread 77] [9.0] [cxt 0] Parser 'parser': start
+[11:52:35.793] [bmv2] [D] [thread 77] [9.0] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:35.793] [bmv2] [D] [thread 77] [9.0] [cxt 0] Parser state 'start': key is 0002
+[11:52:35.793] [bmv2] [T] [thread 77] [9.0] [cxt 0] Bytes parsed: 0
+[11:52:35.793] [bmv2] [D] [thread 77] [9.0] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:35.793] [bmv2] [D] [thread 77] [9.0] [cxt 0] Extracting header 'ethernet'
+[11:52:35.793] [bmv2] [D] [thread 77] [9.0] [cxt 0] Parser state 'parse_ethernet': key is 0800
+[11:52:35.793] [bmv2] [T] [thread 77] [9.0] [cxt 0] Bytes parsed: 14
+[11:52:35.793] [bmv2] [D] [thread 77] [9.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[11:52:35.793] [bmv2] [D] [thread 77] [9.0] [cxt 0] Extracting header 'ipv4'
+[11:52:35.793] [bmv2] [D] [thread 77] [9.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.ip_proto' from field 'ipv4.protocol' (6)
+[11:52:35.793] [bmv2] [D] [thread 77] [9.0] [cxt 0] Parser state 'parse_ipv4': key is 06
+[11:52:35.793] [bmv2] [T] [thread 77] [9.0] [cxt 0] Bytes parsed: 34
+[11:52:35.793] [bmv2] [D] [thread 77] [9.0] [cxt 0] Parser 'parser' entering state 'parse_tcp'
+[11:52:35.793] [bmv2] [D] [thread 77] [9.0] [cxt 0] Extracting header 'tcp'
+[11:52:35.793] [bmv2] [D] [thread 77] [9.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.l4_src_port' from field 'tcp.src_port' (1234)
+[11:52:35.793] [bmv2] [D] [thread 77] [9.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.l4_dst_port' from field 'tcp.dst_port' (80)
+[11:52:35.793] [bmv2] [D] [thread 77] [9.0] [cxt 0] Parser state 'parse_tcp' has no switch, going to default next state
+[11:52:35.793] [bmv2] [T] [thread 77] [9.0] [cxt 0] Bytes parsed: 54
+[11:52:35.793] [bmv2] [D] [thread 77] [9.0] [cxt 0] Parser 'parser': end
+[11:52:35.793] [bmv2] [D] [thread 77] [9.0] [cxt 0] Pipeline 'ingress': start
+[11:52:35.793] [bmv2] [T] [thread 77] [9.0] [cxt 0] p4src/main.p4(499) Condition "hdr.cpu_out.isValid()" (node_2) is false
+[11:52:35.793] [bmv2] [T] [thread 77] [9.0] [cxt 0] Applying table 'IngressPipeImpl.l2_exact_table'
+[11:52:35.793] [bmv2] [D] [thread 77] [9.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: 00060708090a
+
+[11:52:35.793] [bmv2] [D] [thread 77] [9.0] [cxt 0] Table 'IngressPipeImpl.l2_exact_table': hit with handle 1
+[11:52:35.794] [bmv2] [D] [thread 77] [9.0] [cxt 0] Dumping entry 1
+Match key:
+* hdr.ethernet.dst_addr: EXACT     00060708090a
+Action entry: IngressPipeImpl.set_egress_port - 1,
+
+[11:52:35.794] [bmv2] [D] [thread 77] [9.0] [cxt 0] Action entry is IngressPipeImpl.set_egress_port - 1,
+[11:52:35.794] [bmv2] [T] [thread 77] [9.0] [cxt 0] Action IngressPipeImpl.set_egress_port
+[11:52:35.794] [bmv2] [T] [thread 77] [9.0] [cxt 0] p4src/main.p4(383) Primitive standard_metadata.egress_spec = port_num
+[11:52:35.794] [bmv2] [T] [thread 77] [9.0] [cxt 0] Applying table 'tbl_act_0'
+[11:52:35.794] [bmv2] [D] [thread 77] [9.0] [cxt 0] Looking up key:
+
+[11:52:35.794] [bmv2] [D] [thread 77] [9.0] [cxt 0] Table 'tbl_act_0': miss
+[11:52:35.794] [bmv2] [D] [thread 77] [9.0] [cxt 0] Action entry is act_0 - 
+[11:52:35.794] [bmv2] [T] [thread 77] [9.0] [cxt 0] Action act_0
+[11:52:35.794] [bmv2] [T] [thread 77] [9.0] [cxt 0] Primitive (no source info)
+[11:52:35.794] [bmv2] [T] [thread 77] [9.0] [cxt 0] p4src/main.p4(538) Condition "!l2_exact_table.apply().hit" (node_7) is false
+[11:52:35.794] [bmv2] [T] [thread 77] [9.0] [cxt 0] Applying table 'IngressPipeImpl.acl_table'
+[11:52:35.794] [bmv2] [D] [thread 77] [9.0] [cxt 0] Looking up key:
+* standard_metadata.ingress_port: 0002
+* hdr.ethernet.dst_addr         : 00060708090a
+* hdr.ethernet.src_addr         : 000102030405
+* hdr.ethernet.ether_type       : 0800
+* local_metadata.ip_proto       : 06
+* local_metadata.icmp_type      : 00
+* local_metadata.l4_src_port    : 04d2
+* local_metadata.l4_dst_port    : 0050
+
+[11:52:35.794] [bmv2] [D] [thread 77] [9.0] [cxt 0] Table 'IngressPipeImpl.acl_table': miss
+[11:52:35.794] [bmv2] [D] [thread 77] [9.0] [cxt 0] Action entry is NoAction - 
+[11:52:35.794] [bmv2] [T] [thread 77] [9.0] [cxt 0] Action NoAction
+[11:52:35.794] [bmv2] [D] [thread 77] [9.0] [cxt 0] Pipeline 'ingress': end
+[11:52:35.794] [bmv2] [D] [thread 77] [9.0] [cxt 0] Egress port is 1
+[11:52:35.794] [bmv2] [D] [thread 79] [9.0] [cxt 0] Pipeline 'egress': start
+[11:52:35.795] [bmv2] [T] [thread 79] [9.0] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:35.795] [bmv2] [T] [thread 79] [9.0] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:35.795] [bmv2] [D] [thread 79] [9.0] [cxt 0] Pipeline 'egress': end
+[11:52:35.795] [bmv2] [D] [thread 79] [9.0] [cxt 0] Deparser 'deparser': start
+[11:52:35.795] [bmv2] [T] [thread 79] [9.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[11:52:35.795] [bmv2] [D] [thread 79] [9.0] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.795] [bmv2] [D] [thread 79] [9.0] [cxt 0] Deparsing header 'ipv4'
+[11:52:35.795] [bmv2] [D] [thread 79] [9.0] [cxt 0] Deparsing header 'tcp'
+[11:52:35.795] [bmv2] [D] [thread 79] [9.0] [cxt 0] Deparser 'deparser': end
+[11:52:35.795] [bmv2] [D] [thread 82] [9.0] [cxt 0] Transmitting packet of size 120 out of port 1
+[11:52:35.903] [bmv2] [D] [thread 144] Removed entry 1 from table 'IngressPipeImpl.l2_exact_table'
+[11:52:35.903] [bmv2] [D] [thread 144] Removed entry 33554432 from table 'IngressPipeImpl.l2_exact_table'
+[11:52:35.907] [bmv2] [D] [thread 144] Entry 50331648 added to table 'IngressPipeImpl.l2_exact_table'
+[11:52:35.907] [bmv2] [D] [thread 144] Dumping entry 50331648
+Match key:
+* hdr.ethernet.dst_addr: EXACT     000102030405
+Action entry: IngressPipeImpl.set_egress_port - 2,
+
+[11:52:35.909] [bmv2] [D] [thread 148] Entry 16777217 added to table 'IngressPipeImpl.l2_exact_table'
+[11:52:35.909] [bmv2] [D] [thread 148] Dumping entry 16777217
+Match key:
+* hdr.ethernet.dst_addr: EXACT     00060708090a
+Action entry: IngressPipeImpl.set_egress_port - 1,
+
+[11:52:35.910] [bmv2] [D] [thread 77] [10.0] [cxt 0] Processing packet received on port 1
+[11:52:35.910] [bmv2] [D] [thread 77] [10.0] [cxt 0] Parser 'parser': start
+[11:52:35.910] [bmv2] [D] [thread 77] [10.0] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:35.910] [bmv2] [D] [thread 77] [10.0] [cxt 0] Parser state 'start': key is 0001
+[11:52:35.910] [bmv2] [T] [thread 77] [10.0] [cxt 0] Bytes parsed: 0
+[11:52:35.910] [bmv2] [D] [thread 77] [10.0] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:35.910] [bmv2] [D] [thread 77] [10.0] [cxt 0] Extracting header 'ethernet'
+[11:52:35.910] [bmv2] [D] [thread 77] [10.0] [cxt 0] Parser state 'parse_ethernet': key is 0800
+[11:52:35.910] [bmv2] [T] [thread 77] [10.0] [cxt 0] Bytes parsed: 14
+[11:52:35.910] [bmv2] [D] [thread 77] [10.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[11:52:35.910] [bmv2] [D] [thread 77] [10.0] [cxt 0] Extracting header 'ipv4'
+[11:52:35.910] [bmv2] [D] [thread 77] [10.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.ip_proto' from field 'ipv4.protocol' (17)
+[11:52:35.911] [bmv2] [D] [thread 77] [10.0] [cxt 0] Parser state 'parse_ipv4': key is 11
+[11:52:35.911] [bmv2] [T] [thread 77] [10.0] [cxt 0] Bytes parsed: 34
+[11:52:35.911] [bmv2] [D] [thread 77] [10.0] [cxt 0] Parser 'parser' entering state 'parse_udp'
+[11:52:35.911] [bmv2] [D] [thread 77] [10.0] [cxt 0] Extracting header 'udp'
+[11:52:35.911] [bmv2] [D] [thread 77] [10.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.l4_src_port' from field 'udp.src_port' (1234)
+[11:52:35.911] [bmv2] [D] [thread 77] [10.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.l4_dst_port' from field 'udp.dst_port' (80)
+[11:52:35.911] [bmv2] [D] [thread 77] [10.0] [cxt 0] Parser state 'parse_udp' has no switch, going to default next state
+[11:52:35.911] [bmv2] [T] [thread 77] [10.0] [cxt 0] Bytes parsed: 42
+[11:52:35.911] [bmv2] [D] [thread 77] [10.0] [cxt 0] Parser 'parser': end
+[11:52:35.911] [bmv2] [D] [thread 77] [10.0] [cxt 0] Pipeline 'ingress': start
+[11:52:35.911] [bmv2] [T] [thread 77] [10.0] [cxt 0] p4src/main.p4(499) Condition "hdr.cpu_out.isValid()" (node_2) is false
+[11:52:35.911] [bmv2] [T] [thread 77] [10.0] [cxt 0] Applying table 'IngressPipeImpl.l2_exact_table'
+[11:52:35.911] [bmv2] [D] [thread 77] [10.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: 000102030405
+
+[11:52:35.911] [bmv2] [D] [thread 77] [10.0] [cxt 0] Table 'IngressPipeImpl.l2_exact_table': hit with handle 50331648
+[11:52:35.911] [bmv2] [D] [thread 77] [10.0] [cxt 0] Dumping entry 50331648
+Match key:
+* hdr.ethernet.dst_addr: EXACT     000102030405
+Action entry: IngressPipeImpl.set_egress_port - 2,
+
+[11:52:35.911] [bmv2] [D] [thread 77] [10.0] [cxt 0] Action entry is IngressPipeImpl.set_egress_port - 2,
+[11:52:35.911] [bmv2] [T] [thread 77] [10.0] [cxt 0] Action IngressPipeImpl.set_egress_port
+[11:52:35.911] [bmv2] [T] [thread 77] [10.0] [cxt 0] p4src/main.p4(383) Primitive standard_metadata.egress_spec = port_num
+[11:52:35.911] [bmv2] [T] [thread 77] [10.0] [cxt 0] Applying table 'tbl_act_0'
+[11:52:35.911] [bmv2] [D] [thread 77] [10.0] [cxt 0] Looking up key:
+
+[11:52:35.911] [bmv2] [D] [thread 77] [10.0] [cxt 0] Table 'tbl_act_0': miss
+[11:52:35.911] [bmv2] [D] [thread 77] [10.0] [cxt 0] Action entry is act_0 - 
+[11:52:35.911] [bmv2] [T] [thread 77] [10.0] [cxt 0] Action act_0
+[11:52:35.911] [bmv2] [T] [thread 77] [10.0] [cxt 0] Primitive (no source info)
+[11:52:35.911] [bmv2] [T] [thread 77] [10.0] [cxt 0] p4src/main.p4(538) Condition "!l2_exact_table.apply().hit" (node_7) is false
+[11:52:35.911] [bmv2] [T] [thread 77] [10.0] [cxt 0] Applying table 'IngressPipeImpl.acl_table'
+[11:52:35.911] [bmv2] [D] [thread 77] [10.0] [cxt 0] Looking up key:
+* standard_metadata.ingress_port: 0001
+* hdr.ethernet.dst_addr         : 000102030405
+* hdr.ethernet.src_addr         : 00060708090a
+* hdr.ethernet.ether_type       : 0800
+* local_metadata.ip_proto       : 11
+* local_metadata.icmp_type      : 00
+* local_metadata.l4_src_port    : 04d2
+* local_metadata.l4_dst_port    : 0050
+
+[11:52:35.911] [bmv2] [D] [thread 77] [10.0] [cxt 0] Table 'IngressPipeImpl.acl_table': miss
+[11:52:35.911] [bmv2] [D] [thread 77] [10.0] [cxt 0] Action entry is NoAction - 
+[11:52:35.911] [bmv2] [T] [thread 77] [10.0] [cxt 0] Action NoAction
+[11:52:35.911] [bmv2] [D] [thread 77] [10.0] [cxt 0] Pipeline 'ingress': end
+[11:52:35.911] [bmv2] [D] [thread 77] [10.0] [cxt 0] Egress port is 2
+[11:52:35.911] [bmv2] [D] [thread 80] [10.0] [cxt 0] Pipeline 'egress': start
+[11:52:35.911] [bmv2] [T] [thread 80] [10.0] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:35.911] [bmv2] [T] [thread 80] [10.0] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:35.911] [bmv2] [D] [thread 80] [10.0] [cxt 0] Pipeline 'egress': end
+[11:52:35.911] [bmv2] [D] [thread 80] [10.0] [cxt 0] Deparser 'deparser': start
+[11:52:35.911] [bmv2] [T] [thread 80] [10.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[11:52:35.911] [bmv2] [D] [thread 80] [10.0] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.911] [bmv2] [D] [thread 80] [10.0] [cxt 0] Deparsing header 'ipv4'
+[11:52:35.911] [bmv2] [D] [thread 80] [10.0] [cxt 0] Deparsing header 'udp'
+[11:52:35.911] [bmv2] [D] [thread 80] [10.0] [cxt 0] Deparser 'deparser': end
+[11:52:35.911] [bmv2] [D] [thread 82] [10.0] [cxt 0] Transmitting packet of size 120 out of port 2
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Processing packet received on port 2
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Parser 'parser': start
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Parser state 'start': key is 0002
+[11:52:35.912] [bmv2] [T] [thread 77] [11.0] [cxt 0] Bytes parsed: 0
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Extracting header 'ethernet'
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Parser state 'parse_ethernet': key is 0800
+[11:52:35.912] [bmv2] [T] [thread 77] [11.0] [cxt 0] Bytes parsed: 14
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Extracting header 'ipv4'
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.ip_proto' from field 'ipv4.protocol' (17)
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Parser state 'parse_ipv4': key is 11
+[11:52:35.912] [bmv2] [T] [thread 77] [11.0] [cxt 0] Bytes parsed: 34
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Parser 'parser' entering state 'parse_udp'
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Extracting header 'udp'
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.l4_src_port' from field 'udp.src_port' (1234)
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.l4_dst_port' from field 'udp.dst_port' (80)
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Parser state 'parse_udp' has no switch, going to default next state
+[11:52:35.912] [bmv2] [T] [thread 77] [11.0] [cxt 0] Bytes parsed: 42
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Parser 'parser': end
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Pipeline 'ingress': start
+[11:52:35.912] [bmv2] [T] [thread 77] [11.0] [cxt 0] p4src/main.p4(499) Condition "hdr.cpu_out.isValid()" (node_2) is false
+[11:52:35.912] [bmv2] [T] [thread 77] [11.0] [cxt 0] Applying table 'IngressPipeImpl.l2_exact_table'
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: 00060708090a
+
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Table 'IngressPipeImpl.l2_exact_table': hit with handle 16777217
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Dumping entry 16777217
+Match key:
+* hdr.ethernet.dst_addr: EXACT     00060708090a
+Action entry: IngressPipeImpl.set_egress_port - 1,
+
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Action entry is IngressPipeImpl.set_egress_port - 1,
+[11:52:35.912] [bmv2] [T] [thread 77] [11.0] [cxt 0] Action IngressPipeImpl.set_egress_port
+[11:52:35.912] [bmv2] [T] [thread 77] [11.0] [cxt 0] p4src/main.p4(383) Primitive standard_metadata.egress_spec = port_num
+[11:52:35.912] [bmv2] [T] [thread 77] [11.0] [cxt 0] Applying table 'tbl_act_0'
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Looking up key:
+
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Table 'tbl_act_0': miss
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Action entry is act_0 - 
+[11:52:35.912] [bmv2] [T] [thread 77] [11.0] [cxt 0] Action act_0
+[11:52:35.912] [bmv2] [T] [thread 77] [11.0] [cxt 0] Primitive (no source info)
+[11:52:35.912] [bmv2] [T] [thread 77] [11.0] [cxt 0] p4src/main.p4(538) Condition "!l2_exact_table.apply().hit" (node_7) is false
+[11:52:35.912] [bmv2] [T] [thread 77] [11.0] [cxt 0] Applying table 'IngressPipeImpl.acl_table'
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Looking up key:
+* standard_metadata.ingress_port: 0002
+* hdr.ethernet.dst_addr         : 00060708090a
+* hdr.ethernet.src_addr         : 000102030405
+* hdr.ethernet.ether_type       : 0800
+* local_metadata.ip_proto       : 11
+* local_metadata.icmp_type      : 00
+* local_metadata.l4_src_port    : 04d2
+* local_metadata.l4_dst_port    : 0050
+
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Table 'IngressPipeImpl.acl_table': miss
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Action entry is NoAction - 
+[11:52:35.912] [bmv2] [T] [thread 77] [11.0] [cxt 0] Action NoAction
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Pipeline 'ingress': end
+[11:52:35.912] [bmv2] [D] [thread 77] [11.0] [cxt 0] Egress port is 1
+[11:52:35.913] [bmv2] [D] [thread 79] [11.0] [cxt 0] Pipeline 'egress': start
+[11:52:35.913] [bmv2] [T] [thread 79] [11.0] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:35.913] [bmv2] [T] [thread 79] [11.0] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:35.913] [bmv2] [D] [thread 79] [11.0] [cxt 0] Pipeline 'egress': end
+[11:52:35.913] [bmv2] [D] [thread 79] [11.0] [cxt 0] Deparser 'deparser': start
+[11:52:35.913] [bmv2] [T] [thread 79] [11.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[11:52:35.913] [bmv2] [D] [thread 79] [11.0] [cxt 0] Deparsing header 'ethernet'
+[11:52:35.913] [bmv2] [D] [thread 79] [11.0] [cxt 0] Deparsing header 'ipv4'
+[11:52:35.913] [bmv2] [D] [thread 79] [11.0] [cxt 0] Deparsing header 'udp'
+[11:52:35.913] [bmv2] [D] [thread 79] [11.0] [cxt 0] Deparser 'deparser': end
+[11:52:35.913] [bmv2] [D] [thread 82] [11.0] [cxt 0] Transmitting packet of size 120 out of port 1
+[11:52:36.018] [bmv2] [D] [thread 144] Removed entry 16777217 from table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.018] [bmv2] [D] [thread 144] Removed entry 50331648 from table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.023] [bmv2] [D] [thread 148] Entry 67108864 added to table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.023] [bmv2] [D] [thread 148] Dumping entry 67108864
+Match key:
+* hdr.ethernet.dst_addr: EXACT     000102030405
+Action entry: IngressPipeImpl.set_egress_port - 2,
+
+[11:52:36.025] [bmv2] [D] [thread 144] Entry 33554433 added to table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.025] [bmv2] [D] [thread 144] Dumping entry 33554433
+Match key:
+* hdr.ethernet.dst_addr: EXACT     00060708090a
+Action entry: IngressPipeImpl.set_egress_port - 1,
+
+[11:52:36.026] [bmv2] [D] [thread 77] [12.0] [cxt 0] Processing packet received on port 1
+[11:52:36.026] [bmv2] [D] [thread 77] [12.0] [cxt 0] Parser 'parser': start
+[11:52:36.026] [bmv2] [D] [thread 77] [12.0] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:36.026] [bmv2] [D] [thread 77] [12.0] [cxt 0] Parser state 'start': key is 0001
+[11:52:36.026] [bmv2] [T] [thread 77] [12.0] [cxt 0] Bytes parsed: 0
+[11:52:36.026] [bmv2] [D] [thread 77] [12.0] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:36.026] [bmv2] [D] [thread 77] [12.0] [cxt 0] Extracting header 'ethernet'
+[11:52:36.026] [bmv2] [D] [thread 77] [12.0] [cxt 0] Parser state 'parse_ethernet': key is 0800
+[11:52:36.026] [bmv2] [T] [thread 77] [12.0] [cxt 0] Bytes parsed: 14
+[11:52:36.026] [bmv2] [D] [thread 77] [12.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[11:52:36.026] [bmv2] [D] [thread 77] [12.0] [cxt 0] Extracting header 'ipv4'
+[11:52:36.026] [bmv2] [D] [thread 77] [12.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.ip_proto' from field 'ipv4.protocol' (1)
+[11:52:36.026] [bmv2] [D] [thread 77] [12.0] [cxt 0] Parser state 'parse_ipv4': key is 01
+[11:52:36.027] [bmv2] [T] [thread 77] [12.0] [cxt 0] Bytes parsed: 34
+[11:52:36.027] [bmv2] [D] [thread 77] [12.0] [cxt 0] Parser 'parser' entering state 'parse_icmp'
+[11:52:36.027] [bmv2] [D] [thread 77] [12.0] [cxt 0] Extracting header 'icmp'
+[11:52:36.027] [bmv2] [D] [thread 77] [12.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.icmp_type' from field 'icmp.type' (8)
+[11:52:36.027] [bmv2] [D] [thread 77] [12.0] [cxt 0] Parser state 'parse_icmp' has no switch, going to default next state
+[11:52:36.027] [bmv2] [T] [thread 77] [12.0] [cxt 0] Bytes parsed: 50
+[11:52:36.027] [bmv2] [D] [thread 77] [12.0] [cxt 0] Parser 'parser': end
+[11:52:36.027] [bmv2] [D] [thread 77] [12.0] [cxt 0] Pipeline 'ingress': start
+[11:52:36.027] [bmv2] [T] [thread 77] [12.0] [cxt 0] p4src/main.p4(499) Condition "hdr.cpu_out.isValid()" (node_2) is false
+[11:52:36.027] [bmv2] [T] [thread 77] [12.0] [cxt 0] Applying table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.027] [bmv2] [D] [thread 77] [12.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: 000102030405
+
+[11:52:36.027] [bmv2] [D] [thread 77] [12.0] [cxt 0] Table 'IngressPipeImpl.l2_exact_table': hit with handle 67108864
+[11:52:36.027] [bmv2] [D] [thread 77] [12.0] [cxt 0] Dumping entry 67108864
+Match key:
+* hdr.ethernet.dst_addr: EXACT     000102030405
+Action entry: IngressPipeImpl.set_egress_port - 2,
+
+[11:52:36.027] [bmv2] [D] [thread 77] [12.0] [cxt 0] Action entry is IngressPipeImpl.set_egress_port - 2,
+[11:52:36.027] [bmv2] [T] [thread 77] [12.0] [cxt 0] Action IngressPipeImpl.set_egress_port
+[11:52:36.027] [bmv2] [T] [thread 77] [12.0] [cxt 0] p4src/main.p4(383) Primitive standard_metadata.egress_spec = port_num
+[11:52:36.027] [bmv2] [T] [thread 77] [12.0] [cxt 0] Applying table 'tbl_act_0'
+[11:52:36.027] [bmv2] [D] [thread 77] [12.0] [cxt 0] Looking up key:
+
+[11:52:36.027] [bmv2] [D] [thread 77] [12.0] [cxt 0] Table 'tbl_act_0': miss
+[11:52:36.027] [bmv2] [D] [thread 77] [12.0] [cxt 0] Action entry is act_0 - 
+[11:52:36.027] [bmv2] [T] [thread 77] [12.0] [cxt 0] Action act_0
+[11:52:36.027] [bmv2] [T] [thread 77] [12.0] [cxt 0] Primitive (no source info)
+[11:52:36.027] [bmv2] [T] [thread 77] [12.0] [cxt 0] p4src/main.p4(538) Condition "!l2_exact_table.apply().hit" (node_7) is false
+[11:52:36.027] [bmv2] [T] [thread 77] [12.0] [cxt 0] Applying table 'IngressPipeImpl.acl_table'
+[11:52:36.027] [bmv2] [D] [thread 77] [12.0] [cxt 0] Looking up key:
+* standard_metadata.ingress_port: 0001
+* hdr.ethernet.dst_addr         : 000102030405
+* hdr.ethernet.src_addr         : 00060708090a
+* hdr.ethernet.ether_type       : 0800
+* local_metadata.ip_proto       : 01
+* local_metadata.icmp_type      : 08
+* local_metadata.l4_src_port    : 0000
+* local_metadata.l4_dst_port    : 0000
+
+[11:52:36.027] [bmv2] [D] [thread 77] [12.0] [cxt 0] Table 'IngressPipeImpl.acl_table': miss
+[11:52:36.027] [bmv2] [D] [thread 77] [12.0] [cxt 0] Action entry is NoAction - 
+[11:52:36.027] [bmv2] [T] [thread 77] [12.0] [cxt 0] Action NoAction
+[11:52:36.027] [bmv2] [D] [thread 77] [12.0] [cxt 0] Pipeline 'ingress': end
+[11:52:36.027] [bmv2] [D] [thread 77] [12.0] [cxt 0] Egress port is 2
+[11:52:36.027] [bmv2] [D] [thread 80] [12.0] [cxt 0] Pipeline 'egress': start
+[11:52:36.027] [bmv2] [T] [thread 80] [12.0] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:36.027] [bmv2] [T] [thread 80] [12.0] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:36.027] [bmv2] [D] [thread 80] [12.0] [cxt 0] Pipeline 'egress': end
+[11:52:36.027] [bmv2] [D] [thread 80] [12.0] [cxt 0] Deparser 'deparser': start
+[11:52:36.027] [bmv2] [T] [thread 80] [12.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[11:52:36.027] [bmv2] [D] [thread 80] [12.0] [cxt 0] Deparsing header 'ethernet'
+[11:52:36.027] [bmv2] [D] [thread 80] [12.0] [cxt 0] Deparsing header 'ipv4'
+[11:52:36.027] [bmv2] [D] [thread 80] [12.0] [cxt 0] Deparsing header 'icmp'
+[11:52:36.027] [bmv2] [D] [thread 80] [12.0] [cxt 0] Deparser 'deparser': end
+[11:52:36.027] [bmv2] [D] [thread 82] [12.0] [cxt 0] Transmitting packet of size 120 out of port 2
+[11:52:36.027] [bmv2] [D] [thread 77] [13.0] [cxt 0] Processing packet received on port 2
+[11:52:36.028] [bmv2] [D] [thread 77] [13.0] [cxt 0] Parser 'parser': start
+[11:52:36.028] [bmv2] [D] [thread 77] [13.0] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:36.028] [bmv2] [D] [thread 77] [13.0] [cxt 0] Parser state 'start': key is 0002
+[11:52:36.028] [bmv2] [T] [thread 77] [13.0] [cxt 0] Bytes parsed: 0
+[11:52:36.028] [bmv2] [D] [thread 77] [13.0] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:36.028] [bmv2] [D] [thread 77] [13.0] [cxt 0] Extracting header 'ethernet'
+[11:52:36.028] [bmv2] [D] [thread 77] [13.0] [cxt 0] Parser state 'parse_ethernet': key is 0800
+[11:52:36.028] [bmv2] [T] [thread 77] [13.0] [cxt 0] Bytes parsed: 14
+[11:52:36.028] [bmv2] [D] [thread 77] [13.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[11:52:36.028] [bmv2] [D] [thread 77] [13.0] [cxt 0] Extracting header 'ipv4'
+[11:52:36.028] [bmv2] [D] [thread 77] [13.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.ip_proto' from field 'ipv4.protocol' (1)
+[11:52:36.028] [bmv2] [D] [thread 77] [13.0] [cxt 0] Parser state 'parse_ipv4': key is 01
+[11:52:36.028] [bmv2] [T] [thread 77] [13.0] [cxt 0] Bytes parsed: 34
+[11:52:36.028] [bmv2] [D] [thread 77] [13.0] [cxt 0] Parser 'parser' entering state 'parse_icmp'
+[11:52:36.028] [bmv2] [D] [thread 77] [13.0] [cxt 0] Extracting header 'icmp'
+[11:52:36.028] [bmv2] [D] [thread 77] [13.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.icmp_type' from field 'icmp.type' (8)
+[11:52:36.028] [bmv2] [D] [thread 77] [13.0] [cxt 0] Parser state 'parse_icmp' has no switch, going to default next state
+[11:52:36.028] [bmv2] [T] [thread 77] [13.0] [cxt 0] Bytes parsed: 50
+[11:52:36.028] [bmv2] [D] [thread 77] [13.0] [cxt 0] Parser 'parser': end
+[11:52:36.028] [bmv2] [D] [thread 77] [13.0] [cxt 0] Pipeline 'ingress': start
+[11:52:36.028] [bmv2] [T] [thread 77] [13.0] [cxt 0] p4src/main.p4(499) Condition "hdr.cpu_out.isValid()" (node_2) is false
+[11:52:36.028] [bmv2] [T] [thread 77] [13.0] [cxt 0] Applying table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.028] [bmv2] [D] [thread 77] [13.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: 00060708090a
+
+[11:52:36.028] [bmv2] [D] [thread 77] [13.0] [cxt 0] Table 'IngressPipeImpl.l2_exact_table': hit with handle 33554433
+[11:52:36.028] [bmv2] [D] [thread 77] [13.0] [cxt 0] Dumping entry 33554433
+Match key:
+* hdr.ethernet.dst_addr: EXACT     00060708090a
+Action entry: IngressPipeImpl.set_egress_port - 1,
+
+[11:52:36.028] [bmv2] [D] [thread 77] [13.0] [cxt 0] Action entry is IngressPipeImpl.set_egress_port - 1,
+[11:52:36.028] [bmv2] [T] [thread 77] [13.0] [cxt 0] Action IngressPipeImpl.set_egress_port
+[11:52:36.028] [bmv2] [T] [thread 77] [13.0] [cxt 0] p4src/main.p4(383) Primitive standard_metadata.egress_spec = port_num
+[11:52:36.028] [bmv2] [T] [thread 77] [13.0] [cxt 0] Applying table 'tbl_act_0'
+[11:52:36.028] [bmv2] [D] [thread 77] [13.0] [cxt 0] Looking up key:
+
+[11:52:36.028] [bmv2] [D] [thread 77] [13.0] [cxt 0] Table 'tbl_act_0': miss
+[11:52:36.028] [bmv2] [D] [thread 77] [13.0] [cxt 0] Action entry is act_0 - 
+[11:52:36.028] [bmv2] [T] [thread 77] [13.0] [cxt 0] Action act_0
+[11:52:36.028] [bmv2] [T] [thread 77] [13.0] [cxt 0] Primitive (no source info)
+[11:52:36.028] [bmv2] [T] [thread 77] [13.0] [cxt 0] p4src/main.p4(538) Condition "!l2_exact_table.apply().hit" (node_7) is false
+[11:52:36.028] [bmv2] [T] [thread 77] [13.0] [cxt 0] Applying table 'IngressPipeImpl.acl_table'
+[11:52:36.029] [bmv2] [D] [thread 77] [13.0] [cxt 0] Looking up key:
+* standard_metadata.ingress_port: 0002
+* hdr.ethernet.dst_addr         : 00060708090a
+* hdr.ethernet.src_addr         : 000102030405
+* hdr.ethernet.ether_type       : 0800
+* local_metadata.ip_proto       : 01
+* local_metadata.icmp_type      : 08
+* local_metadata.l4_src_port    : 0000
+* local_metadata.l4_dst_port    : 0000
+
+[11:52:36.029] [bmv2] [D] [thread 77] [13.0] [cxt 0] Table 'IngressPipeImpl.acl_table': miss
+[11:52:36.029] [bmv2] [D] [thread 77] [13.0] [cxt 0] Action entry is NoAction - 
+[11:52:36.029] [bmv2] [T] [thread 77] [13.0] [cxt 0] Action NoAction
+[11:52:36.029] [bmv2] [D] [thread 77] [13.0] [cxt 0] Pipeline 'ingress': end
+[11:52:36.029] [bmv2] [D] [thread 77] [13.0] [cxt 0] Egress port is 1
+[11:52:36.029] [bmv2] [D] [thread 79] [13.0] [cxt 0] Pipeline 'egress': start
+[11:52:36.029] [bmv2] [T] [thread 79] [13.0] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:36.029] [bmv2] [T] [thread 79] [13.0] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:36.029] [bmv2] [D] [thread 79] [13.0] [cxt 0] Pipeline 'egress': end
+[11:52:36.029] [bmv2] [D] [thread 79] [13.0] [cxt 0] Deparser 'deparser': start
+[11:52:36.029] [bmv2] [T] [thread 79] [13.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[11:52:36.029] [bmv2] [D] [thread 79] [13.0] [cxt 0] Deparsing header 'ethernet'
+[11:52:36.029] [bmv2] [D] [thread 79] [13.0] [cxt 0] Deparsing header 'ipv4'
+[11:52:36.029] [bmv2] [D] [thread 79] [13.0] [cxt 0] Deparsing header 'icmp'
+[11:52:36.029] [bmv2] [D] [thread 79] [13.0] [cxt 0] Deparser 'deparser': end
+[11:52:36.029] [bmv2] [D] [thread 82] [13.0] [cxt 0] Transmitting packet of size 120 out of port 1
+[11:52:36.135] [bmv2] [D] [thread 148] Removed entry 33554433 from table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.135] [bmv2] [D] [thread 148] Removed entry 67108864 from table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.140] [bmv2] [D] [thread 144] Entry 83886080 added to table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.140] [bmv2] [D] [thread 144] Dumping entry 83886080
+Match key:
+* hdr.ethernet.dst_addr: EXACT     000102030405
+Action entry: IngressPipeImpl.set_egress_port - 2,
+
+[11:52:36.142] [bmv2] [D] [thread 148] Entry 50331649 added to table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.142] [bmv2] [D] [thread 148] Dumping entry 50331649
+Match key:
+* hdr.ethernet.dst_addr: EXACT     00060708090a
+Action entry: IngressPipeImpl.set_egress_port - 1,
+
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Processing packet received on port 1
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Parser 'parser': start
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Parser state 'start': key is 0001
+[11:52:36.144] [bmv2] [T] [thread 77] [14.0] [cxt 0] Bytes parsed: 0
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Extracting header 'ethernet'
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Parser state 'parse_ethernet': key is 86dd
+[11:52:36.144] [bmv2] [T] [thread 77] [14.0] [cxt 0] Bytes parsed: 14
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Parser 'parser' entering state 'parse_ipv6'
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Extracting header 'ipv6'
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.ip_proto' from field 'ipv6.next_hdr' (6)
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Parser state 'parse_ipv6': key is 06
+[11:52:36.144] [bmv2] [T] [thread 77] [14.0] [cxt 0] Bytes parsed: 54
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Parser 'parser' entering state 'parse_tcp'
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Extracting header 'tcp'
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.l4_src_port' from field 'tcp.src_port' (1234)
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.l4_dst_port' from field 'tcp.dst_port' (80)
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Parser state 'parse_tcp' has no switch, going to default next state
+[11:52:36.144] [bmv2] [T] [thread 77] [14.0] [cxt 0] Bytes parsed: 74
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Parser 'parser': end
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Pipeline 'ingress': start
+[11:52:36.144] [bmv2] [T] [thread 77] [14.0] [cxt 0] p4src/main.p4(499) Condition "hdr.cpu_out.isValid()" (node_2) is false
+[11:52:36.144] [bmv2] [T] [thread 77] [14.0] [cxt 0] Applying table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: 000102030405
+
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Table 'IngressPipeImpl.l2_exact_table': hit with handle 83886080
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Dumping entry 83886080
+Match key:
+* hdr.ethernet.dst_addr: EXACT     000102030405
+Action entry: IngressPipeImpl.set_egress_port - 2,
+
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Action entry is IngressPipeImpl.set_egress_port - 2,
+[11:52:36.144] [bmv2] [T] [thread 77] [14.0] [cxt 0] Action IngressPipeImpl.set_egress_port
+[11:52:36.144] [bmv2] [T] [thread 77] [14.0] [cxt 0] p4src/main.p4(383) Primitive standard_metadata.egress_spec = port_num
+[11:52:36.144] [bmv2] [T] [thread 77] [14.0] [cxt 0] Applying table 'tbl_act_0'
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Looking up key:
+
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Table 'tbl_act_0': miss
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Action entry is act_0 - 
+[11:52:36.144] [bmv2] [T] [thread 77] [14.0] [cxt 0] Action act_0
+[11:52:36.144] [bmv2] [T] [thread 77] [14.0] [cxt 0] Primitive (no source info)
+[11:52:36.144] [bmv2] [T] [thread 77] [14.0] [cxt 0] p4src/main.p4(538) Condition "!l2_exact_table.apply().hit" (node_7) is false
+[11:52:36.144] [bmv2] [T] [thread 77] [14.0] [cxt 0] Applying table 'IngressPipeImpl.acl_table'
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Looking up key:
+* standard_metadata.ingress_port: 0001
+* hdr.ethernet.dst_addr         : 000102030405
+* hdr.ethernet.src_addr         : 00060708090a
+* hdr.ethernet.ether_type       : 86dd
+* local_metadata.ip_proto       : 06
+* local_metadata.icmp_type      : 00
+* local_metadata.l4_src_port    : 04d2
+* local_metadata.l4_dst_port    : 0050
+
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Table 'IngressPipeImpl.acl_table': miss
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Action entry is NoAction - 
+[11:52:36.144] [bmv2] [T] [thread 77] [14.0] [cxt 0] Action NoAction
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Pipeline 'ingress': end
+[11:52:36.144] [bmv2] [D] [thread 77] [14.0] [cxt 0] Egress port is 2
+[11:52:36.144] [bmv2] [D] [thread 80] [14.0] [cxt 0] Pipeline 'egress': start
+[11:52:36.145] [bmv2] [T] [thread 80] [14.0] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:36.145] [bmv2] [T] [thread 80] [14.0] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:36.145] [bmv2] [D] [thread 80] [14.0] [cxt 0] Pipeline 'egress': end
+[11:52:36.145] [bmv2] [D] [thread 80] [14.0] [cxt 0] Deparser 'deparser': start
+[11:52:36.145] [bmv2] [T] [thread 80] [14.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[11:52:36.145] [bmv2] [D] [thread 80] [14.0] [cxt 0] Deparsing header 'ethernet'
+[11:52:36.145] [bmv2] [D] [thread 80] [14.0] [cxt 0] Deparsing header 'ipv6'
+[11:52:36.145] [bmv2] [D] [thread 80] [14.0] [cxt 0] Deparsing header 'tcp'
+[11:52:36.145] [bmv2] [D] [thread 80] [14.0] [cxt 0] Deparser 'deparser': end
+[11:52:36.145] [bmv2] [D] [thread 82] [14.0] [cxt 0] Transmitting packet of size 120 out of port 2
+[11:52:36.145] [bmv2] [D] [thread 77] [15.0] [cxt 0] Processing packet received on port 2
+[11:52:36.145] [bmv2] [D] [thread 77] [15.0] [cxt 0] Parser 'parser': start
+[11:52:36.145] [bmv2] [D] [thread 77] [15.0] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:36.145] [bmv2] [D] [thread 77] [15.0] [cxt 0] Parser state 'start': key is 0002
+[11:52:36.145] [bmv2] [T] [thread 77] [15.0] [cxt 0] Bytes parsed: 0
+[11:52:36.145] [bmv2] [D] [thread 77] [15.0] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:36.145] [bmv2] [D] [thread 77] [15.0] [cxt 0] Extracting header 'ethernet'
+[11:52:36.145] [bmv2] [D] [thread 77] [15.0] [cxt 0] Parser state 'parse_ethernet': key is 86dd
+[11:52:36.145] [bmv2] [T] [thread 77] [15.0] [cxt 0] Bytes parsed: 14
+[11:52:36.145] [bmv2] [D] [thread 77] [15.0] [cxt 0] Parser 'parser' entering state 'parse_ipv6'
+[11:52:36.145] [bmv2] [D] [thread 77] [15.0] [cxt 0] Extracting header 'ipv6'
+[11:52:36.145] [bmv2] [D] [thread 77] [15.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.ip_proto' from field 'ipv6.next_hdr' (6)
+[11:52:36.145] [bmv2] [D] [thread 77] [15.0] [cxt 0] Parser state 'parse_ipv6': key is 06
+[11:52:36.145] [bmv2] [T] [thread 77] [15.0] [cxt 0] Bytes parsed: 54
+[11:52:36.145] [bmv2] [D] [thread 77] [15.0] [cxt 0] Parser 'parser' entering state 'parse_tcp'
+[11:52:36.145] [bmv2] [D] [thread 77] [15.0] [cxt 0] Extracting header 'tcp'
+[11:52:36.145] [bmv2] [D] [thread 77] [15.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.l4_src_port' from field 'tcp.src_port' (1234)
+[11:52:36.145] [bmv2] [D] [thread 77] [15.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.l4_dst_port' from field 'tcp.dst_port' (80)
+[11:52:36.145] [bmv2] [D] [thread 77] [15.0] [cxt 0] Parser state 'parse_tcp' has no switch, going to default next state
+[11:52:36.145] [bmv2] [T] [thread 77] [15.0] [cxt 0] Bytes parsed: 74
+[11:52:36.145] [bmv2] [D] [thread 77] [15.0] [cxt 0] Parser 'parser': end
+[11:52:36.145] [bmv2] [D] [thread 77] [15.0] [cxt 0] Pipeline 'ingress': start
+[11:52:36.145] [bmv2] [T] [thread 77] [15.0] [cxt 0] p4src/main.p4(499) Condition "hdr.cpu_out.isValid()" (node_2) is false
+[11:52:36.146] [bmv2] [T] [thread 77] [15.0] [cxt 0] Applying table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.146] [bmv2] [D] [thread 77] [15.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: 00060708090a
+
+[11:52:36.146] [bmv2] [D] [thread 77] [15.0] [cxt 0] Table 'IngressPipeImpl.l2_exact_table': hit with handle 50331649
+[11:52:36.146] [bmv2] [D] [thread 77] [15.0] [cxt 0] Dumping entry 50331649
+Match key:
+* hdr.ethernet.dst_addr: EXACT     00060708090a
+Action entry: IngressPipeImpl.set_egress_port - 1,
+
+[11:52:36.146] [bmv2] [D] [thread 77] [15.0] [cxt 0] Action entry is IngressPipeImpl.set_egress_port - 1,
+[11:52:36.146] [bmv2] [T] [thread 77] [15.0] [cxt 0] Action IngressPipeImpl.set_egress_port
+[11:52:36.146] [bmv2] [T] [thread 77] [15.0] [cxt 0] p4src/main.p4(383) Primitive standard_metadata.egress_spec = port_num
+[11:52:36.146] [bmv2] [T] [thread 77] [15.0] [cxt 0] Applying table 'tbl_act_0'
+[11:52:36.146] [bmv2] [D] [thread 77] [15.0] [cxt 0] Looking up key:
+
+[11:52:36.146] [bmv2] [D] [thread 77] [15.0] [cxt 0] Table 'tbl_act_0': miss
+[11:52:36.146] [bmv2] [D] [thread 77] [15.0] [cxt 0] Action entry is act_0 - 
+[11:52:36.146] [bmv2] [T] [thread 77] [15.0] [cxt 0] Action act_0
+[11:52:36.146] [bmv2] [T] [thread 77] [15.0] [cxt 0] Primitive (no source info)
+[11:52:36.146] [bmv2] [T] [thread 77] [15.0] [cxt 0] p4src/main.p4(538) Condition "!l2_exact_table.apply().hit" (node_7) is false
+[11:52:36.146] [bmv2] [T] [thread 77] [15.0] [cxt 0] Applying table 'IngressPipeImpl.acl_table'
+[11:52:36.146] [bmv2] [D] [thread 77] [15.0] [cxt 0] Looking up key:
+* standard_metadata.ingress_port: 0002
+* hdr.ethernet.dst_addr         : 00060708090a
+* hdr.ethernet.src_addr         : 000102030405
+* hdr.ethernet.ether_type       : 86dd
+* local_metadata.ip_proto       : 06
+* local_metadata.icmp_type      : 00
+* local_metadata.l4_src_port    : 04d2
+* local_metadata.l4_dst_port    : 0050
+
+[11:52:36.146] [bmv2] [D] [thread 77] [15.0] [cxt 0] Table 'IngressPipeImpl.acl_table': miss
+[11:52:36.146] [bmv2] [D] [thread 77] [15.0] [cxt 0] Action entry is NoAction - 
+[11:52:36.146] [bmv2] [T] [thread 77] [15.0] [cxt 0] Action NoAction
+[11:52:36.146] [bmv2] [D] [thread 77] [15.0] [cxt 0] Pipeline 'ingress': end
+[11:52:36.146] [bmv2] [D] [thread 77] [15.0] [cxt 0] Egress port is 1
+[11:52:36.146] [bmv2] [D] [thread 79] [15.0] [cxt 0] Pipeline 'egress': start
+[11:52:36.146] [bmv2] [T] [thread 79] [15.0] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:36.146] [bmv2] [T] [thread 79] [15.0] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:36.146] [bmv2] [D] [thread 79] [15.0] [cxt 0] Pipeline 'egress': end
+[11:52:36.146] [bmv2] [D] [thread 79] [15.0] [cxt 0] Deparser 'deparser': start
+[11:52:36.146] [bmv2] [T] [thread 79] [15.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[11:52:36.146] [bmv2] [D] [thread 79] [15.0] [cxt 0] Deparsing header 'ethernet'
+[11:52:36.146] [bmv2] [D] [thread 79] [15.0] [cxt 0] Deparsing header 'ipv6'
+[11:52:36.146] [bmv2] [D] [thread 79] [15.0] [cxt 0] Deparsing header 'tcp'
+[11:52:36.146] [bmv2] [D] [thread 79] [15.0] [cxt 0] Deparser 'deparser': end
+[11:52:36.146] [bmv2] [D] [thread 82] [15.0] [cxt 0] Transmitting packet of size 120 out of port 1
+[11:52:36.252] [bmv2] [D] [thread 144] Removed entry 50331649 from table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.252] [bmv2] [D] [thread 144] Removed entry 83886080 from table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.257] [bmv2] [D] [thread 148] Entry 100663296 added to table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.257] [bmv2] [D] [thread 148] Dumping entry 100663296
+Match key:
+* hdr.ethernet.dst_addr: EXACT     000102030405
+Action entry: IngressPipeImpl.set_egress_port - 2,
+
+[11:52:36.258] [bmv2] [D] [thread 144] Entry 67108865 added to table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.258] [bmv2] [D] [thread 144] Dumping entry 67108865
+Match key:
+* hdr.ethernet.dst_addr: EXACT     00060708090a
+Action entry: IngressPipeImpl.set_egress_port - 1,
+
+[11:52:36.260] [bmv2] [D] [thread 77] [16.0] [cxt 0] Processing packet received on port 1
+[11:52:36.260] [bmv2] [D] [thread 77] [16.0] [cxt 0] Parser 'parser': start
+[11:52:36.260] [bmv2] [D] [thread 77] [16.0] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:36.260] [bmv2] [D] [thread 77] [16.0] [cxt 0] Parser state 'start': key is 0001
+[11:52:36.260] [bmv2] [T] [thread 77] [16.0] [cxt 0] Bytes parsed: 0
+[11:52:36.260] [bmv2] [D] [thread 77] [16.0] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:36.260] [bmv2] [D] [thread 77] [16.0] [cxt 0] Extracting header 'ethernet'
+[11:52:36.260] [bmv2] [D] [thread 77] [16.0] [cxt 0] Parser state 'parse_ethernet': key is 86dd
+[11:52:36.260] [bmv2] [T] [thread 77] [16.0] [cxt 0] Bytes parsed: 14
+[11:52:36.260] [bmv2] [D] [thread 77] [16.0] [cxt 0] Parser 'parser' entering state 'parse_ipv6'
+[11:52:36.260] [bmv2] [D] [thread 77] [16.0] [cxt 0] Extracting header 'ipv6'
+[11:52:36.260] [bmv2] [D] [thread 77] [16.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.ip_proto' from field 'ipv6.next_hdr' (17)
+[11:52:36.260] [bmv2] [D] [thread 77] [16.0] [cxt 0] Parser state 'parse_ipv6': key is 11
+[11:52:36.260] [bmv2] [T] [thread 77] [16.0] [cxt 0] Bytes parsed: 54
+[11:52:36.260] [bmv2] [D] [thread 77] [16.0] [cxt 0] Parser 'parser' entering state 'parse_udp'
+[11:52:36.260] [bmv2] [D] [thread 77] [16.0] [cxt 0] Extracting header 'udp'
+[11:52:36.260] [bmv2] [D] [thread 77] [16.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.l4_src_port' from field 'udp.src_port' (1234)
+[11:52:36.260] [bmv2] [D] [thread 77] [16.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.l4_dst_port' from field 'udp.dst_port' (80)
+[11:52:36.260] [bmv2] [D] [thread 77] [16.0] [cxt 0] Parser state 'parse_udp' has no switch, going to default next state
+[11:52:36.260] [bmv2] [T] [thread 77] [16.0] [cxt 0] Bytes parsed: 62
+[11:52:36.260] [bmv2] [D] [thread 77] [16.0] [cxt 0] Parser 'parser': end
+[11:52:36.260] [bmv2] [D] [thread 77] [16.0] [cxt 0] Pipeline 'ingress': start
+[11:52:36.260] [bmv2] [T] [thread 77] [16.0] [cxt 0] p4src/main.p4(499) Condition "hdr.cpu_out.isValid()" (node_2) is false
+[11:52:36.260] [bmv2] [T] [thread 77] [16.0] [cxt 0] Applying table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.260] [bmv2] [D] [thread 77] [16.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: 000102030405
+
+[11:52:36.260] [bmv2] [D] [thread 77] [16.0] [cxt 0] Table 'IngressPipeImpl.l2_exact_table': hit with handle 100663296
+[11:52:36.260] [bmv2] [D] [thread 77] [16.0] [cxt 0] Dumping entry 100663296
+Match key:
+* hdr.ethernet.dst_addr: EXACT     000102030405
+Action entry: IngressPipeImpl.set_egress_port - 2,
+
+[11:52:36.260] [bmv2] [D] [thread 77] [16.0] [cxt 0] Action entry is IngressPipeImpl.set_egress_port - 2,
+[11:52:36.260] [bmv2] [T] [thread 77] [16.0] [cxt 0] Action IngressPipeImpl.set_egress_port
+[11:52:36.260] [bmv2] [T] [thread 77] [16.0] [cxt 0] p4src/main.p4(383) Primitive standard_metadata.egress_spec = port_num
+[11:52:36.260] [bmv2] [T] [thread 77] [16.0] [cxt 0] Applying table 'tbl_act_0'
+[11:52:36.260] [bmv2] [D] [thread 77] [16.0] [cxt 0] Looking up key:
+
+[11:52:36.261] [bmv2] [D] [thread 77] [16.0] [cxt 0] Table 'tbl_act_0': miss
+[11:52:36.261] [bmv2] [D] [thread 77] [16.0] [cxt 0] Action entry is act_0 - 
+[11:52:36.261] [bmv2] [T] [thread 77] [16.0] [cxt 0] Action act_0
+[11:52:36.261] [bmv2] [T] [thread 77] [16.0] [cxt 0] Primitive (no source info)
+[11:52:36.261] [bmv2] [T] [thread 77] [16.0] [cxt 0] p4src/main.p4(538) Condition "!l2_exact_table.apply().hit" (node_7) is false
+[11:52:36.261] [bmv2] [T] [thread 77] [16.0] [cxt 0] Applying table 'IngressPipeImpl.acl_table'
+[11:52:36.261] [bmv2] [D] [thread 77] [16.0] [cxt 0] Looking up key:
+* standard_metadata.ingress_port: 0001
+* hdr.ethernet.dst_addr         : 000102030405
+* hdr.ethernet.src_addr         : 00060708090a
+* hdr.ethernet.ether_type       : 86dd
+* local_metadata.ip_proto       : 11
+* local_metadata.icmp_type      : 00
+* local_metadata.l4_src_port    : 04d2
+* local_metadata.l4_dst_port    : 0050
+
+[11:52:36.261] [bmv2] [D] [thread 77] [16.0] [cxt 0] Table 'IngressPipeImpl.acl_table': miss
+[11:52:36.261] [bmv2] [D] [thread 77] [16.0] [cxt 0] Action entry is NoAction - 
+[11:52:36.261] [bmv2] [T] [thread 77] [16.0] [cxt 0] Action NoAction
+[11:52:36.261] [bmv2] [D] [thread 77] [16.0] [cxt 0] Pipeline 'ingress': end
+[11:52:36.261] [bmv2] [D] [thread 77] [16.0] [cxt 0] Egress port is 2
+[11:52:36.261] [bmv2] [D] [thread 80] [16.0] [cxt 0] Pipeline 'egress': start
+[11:52:36.261] [bmv2] [T] [thread 80] [16.0] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:36.261] [bmv2] [T] [thread 80] [16.0] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:36.261] [bmv2] [D] [thread 80] [16.0] [cxt 0] Pipeline 'egress': end
+[11:52:36.261] [bmv2] [D] [thread 80] [16.0] [cxt 0] Deparser 'deparser': start
+[11:52:36.261] [bmv2] [T] [thread 80] [16.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[11:52:36.261] [bmv2] [D] [thread 80] [16.0] [cxt 0] Deparsing header 'ethernet'
+[11:52:36.261] [bmv2] [D] [thread 80] [16.0] [cxt 0] Deparsing header 'ipv6'
+[11:52:36.261] [bmv2] [D] [thread 80] [16.0] [cxt 0] Deparsing header 'udp'
+[11:52:36.261] [bmv2] [D] [thread 80] [16.0] [cxt 0] Deparser 'deparser': end
+[11:52:36.261] [bmv2] [D] [thread 82] [16.0] [cxt 0] Transmitting packet of size 120 out of port 2
+[11:52:36.261] [bmv2] [D] [thread 77] [17.0] [cxt 0] Processing packet received on port 2
+[11:52:36.261] [bmv2] [D] [thread 77] [17.0] [cxt 0] Parser 'parser': start
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Parser state 'start': key is 0002
+[11:52:36.262] [bmv2] [T] [thread 77] [17.0] [cxt 0] Bytes parsed: 0
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Extracting header 'ethernet'
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Parser state 'parse_ethernet': key is 86dd
+[11:52:36.262] [bmv2] [T] [thread 77] [17.0] [cxt 0] Bytes parsed: 14
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Parser 'parser' entering state 'parse_ipv6'
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Extracting header 'ipv6'
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.ip_proto' from field 'ipv6.next_hdr' (17)
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Parser state 'parse_ipv6': key is 11
+[11:52:36.262] [bmv2] [T] [thread 77] [17.0] [cxt 0] Bytes parsed: 54
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Parser 'parser' entering state 'parse_udp'
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Extracting header 'udp'
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.l4_src_port' from field 'udp.src_port' (1234)
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.l4_dst_port' from field 'udp.dst_port' (80)
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Parser state 'parse_udp' has no switch, going to default next state
+[11:52:36.262] [bmv2] [T] [thread 77] [17.0] [cxt 0] Bytes parsed: 62
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Parser 'parser': end
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Pipeline 'ingress': start
+[11:52:36.262] [bmv2] [T] [thread 77] [17.0] [cxt 0] p4src/main.p4(499) Condition "hdr.cpu_out.isValid()" (node_2) is false
+[11:52:36.262] [bmv2] [T] [thread 77] [17.0] [cxt 0] Applying table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: 00060708090a
+
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Table 'IngressPipeImpl.l2_exact_table': hit with handle 67108865
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Dumping entry 67108865
+Match key:
+* hdr.ethernet.dst_addr: EXACT     00060708090a
+Action entry: IngressPipeImpl.set_egress_port - 1,
+
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Action entry is IngressPipeImpl.set_egress_port - 1,
+[11:52:36.262] [bmv2] [T] [thread 77] [17.0] [cxt 0] Action IngressPipeImpl.set_egress_port
+[11:52:36.262] [bmv2] [T] [thread 77] [17.0] [cxt 0] p4src/main.p4(383) Primitive standard_metadata.egress_spec = port_num
+[11:52:36.262] [bmv2] [T] [thread 77] [17.0] [cxt 0] Applying table 'tbl_act_0'
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Looking up key:
+
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Table 'tbl_act_0': miss
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Action entry is act_0 - 
+[11:52:36.262] [bmv2] [T] [thread 77] [17.0] [cxt 0] Action act_0
+[11:52:36.262] [bmv2] [T] [thread 77] [17.0] [cxt 0] Primitive (no source info)
+[11:52:36.262] [bmv2] [T] [thread 77] [17.0] [cxt 0] p4src/main.p4(538) Condition "!l2_exact_table.apply().hit" (node_7) is false
+[11:52:36.262] [bmv2] [T] [thread 77] [17.0] [cxt 0] Applying table 'IngressPipeImpl.acl_table'
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Looking up key:
+* standard_metadata.ingress_port: 0002
+* hdr.ethernet.dst_addr         : 00060708090a
+* hdr.ethernet.src_addr         : 000102030405
+* hdr.ethernet.ether_type       : 86dd
+* local_metadata.ip_proto       : 11
+* local_metadata.icmp_type      : 00
+* local_metadata.l4_src_port    : 04d2
+* local_metadata.l4_dst_port    : 0050
+
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Table 'IngressPipeImpl.acl_table': miss
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Action entry is NoAction - 
+[11:52:36.262] [bmv2] [T] [thread 77] [17.0] [cxt 0] Action NoAction
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Pipeline 'ingress': end
+[11:52:36.262] [bmv2] [D] [thread 77] [17.0] [cxt 0] Egress port is 1
+[11:52:36.262] [bmv2] [D] [thread 79] [17.0] [cxt 0] Pipeline 'egress': start
+[11:52:36.262] [bmv2] [T] [thread 79] [17.0] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:36.262] [bmv2] [T] [thread 79] [17.0] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:36.262] [bmv2] [D] [thread 79] [17.0] [cxt 0] Pipeline 'egress': end
+[11:52:36.262] [bmv2] [D] [thread 79] [17.0] [cxt 0] Deparser 'deparser': start
+[11:52:36.262] [bmv2] [T] [thread 79] [17.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[11:52:36.262] [bmv2] [D] [thread 79] [17.0] [cxt 0] Deparsing header 'ethernet'
+[11:52:36.262] [bmv2] [D] [thread 79] [17.0] [cxt 0] Deparsing header 'ipv6'
+[11:52:36.262] [bmv2] [D] [thread 79] [17.0] [cxt 0] Deparsing header 'udp'
+[11:52:36.262] [bmv2] [D] [thread 79] [17.0] [cxt 0] Deparser 'deparser': end
+[11:52:36.263] [bmv2] [D] [thread 82] [17.0] [cxt 0] Transmitting packet of size 120 out of port 1
+[11:52:36.367] [bmv2] [D] [thread 148] Removed entry 67108865 from table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.368] [bmv2] [D] [thread 148] Removed entry 100663296 from table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.372] [bmv2] [D] [thread 148] Entry 117440512 added to table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.372] [bmv2] [D] [thread 148] Dumping entry 117440512
+Match key:
+* hdr.ethernet.dst_addr: EXACT     000102030405
+Action entry: IngressPipeImpl.set_egress_port - 2,
+
+[11:52:36.374] [bmv2] [D] [thread 144] Entry 83886081 added to table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.374] [bmv2] [D] [thread 144] Dumping entry 83886081
+Match key:
+* hdr.ethernet.dst_addr: EXACT     00060708090a
+Action entry: IngressPipeImpl.set_egress_port - 1,
+
+[11:52:36.376] [bmv2] [D] [thread 77] [18.0] [cxt 0] Processing packet received on port 1
+[11:52:36.376] [bmv2] [D] [thread 77] [18.0] [cxt 0] Parser 'parser': start
+[11:52:36.376] [bmv2] [D] [thread 77] [18.0] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:36.376] [bmv2] [D] [thread 77] [18.0] [cxt 0] Parser state 'start': key is 0001
+[11:52:36.376] [bmv2] [T] [thread 77] [18.0] [cxt 0] Bytes parsed: 0
+[11:52:36.376] [bmv2] [D] [thread 77] [18.0] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:36.376] [bmv2] [D] [thread 77] [18.0] [cxt 0] Extracting header 'ethernet'
+[11:52:36.376] [bmv2] [D] [thread 77] [18.0] [cxt 0] Parser state 'parse_ethernet': key is 86dd
+[11:52:36.376] [bmv2] [T] [thread 77] [18.0] [cxt 0] Bytes parsed: 14
+[11:52:36.376] [bmv2] [D] [thread 77] [18.0] [cxt 0] Parser 'parser' entering state 'parse_ipv6'
+[11:52:36.376] [bmv2] [D] [thread 77] [18.0] [cxt 0] Extracting header 'ipv6'
+[11:52:36.376] [bmv2] [D] [thread 77] [18.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.ip_proto' from field 'ipv6.next_hdr' (58)
+[11:52:36.376] [bmv2] [D] [thread 77] [18.0] [cxt 0] Parser state 'parse_ipv6': key is 3a
+[11:52:36.376] [bmv2] [T] [thread 77] [18.0] [cxt 0] Bytes parsed: 54
+[11:52:36.376] [bmv2] [D] [thread 77] [18.0] [cxt 0] Parser 'parser' entering state 'parse_icmpv6'
+[11:52:36.376] [bmv2] [D] [thread 77] [18.0] [cxt 0] Extracting header 'icmpv6'
+[11:52:36.376] [bmv2] [D] [thread 77] [18.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.icmp_type' from field 'icmpv6.type' (8)
+[11:52:36.376] [bmv2] [D] [thread 77] [18.0] [cxt 0] Parser state 'parse_icmpv6': key is 08
+[11:52:36.376] [bmv2] [T] [thread 77] [18.0] [cxt 0] Bytes parsed: 58
+[11:52:36.376] [bmv2] [D] [thread 77] [18.0] [cxt 0] Parser 'parser': end
+[11:52:36.376] [bmv2] [D] [thread 77] [18.0] [cxt 0] Pipeline 'ingress': start
+[11:52:36.376] [bmv2] [T] [thread 77] [18.0] [cxt 0] p4src/main.p4(499) Condition "hdr.cpu_out.isValid()" (node_2) is false
+[11:52:36.376] [bmv2] [T] [thread 77] [18.0] [cxt 0] Applying table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.376] [bmv2] [D] [thread 77] [18.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: 000102030405
+
+[11:52:36.376] [bmv2] [D] [thread 77] [18.0] [cxt 0] Table 'IngressPipeImpl.l2_exact_table': hit with handle 117440512
+[11:52:36.376] [bmv2] [D] [thread 77] [18.0] [cxt 0] Dumping entry 117440512
+Match key:
+* hdr.ethernet.dst_addr: EXACT     000102030405
+Action entry: IngressPipeImpl.set_egress_port - 2,
+
+[11:52:36.376] [bmv2] [D] [thread 77] [18.0] [cxt 0] Action entry is IngressPipeImpl.set_egress_port - 2,
+[11:52:36.377] [bmv2] [T] [thread 77] [18.0] [cxt 0] Action IngressPipeImpl.set_egress_port
+[11:52:36.377] [bmv2] [T] [thread 77] [18.0] [cxt 0] p4src/main.p4(383) Primitive standard_metadata.egress_spec = port_num
+[11:52:36.377] [bmv2] [T] [thread 77] [18.0] [cxt 0] Applying table 'tbl_act_0'
+[11:52:36.377] [bmv2] [D] [thread 77] [18.0] [cxt 0] Looking up key:
+
+[11:52:36.377] [bmv2] [D] [thread 77] [18.0] [cxt 0] Table 'tbl_act_0': miss
+[11:52:36.377] [bmv2] [D] [thread 77] [18.0] [cxt 0] Action entry is act_0 - 
+[11:52:36.377] [bmv2] [T] [thread 77] [18.0] [cxt 0] Action act_0
+[11:52:36.377] [bmv2] [T] [thread 77] [18.0] [cxt 0] Primitive (no source info)
+[11:52:36.377] [bmv2] [T] [thread 77] [18.0] [cxt 0] p4src/main.p4(538) Condition "!l2_exact_table.apply().hit" (node_7) is false
+[11:52:36.377] [bmv2] [T] [thread 77] [18.0] [cxt 0] Applying table 'IngressPipeImpl.acl_table'
+[11:52:36.377] [bmv2] [D] [thread 77] [18.0] [cxt 0] Looking up key:
+* standard_metadata.ingress_port: 0001
+* hdr.ethernet.dst_addr         : 000102030405
+* hdr.ethernet.src_addr         : 00060708090a
+* hdr.ethernet.ether_type       : 86dd
+* local_metadata.ip_proto       : 3a
+* local_metadata.icmp_type      : 08
+* local_metadata.l4_src_port    : 0000
+* local_metadata.l4_dst_port    : 0000
+
+[11:52:36.377] [bmv2] [D] [thread 77] [18.0] [cxt 0] Table 'IngressPipeImpl.acl_table': miss
+[11:52:36.377] [bmv2] [D] [thread 77] [18.0] [cxt 0] Action entry is NoAction - 
+[11:52:36.377] [bmv2] [T] [thread 77] [18.0] [cxt 0] Action NoAction
+[11:52:36.377] [bmv2] [D] [thread 77] [18.0] [cxt 0] Pipeline 'ingress': end
+[11:52:36.377] [bmv2] [D] [thread 77] [18.0] [cxt 0] Egress port is 2
+[11:52:36.377] [bmv2] [D] [thread 80] [18.0] [cxt 0] Pipeline 'egress': start
+[11:52:36.377] [bmv2] [T] [thread 80] [18.0] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:36.377] [bmv2] [T] [thread 80] [18.0] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:36.377] [bmv2] [D] [thread 80] [18.0] [cxt 0] Pipeline 'egress': end
+[11:52:36.377] [bmv2] [D] [thread 80] [18.0] [cxt 0] Deparser 'deparser': start
+[11:52:36.377] [bmv2] [T] [thread 80] [18.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[11:52:36.377] [bmv2] [D] [thread 80] [18.0] [cxt 0] Deparsing header 'ethernet'
+[11:52:36.377] [bmv2] [D] [thread 80] [18.0] [cxt 0] Deparsing header 'ipv6'
+[11:52:36.377] [bmv2] [D] [thread 80] [18.0] [cxt 0] Deparsing header 'icmpv6'
+[11:52:36.377] [bmv2] [D] [thread 80] [18.0] [cxt 0] Deparser 'deparser': end
+[11:52:36.377] [bmv2] [D] [thread 82] [18.0] [cxt 0] Transmitting packet of size 120 out of port 2
+[11:52:36.377] [bmv2] [D] [thread 77] [19.0] [cxt 0] Processing packet received on port 2
+[11:52:36.377] [bmv2] [D] [thread 77] [19.0] [cxt 0] Parser 'parser': start
+[11:52:36.377] [bmv2] [D] [thread 77] [19.0] [cxt 0] Parser 'parser' entering state 'start'
+[11:52:36.377] [bmv2] [D] [thread 77] [19.0] [cxt 0] Parser state 'start': key is 0002
+[11:52:36.378] [bmv2] [T] [thread 77] [19.0] [cxt 0] Bytes parsed: 0
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Parser 'parser' entering state 'parse_ethernet'
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Extracting header 'ethernet'
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Parser state 'parse_ethernet': key is 86dd
+[11:52:36.378] [bmv2] [T] [thread 77] [19.0] [cxt 0] Bytes parsed: 14
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Parser 'parser' entering state 'parse_ipv6'
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Extracting header 'ipv6'
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.ip_proto' from field 'ipv6.next_hdr' (58)
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Parser state 'parse_ipv6': key is 3a
+[11:52:36.378] [bmv2] [T] [thread 77] [19.0] [cxt 0] Bytes parsed: 54
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Parser 'parser' entering state 'parse_icmpv6'
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Extracting header 'icmpv6'
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Parser set: setting field 'scalars.local_metadata_t.icmp_type' from field 'icmpv6.type' (8)
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Parser state 'parse_icmpv6': key is 08
+[11:52:36.378] [bmv2] [T] [thread 77] [19.0] [cxt 0] Bytes parsed: 58
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Parser 'parser': end
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Pipeline 'ingress': start
+[11:52:36.378] [bmv2] [T] [thread 77] [19.0] [cxt 0] p4src/main.p4(499) Condition "hdr.cpu_out.isValid()" (node_2) is false
+[11:52:36.378] [bmv2] [T] [thread 77] [19.0] [cxt 0] Applying table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Looking up key:
+* hdr.ethernet.dst_addr: 00060708090a
+
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Table 'IngressPipeImpl.l2_exact_table': hit with handle 83886081
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Dumping entry 83886081
+Match key:
+* hdr.ethernet.dst_addr: EXACT     00060708090a
+Action entry: IngressPipeImpl.set_egress_port - 1,
+
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Action entry is IngressPipeImpl.set_egress_port - 1,
+[11:52:36.378] [bmv2] [T] [thread 77] [19.0] [cxt 0] Action IngressPipeImpl.set_egress_port
+[11:52:36.378] [bmv2] [T] [thread 77] [19.0] [cxt 0] p4src/main.p4(383) Primitive standard_metadata.egress_spec = port_num
+[11:52:36.378] [bmv2] [T] [thread 77] [19.0] [cxt 0] Applying table 'tbl_act_0'
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Looking up key:
+
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Table 'tbl_act_0': miss
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Action entry is act_0 - 
+[11:52:36.378] [bmv2] [T] [thread 77] [19.0] [cxt 0] Action act_0
+[11:52:36.378] [bmv2] [T] [thread 77] [19.0] [cxt 0] Primitive (no source info)
+[11:52:36.378] [bmv2] [T] [thread 77] [19.0] [cxt 0] p4src/main.p4(538) Condition "!l2_exact_table.apply().hit" (node_7) is false
+[11:52:36.378] [bmv2] [T] [thread 77] [19.0] [cxt 0] Applying table 'IngressPipeImpl.acl_table'
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Looking up key:
+* standard_metadata.ingress_port: 0002
+* hdr.ethernet.dst_addr         : 00060708090a
+* hdr.ethernet.src_addr         : 000102030405
+* hdr.ethernet.ether_type       : 86dd
+* local_metadata.ip_proto       : 3a
+* local_metadata.icmp_type      : 08
+* local_metadata.l4_src_port    : 0000
+* local_metadata.l4_dst_port    : 0000
+
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Table 'IngressPipeImpl.acl_table': miss
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Action entry is NoAction - 
+[11:52:36.378] [bmv2] [T] [thread 77] [19.0] [cxt 0] Action NoAction
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Pipeline 'ingress': end
+[11:52:36.378] [bmv2] [D] [thread 77] [19.0] [cxt 0] Egress port is 1
+[11:52:36.378] [bmv2] [D] [thread 79] [19.0] [cxt 0] Pipeline 'egress': start
+[11:52:36.378] [bmv2] [T] [thread 79] [19.0] [cxt 0] p4src/main.p4(556) Condition "standard_metadata.egress_port == 255" (node_12) is false
+[11:52:36.378] [bmv2] [T] [thread 79] [19.0] [cxt 0] p4src/main.p4(573) Condition "local_metadata.is_multicast == true && ..." (node_14) is false
+[11:52:36.378] [bmv2] [D] [thread 79] [19.0] [cxt 0] Pipeline 'egress': end
+[11:52:36.378] [bmv2] [D] [thread 79] [19.0] [cxt 0] Deparser 'deparser': start
+[11:52:36.378] [bmv2] [T] [thread 79] [19.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[11:52:36.378] [bmv2] [D] [thread 79] [19.0] [cxt 0] Deparsing header 'ethernet'
+[11:52:36.378] [bmv2] [D] [thread 79] [19.0] [cxt 0] Deparsing header 'ipv6'
+[11:52:36.378] [bmv2] [D] [thread 79] [19.0] [cxt 0] Deparsing header 'icmpv6'
+[11:52:36.378] [bmv2] [D] [thread 79] [19.0] [cxt 0] Deparser 'deparser': end
+[11:52:36.378] [bmv2] [D] [thread 82] [19.0] [cxt 0] Transmitting packet of size 120 out of port 1
+[11:52:36.484] [bmv2] [D] [thread 148] Removed entry 83886081 from table 'IngressPipeImpl.l2_exact_table'
+[11:52:36.484] [bmv2] [D] [thread 148] Removed entry 117440512 from table 'IngressPipeImpl.l2_exact_table'
