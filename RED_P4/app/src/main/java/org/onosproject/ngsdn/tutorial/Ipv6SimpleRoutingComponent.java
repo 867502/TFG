@@ -402,9 +402,9 @@ public class Ipv6SimpleRoutingComponent {
         setSwitchId(sw1_id,1);
         setSwitchId(sw2_id,2);
         setSwitchId(sw3_id,3);
-        setSwitchId(Sw4_id,4);
-        setSwitchId(Sw4_id,5);
-        setSwitchId(sw4_id,6);
+        setSwitchId(sw4_id,4);
+        setSwitchId(sw5_id,5);
+        setSwitchId(sw6_id,6);
 
     }
 }

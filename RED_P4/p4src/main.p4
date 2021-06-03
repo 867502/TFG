@@ -290,14 +290,14 @@ control IngressPipeImpl (inout parsed_headers_t    hdr,
             local_metadata.sw_id = sw_id;
          }
 
-         table sw_id_table {
-            key = { hdr.ethernet.ether_type: ternary;}
+    table sw_id_table {
+        key = { hdr.ethernet.ether_type: ternary;}
 
-            actions = {
+        actions = {
                 set_sw_id;
-            }
+        }
 
-         }
+    }
 
     // --- l2_ternary_table (for broadcast/multicast entries) ------------------
 
@@ -367,6 +367,9 @@ control IngressPipeImpl (inout parsed_headers_t    hdr,
 
     apply {
 
+        if(sw_id_table.apply().hit){
+        }
+
         if (hdr.cpu_out.isValid()) {
             standard_metadata.egress_spec = hdr.cpu_out.egress_port;
             hdr.cpu_out.setInvalid();
@@ -383,6 +386,7 @@ control IngressPipeImpl (inout parsed_headers_t    hdr,
 
         bool do_l3_l2 = true;
 
+        if(local_metadata.sw_id == 3){ //la id del switch que actua como firewall
         /*if (hdr.ethernet.dst_addr == MAC_H3){
               do_l3_l2 = false;
         }
@@ -405,7 +409,7 @@ control IngressPipeImpl (inout parsed_headers_t    hdr,
         /*
         1. DENEGAR las conexiones TCP entrantes a la red interna
             Se comprueba que el numero de secuencia no sea 0-> Si no es 0 hay una conexión para establecer
-            Se comprueba que la IP sea de la red externa (Sino no se como comprobarlo sin utilizar la ip)
+            Se comprueba que el numero de puerto (3) sea de la red externa
             Se excluye el puerto 23 ya que queremos que el h1c pueda acceder a h1a mediante telnet
         */
         if(hdr.tcp.seq_no != 0 && hdr.tcp.dst_port !=23 && hdr.cpu_in.ingress_port == 3){
@@ -413,24 +417,25 @@ control IngressPipeImpl (inout parsed_headers_t    hdr,
         }
 
           //2. DENEGAR las conexiones UDP: puertos (0-1023)
+
          /*
          if(hdr.udp.dst_port ==  && hdr.ipv4.src_addr == IP_H3){ // No se como hacer el rango de direcciones 0-1023
              do_l3_l2 = false;
          }
          */
 
-          /*3. NO RESPONDER a los pings hechos desde la red externa
-          */
+          //3. NO RESPONDER a los pings hechos desde la red externa
 
-           if (hdr.icmp.type == 8 && hdr.cpu_in.ingress_port == 3){
+        if (hdr.icmp.type == 8 && hdr.ipv4.src_addr == IP_H3){
                 do_l3_l2 = false;
-           }
+        }
            //Denegar sesiones telnet de h1c a h1a-> h1b no porque simula el servidor de una empresa
 
-           if(hdr.tcp.dst_port == 23 && hdr.cpu_in.ingress_port == 3 && hdr.ipv4.dst_addr != IP_H2){ // poner puerto 23
+        if(hdr.tcp.dst_port == 23 && hdr.cpu_in.ingress_port == 3 && hdr.ipv4.dst_addr != IP_H2){ // poner puerto 23
                  do_l3_l2 = false;
-           }
+        }
 
+    }
 
         if (do_l3_l2) {
             if (!l2_exact_table.apply().hit) {
