@@ -1,6 +1,5 @@
 /*
  * Copyright 2019-present Open Networking Foundation
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -206,23 +205,49 @@ public class Ipv6SimpleRoutingComponent {
         // for the fully qualified name of tables, match fields, and actions.
         // ---- START SOLUTION ----
         final String tableId = "IngressPipeImpl.l2_exact_table";
+
         final PiCriterion match = PiCriterion.builder()
                 .matchExact(PiMatchFieldId.of("hdr.ethernet.dst_addr"),
                         nexthopMac.toBytes())
                 .build();
-
-
+       
         final PiAction action = PiAction.builder()
                 .withId(PiActionId.of("IngressPipeImpl.set_egress_port"))
                 .withParameter(new PiActionParam(
                         PiActionParamId.of("port_num"),
                         outPort.toLong()))
                 .build();
+
+
         // ---- END SOLUTION ----
 
         return Utils.buildFlowRule(
                 deviceId, appId, tableId, match, action);
     }
+
+    private void setSwitchId(DeviceId deviceId, int sw_id) {
+
+        log.info("Setting sw_id {}",sw_id);
+        final String tableId = "IngressPipeImpl.sw_id_table";
+        final int ETHERTYPE_IPV4 = 0x0800;
+        final int MASK = 0xFFFF;
+        final PiCriterion match = PiCriterion.builder()
+                .matchTernary(PiMatchFieldId.of("hdr.ethernet.ether_type"),
+                        ETHERTYPE_IPV4,MASK)
+                .build();
+
+        final PiAction action = PiAction.builder()
+                .withId(PiActionId.of("IngressPipeImpl.set_sw_id"))
+                .withParameter(new PiActionParam(
+                        PiActionParamId.of("sw_id"),
+                        sw_id))
+                .build();
+
+        FlowRule flowRuleSwID = Utils.buildFlowRule(
+                deviceId, appId, tableId, match, action);
+        flowRuleService.applyFlowRules(flowRuleSwID);
+    }
+
 
     //--------------------------------------------------------------------------
     // EVENT LISTENERS
@@ -354,11 +379,32 @@ public class Ipv6SimpleRoutingComponent {
         //deviceId1 = "device:leaf1";
         HostId h1aId = HostId.hostId("00:00:00:00:00:1A/None");
         HostId h1bId = HostId.hostId("00:00:00:00:00:1B/None");
+        HostId h1cId = HostId.hostId("00:00:00:00:00:1C/None");
+
 
         // Set bidirectional path
         setUpPath(h1aId, h1bId);
         setUpPath(h1bId, h1aId);
+        setUpPath(h1aId, h1cId);
+        setUpPath(h1cId, h1aId);
+        setUpPath(h1bId, h1cId);
+        setUpPath(h1cId, h1bId);
 
+        // Set switches' IDs
+        //deviceId1 = "device:leaf1";
+        DeviceId sw1_id=DeviceId.deviceId("device:leaf1");
+        DeviceId sw2_id=DeviceId.deviceId("device:leaf2");
+        DeviceId sw3_id=DeviceId.deviceId("device:leaf3");
+        DeviceId sw4_id=DeviceId.deviceId("device:leaf4");
+        DeviceId sw5_id=DeviceId.deviceId("device:leaf5");
+        DeviceId sw6_id=DeviceId.deviceId("device:leaf6");
+
+        setSwitchId(sw1_id,1);
+        setSwitchId(sw2_id,2);
+        setSwitchId(sw3_id,3);
+        setSwitchId(Sw4_id,4);
+        setSwitchId(Sw4_id,5);
+        setSwitchId(sw4_id,6);
 
     }
 }
