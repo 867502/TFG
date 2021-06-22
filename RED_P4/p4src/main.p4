@@ -44,8 +44,6 @@ typedef bit<128> ipv6_addr_t;
 typedef bit<16>  l4_port_t;
 
 const bit<16> ETHERTYPE_IPV4 = 0x0800;
-const bit<48> MAC_H3 = 0x00_00_00_00_00_1C;
-const bit<48> MAC_H2 = 0x00_00_00_00_00_1B;
 const bit<32> IP_H2 = 0xAC100102;
 const bit<32> IP_H3 = 0xAC100103;
 const bit<8> IP_PROTO_ICMP   = 1;
@@ -87,7 +85,12 @@ header tcp_t {
     bit<4>   data_offset;
     bit<3>   res;
     bit<3>   ecn;
-    bit<6>   ctrl;
+    bit<1>   urg;
+    bit<1>   ack;
+    bit<1>   psh;
+    bit<1>   rst;
+    bit<1>   syn;
+    bit<1>   fin;
     bit<16>  window;
     bit<16>  checksum;
     bit<16>  urgent_ptr;
@@ -375,67 +378,38 @@ control IngressPipeImpl (inout parsed_headers_t    hdr,
             hdr.cpu_out.setInvalid();
             exit;
 
-            // *** TODO EXERCISE 4
-            // Implement logic such that if this is a packet-out from the
-            // controller:
-            // 1. Set the packet egress port to that found in the cpu_out header
-            // 2. Remove (set invalid) the cpu_out header
-            // 3. Exit the pipeline here (no need to go through other tables
-
         }
 
         bool do_l3_l2 = true;
 
-        if(local_metadata.sw_id == 3){ //la id del switch que actua como firewall
-        /*if (hdr.ethernet.dst_addr == MAC_H3){
-              do_l3_l2 = false;
-        }
-        */
+        if(local_metadata.sw_id == 3) { //la id del switch que actua como firewall
+        //POLÍTICA DE FIREWALL
 
-        /*if(hdr.tcp.dst_port == 80){
+        //1. DENEGAR las conexiones TCP entrantes a la red interna
+           //Se comprueba que el flag SYN = 1 y el flag ACK = 0
+           //Se comprueba que el numero de puerto (3) sea de la red externa
+
+        if(hdr.tcp.syn == 1 && hdr.tcp.ack == 0 && standard_metadata.ingress_port == 3){
             do_l3_l2 = false;
-        }
-        */
-
-        /*
-        if(hdr.ipv4.dst_addr == IP_H2 || hdr.ipv4.src_addr == IP_H2){
-            do_l3_l2 = true;
-        }
-        else{
-             do_l3_l2 = false;
-        }
-        */
-
-        /*
-        1. DENEGAR las conexiones TCP entrantes a la red interna
-            Se comprueba que el numero de secuencia no sea 0-> Si no es 0 hay una conexión para establecer
-            Se comprueba que el numero de puerto (3) sea de la red externa
-            Se excluye el puerto 23 ya que queremos que el h1c pueda acceder a h1a mediante telnet
-        */
-        if(hdr.tcp.seq_no != 0 && hdr.tcp.dst_port !=23 && hdr.cpu_in.ingress_port == 3){
-             do_l3_l2 = false;
-        }
+         }
 
           //2. DENEGAR las conexiones UDP: puertos (0-1023)
+            //Se comprueba que el número de puerto sea menor 1023
+            //Se comprueba que el numero de puerto (3) sea de la red externa
 
-         /*
-         if(hdr.udp.dst_port ==  && hdr.ipv4.src_addr == IP_H3){ // No se como hacer el rango de direcciones 0-1023
-             do_l3_l2 = false;
+         if(hdr.udp.dst_port <= 1023  && standard_metadata.ingress_port == 3){
+            do_l3_l2 = false;
          }
-         */
 
-          //3. NO RESPONDER a los pings hechos desde la red externa
+          //3. DENEGAR los pings hechos desde la red externa
+          //Se comprueba que el numero de puerto (3) sea de la red externa
+          //Se comperueba que el código ICMP sea tipo request (type = 8)
 
-        if (hdr.icmp.type == 8 && hdr.ipv4.src_addr == IP_H3){
+        if (hdr.icmp.type == 8 && standard_metadata.ingress_port== 3){
                 do_l3_l2 = false;
-        }
-           //Denegar sesiones telnet de h1c a h1a-> h1b no porque simula el servidor de una empresa
+       }
 
-        if(hdr.tcp.dst_port == 23 && hdr.cpu_in.ingress_port == 3 && hdr.ipv4.dst_addr != IP_H2){ // poner puerto 23
-                 do_l3_l2 = false;
-        }
-
-    }
+   }
 
         if (do_l3_l2) {
             if (!l2_exact_table.apply().hit) {
